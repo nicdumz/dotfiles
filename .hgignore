@@ -1,12 +1,12 @@
 # consider only dotfiles
 re:^(?!\.).*
 ~
-.pyc
-.pyo
-.log
-.swp
 .bin
 .dat
+.log
+.pyc
+.pyo
+.swp
 
 re:\.xchat-gnome/(xchatlogs|scrollback)
 # stateful data
@@ -14,16 +14,12 @@ re:(?i)(cache|history|recently|errors|auth|session|crash|state)
 # no hg/git/svn subfolder
 re:/\.(svn|git|hg)
 
-/TODO
-/README
-/LICENSE
 /CONTRIBUTING
+/LICENSE
+/README
+/TODO
 
 
-.config/klavaro
-.mplayer
-.ipython
-.config/vlc
 .RapidSVN
 .Skype
 .adobe
@@ -36,9 +32,11 @@ re:/\.(svn|git|hg)
 .config/chromium
 .config/enchant
 .config/f-spot
+.config/klavaro
 .config/monitors
 .config/transmission/resume
 .config/transmission/torrents
+.config/vlc
 .devsketch
 .filezilla
 .fontconfig
@@ -51,12 +49,14 @@ re:/\.(svn|git|hg)
 .gstreamer
 .gtk
 .inkscape
+.ipython
 .jabbim
 .java
 .local
 .macromedia
 .mdk
 .mozilla
+.mplayer
 .nautilus
 .net_applet
 .netx
