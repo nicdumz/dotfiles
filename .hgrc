@@ -1,0 +1,57 @@
+%include .private-hgrc
+[ui]
+username = Nicolas Dumazet <nicdumz.commits@gmail.com>
+editor = vim -c 'set ft=hgs'
+
+[smtp]
+host = smtp.gmail.com
+username = nicdumz
+port = 587
+tls = true
+
+[email]
+from = Nicolas Dumazet <nicdumz@gmail.com>
+
+[diff]
+git = true
+#showfunc= true
+
+[paths]
+crew = http://hg.intevation.org/mercurial/crew
+crew-stable = http://hg.intevation.org/mercurial/crew-stable
+hg-stable = http://selenic.com/repo/hg-stable
+
+my-mq = ssh://hg@bitbucket.org/nicdumz/mercurial-crew-mq
+pyrope = ssh://hg@bitbucket.org/nicdumz/pyrope/
+docs = ssh://hg@bitbucket.org/nicdumz/docs/
+fsevents = ssh://hg@bitbucket.org/nicdumz/fsevents/
+
+bot = ssh://hg@bitbucket.org/nicdumz/wikipedia-dumzibot/
+dotfiles = ssh://hg@bitbucket.org/nicdumz/dotfiles/
+
+[extensions]
+graphlog =
+mq =
+patchbomb =
+color =
+# create a graph showing who changed the most lines
+# add the 'churn' command
+churn =
+#inotify =
+#perf =
+hgext.convert =
+#hgsubversion = /home/nico/projets/hgsubversion/hgsubversion
+highlight =
+record = 
+purge=
+
+[inotify]
+log = /tmp/inotify.log
+debug = True
+
+[alias]
+bomb = email -t mercurial-devel@selenic.com
+
+[web]
+allow_push = *
+push_ssl = false

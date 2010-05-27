@@ -1,0 +1,3 @@
+alias zserver import Testing.ZopeTestCase.utils; from AccessControl import getSecurityManager; import webbrowser; webbrowser.open("http://%s:%s/%s/view?__ac_name=%s&__ac_password=%s" % ( Testing.ZopeTestCase.utils.startZServer() + (self.getPortalId(), getSecurityManager().getUser(), getattr(getSecurityManager().getUser(), '__', '') )))
+
+alias printzserver import Testing.ZopeTestCase.utils; from AccessControl import getSecurityManager; print "http://%s:%s/%s/view?__ac_name=%s&__ac_password=%s" % ( Testing.ZopeTestCase.utils.startZServer() + (self.getPortalId(), getSecurityManager().getUser(), getattr(getSecurityManager().getUser(), '__', '') ))
