@@ -2,6 +2,7 @@
 [ui]
 username = Nicolas Dumazet <nicdumz.commits@gmail.com>
 editor = vim -c 'set ft=hgs'
+merge = vimdiff
 
 [smtp]
 host = smtp.gmail.com
@@ -55,3 +56,7 @@ bomb = email -t mercurial-devel@selenic.com
 [web]
 allow_push = *
 push_ssl = false
+
+[merge-tools]
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close

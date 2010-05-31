@@ -88,3 +88,10 @@ augroup END
 
 let VCSCommandSVNDiffExt = "/usr/bin/diff"
 nmap <Leader>cr <Plug>VCSRevert
+
+if &diff
+    noremap <Leader>u :diffupdate<cr>
+    noremap <Leader>g :diffget<cr>
+    noremap <Leader>p :diffput<cr>
+endif
+
