@@ -29,6 +29,7 @@ fsevents = ssh://hg@bitbucket.org/nicdumz/fsevents/
 
 bot = ssh://hg@bitbucket.org/nicdumz/wikipedia-dumzibot/
 dotfiles = ssh://hg@bitbucket.org/nicdumz/dotfiles/
+libretweet = ssh://hg@bitbucket.org/nicdumz/libretweet/
 
 [extensions]
 graphlog =
