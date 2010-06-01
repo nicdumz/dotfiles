@@ -73,7 +73,7 @@ autocmd BufRead,BufNewFile * match OverLength /\%80v/
 
 " Show trailing whitepace and spaces before a tab:         
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-autocmd BufRead,BufNewFile * 2match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 
 " Override comment color
@@ -94,4 +94,3 @@ if &diff
     noremap <Leader>g :diffget<cr>
     noremap <Leader>p :diffput<cr>
 endif
-
