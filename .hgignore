@@ -10,7 +10,7 @@ re:^(?!\.).*
 
 re:\.xchat-gnome/(xchatlogs|scrollback)
 # stateful data
-re:(?i)(cache|history|recently|errors|auth|session|crash|state)
+re:(?i)(cache|history|recently|errors|auth|session|crash|state|stats)
 # no hg/git/svn subfolder
 re:/\.(svn|git|hg)
 
@@ -66,6 +66,7 @@ re:/\.(svn|git|hg)
 .pulse
 .purple
 .pylint.d
+.python-eggs
 .qt
 .sane
 .sk1
