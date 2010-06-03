@@ -19,7 +19,13 @@ set incsearch
 
 autocmd BufRead,BufNewFile */mediawiki* setlocal noexpandtab
 autocmd BufRead,BufNewFile */*nexedi* setlocal tabstop=2 shiftwidth=2 tags=~/nexedi/buildout/tags
-autocmd BufRead */bt/revision setlocal binary
+autocmd BufRead bt5/*/bt/* setlocal binary
+
+" It's all text support
+" for zope Python script editions
+autocmd BufRead {localhost,\d\+.\d\+.\d\+.\d\+}.* setlocal ft=python
+" Mail?
+autocmd BufRead mail.google.com.* setlocal ft=mail
 
 fu! DoRunPyBuffer()
     pclose! " force preview window closed
