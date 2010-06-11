@@ -1,22 +1,22 @@
 !xterm colors
-xterm*background:       black
-xterm*foreground:       white
-xterm*color0:           #000000
-xterm*color8:           #4c4c4c
-xterm*color1:           #cd0000
-xterm*color9:           #ff0000
-xterm*color2:           #00cd00
-xterm*color10:          #00ff00
-xterm*color3:           #cdcd00
-xterm*color11:          #ffff00
-xterm*color4:           #1e90ff
-xterm*color12:          #4682b4
-xterm*color5:           #cd00cd
-xterm*color13:          #ff00ff
-xterm*color6:           #00cdcd
-xterm*color14:          #00ffff
-xterm*color7:           #e5e5e5
-xterm*color15:          #ffffff
+*background:       black
+*foreground:       white
+*color0:           #000000
+*color8:           #4c4c4c
+*color1:           #cd0000
+*color9:           #ff0000
+*color2:           #00cd00
+*color10:          #00ff00
+*color3:           #cdcd00
+*color11:          #ffff00
+*color4:           #1e90ff
+*color12:          #4682b4
+*color5:           #cd00cd
+*color13:          #ff00ff
+*color6:           #00cdcd
+*color14:          #00ffff
+*color7:           #e5e5e5
+*color15:          #ffffff
 
 !xterm*faceName:         Inconsolata
 !xterm*faceSize:         10
@@ -32,6 +32,16 @@ XTerm*VT100*colorBDMode: off
 XTerm.VT100*colorULMode: off
 
 Xft.dpi:                 96 
+Xft.hinting:             1
+Xft.hintstyle:           full
 
 ! remove less/vim content after close
 XTerm.VT100.titeInhibit:  false
+
+URxvt.saveLines:        5000
+URxvt.scrollBar:        false
+URxvt.urgentOnBell:     true
+URxvt.font:             xft:Bitstream Vera Sans Mono:pixelsize=11
+URxvt.boldFont:         xft:Bitstream Vera Sans Mono:bold:pixelsize=11
+URxvt.visualBell:        false
+

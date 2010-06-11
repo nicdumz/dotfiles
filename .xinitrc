@@ -13,6 +13,8 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 xrdb -merge $userresources
 
+urxvtd -q -f -o
+
 case "$1" in
     gnome) exec gnome-session ;;
     awesome) exec $HOME/local/bin/run_awesome ;;
