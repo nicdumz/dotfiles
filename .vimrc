@@ -13,6 +13,7 @@ set mouse=a
 
 set autoindent
 set laststatus=2
+set ruler
 
 " move in file when typing /pattern
 set incsearch
@@ -74,9 +75,13 @@ map <C-Right> :EnableDirs<CR>
 command! Pyflakes :!pyflakes %
 
 "123456789098732345678732356765434567865432345678987654345678767676767654345676544345345
-highlight OverLength ctermbg=Grey guibg=Grey
-autocmd BufRead,BufNewFile * match OverLength /\%80v/
+highlight MatchParen ctermbg=black guibg=#592929
+au BufWinEnter * if &textwidth >4
+\ | let w:m1=matchadd('MatchParen', printf('\%%<%dv.\%%>%dv', 81, 76), -1)
+\ | let w:m2=matchadd('ErrorMsg', printf('\%%>%dv.\+', 80), -1)
+\ | endif
 
+"
 " Show trailing whitepace and spaces before a tab:         
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
@@ -100,3 +105,5 @@ if &diff
     noremap <Leader>g :diffget<cr>
     noremap <Leader>p :diffput<cr>
 endif
+
+command! TrailingWhitespace :%s/ \+$//g
