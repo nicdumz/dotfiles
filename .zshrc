@@ -206,3 +206,8 @@ unfunction zkbd_file; unset keyfile ret
 [[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
 
+# send alarm signal when a command completes
+# (useful for long-running tasks in awesome wm when displaying another tag)
+precmd () {
+    echo -ne '\a'
+}
