@@ -8,12 +8,11 @@
 "
 " Note: Only GUI colors differ from default, on terminal it's just `light'.
 
-" First remove all existing highlighting.
-set background=light
+set background=dark
 
 let colors_name = "peachpuff"
 
-hi Normal guibg=PeachPuff guifg=Black
+hi Normal guibg=Black guifg=White
 
 hi SpecialKey term=bold ctermfg=4 guifg=Blue
 hi NonText term=bold cterm=bold ctermfg=4 gui=bold guifg=Blue
@@ -25,7 +24,7 @@ hi MoreMsg term=bold ctermfg=2 gui=bold guifg=SeaGreen
 hi ModeMsg term=bold cterm=bold gui=bold
 hi LineNr term=underline ctermfg=3 guifg=Red3
 hi Question term=standout ctermfg=2 gui=bold guifg=SeaGreen
-hi StatusLine term=bold,reverse cterm=bold,reverse gui=bold guifg=White guibg=Black
+hi StatusLine term=bold,reverse cterm=bold,reverse guifg=Gray80 guibg=#c00058
 hi StatusLineNC term=reverse cterm=reverse gui=bold guifg=PeachPuff guibg=Gray45
 hi VertSplit term=reverse cterm=reverse gui=bold guifg=White guibg=Gray45
 hi Title term=bold ctermfg=5 gui=bold guifg=DeepPink3
