@@ -7,6 +7,8 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
+require("revelation")
+
 require("obvious.popup_run_prompt")
 obvious.popup_run_prompt.set_slide(true)
 obvious.popup_run_prompt.set_move_speed(0.015)
@@ -270,7 +272,10 @@ globalkeys = awful.util.table.join(
 
     awful.key({ }, "#172", function () awful.util.spawn("rhythmbox-client --play-pause") end),
     awful.key({ }, "#173", function () awful.util.spawn("rhythmbox-client --previous") end),
-    awful.key({ }, "#171", function () awful.util.spawn("rhythmbox-client --next") end)
+    awful.key({ }, "#171", function () awful.util.spawn("rhythmbox-client --next") end),
+
+    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+    awful.key({ modkey }, "e", revelation.revelation)
 )
 
 clientkeys = awful.util.table.join(
@@ -361,12 +366,16 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.add_signal("manage", function (c, startup)
+    --if c.class == "psi" and not c.name:find("Psi") then
+    --    awful.client.setslave(c)
+    --end
+
     -- Add a titlebar
     -- awful.titlebar.add(c, { modkey = modkey })
 
     -- Enable sloppy focus
     c:add_signal("mouse::enter", function(c)
-        if awful.layout.get(c.screen) ~= awful.layout.suit.agnifier
+        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
             and awful.client.focus.filter(c) then
             client.focus = c
         end
