@@ -46,6 +46,7 @@ hgext.convert =
 highlight =
 record = 
 purge=
+transplant=
 
 [inotify]
 log = /tmp/inotify.log
