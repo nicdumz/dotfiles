@@ -19,16 +19,16 @@ hi NonText term=bold cterm=bold ctermfg=4 gui=bold guifg=Blue
 hi Directory term=bold ctermfg=4 guifg=Blue
 hi ErrorMsg term=standout cterm=bold ctermfg=7 ctermbg=1 gui=bold guifg=White guibg=Red
 hi IncSearch term=reverse cterm=reverse gui=reverse
-hi Search term=reverse ctermbg=3 guibg=Gold2
+hi Search term=reverse ctermbg=202 guibg=Gold2
 hi MoreMsg term=bold ctermfg=2 gui=bold guifg=SeaGreen
 hi ModeMsg term=bold cterm=bold gui=bold
-hi LineNr term=underline ctermfg=3 guifg=Red3
+hi LineNr term=underline ctermfg=242 guifg=Red3
 hi Question term=standout ctermfg=2 gui=bold guifg=SeaGreen
-hi StatusLine term=bold,reverse cterm=bold,reverse guifg=Gray80 guibg=#c00058
-hi StatusLineNC term=reverse cterm=reverse gui=bold guifg=PeachPuff guibg=Gray45
-hi VertSplit term=reverse cterm=reverse gui=bold guifg=White guibg=Gray45
+hi StatusLine term=bold,reverse cterm=bold ctermbg=166 ctermfg=7 guifg=Gray80 guibg=#c00058
+hi StatusLineNC term=reverse ctermfg=24 ctermbg=black gui=bold guifg=PeachPuff guibg=Gray45
+hi VertSplit term=reverse cterm=none ctermbg=24 ctermfg=black gui=bold guifg=White guibg=Gray45
 hi Title term=bold ctermfg=5 gui=bold guifg=DeepPink3
-hi Visual term=reverse cterm=reverse gui=reverse guifg=Grey80 guibg=fg
+hi Visual term=reverse cterm=bold ctermbg=238 gui=reverse guifg=Grey80 guibg=fg
 hi VisualNOS term=bold,underline cterm=bold,underline gui=bold,underline
 hi WarningMsg term=standout ctermfg=1 gui=bold guifg=Red
 hi WildMenu term=standout ctermfg=0 ctermbg=3 guifg=Black guibg=Yellow
@@ -45,7 +45,7 @@ hi lCursor guifg=bg guibg=fg
 hi Comment term=bold ctermfg=4 guifg=#406090
 hi Constant term=underline ctermfg=1 guifg=#c00058
 hi Special term=bold ctermfg=5 guifg=SlateBlue
-hi Identifier term=underline ctermfg=6 guifg=DarkCyan
+hi Identifier term=underline ctermbg=234 ctermfg=2 cterm=bold guifg=DarkCyan
 hi Statement term=bold ctermfg=3 gui=bold guifg=Brown
 hi PreProc term=underline ctermfg=5 guifg=Magenta3
 hi Type term=underline ctermfg=2 gui=bold guifg=SeaGreen
@@ -57,11 +57,6 @@ hi SpellBad cterm=reverse ctermbg=black
 
 
 " CUSTOM
-
-hi StatusLine term=bold cterm=bold ctermbg=blue ctermfg=yellow
-hi StatusLineNC term=reverse cterm=none ctermbg=DarkGrey ctermfg=LightRed
-hi VertSplit cterm=none ctermbg=DarkGrey
-hi Visual cterm=bold ctermbg=DarkGrey
 
 highlight DiffAdd cterm=none ctermfg=Black ctermbg=Green gui=none guifg=Black guibg=Green
 highlight DiffDelete cterm=none ctermfg=Black ctermbg=Red gui=none guifg=Black guibg=Red

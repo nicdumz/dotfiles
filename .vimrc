@@ -2,7 +2,7 @@ set nocompatible
 syntax on
 filetype plugin on
 
-colorscheme peachpuff
+colorscheme nicdumz
 
 set expandtab
 set tabstop=4
