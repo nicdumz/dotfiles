@@ -71,10 +71,10 @@ function ensure_init()
         })
 
         runwibox[s] = capi.wibox({
-            fg = "#ffffff",
-            bg = "#000000",
+            fg = beautiful.fg_normal,
+            bg = beautiful.bg_normal,
             border_width = settings.border_width,
-            border_color = "#30ff00",
+            border_color = beautiful.bg_focus,
         })
         set_default(s)
         runwibox[s].opacity = settings.opacity
@@ -97,7 +97,7 @@ function set_default(s)
         x = screen[s].geometry.x + screen[s].geometry.width *
             ((1 - settings.width) / 2),
         y = screen[s].geometry.y + screen[s].geometry.height -
-            settings.height - 13,
+            settings.height,
     })
 end
 

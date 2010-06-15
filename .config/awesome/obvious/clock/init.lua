@@ -86,7 +86,12 @@ widget:buttons(awful.util.table.join(
             alarms = { }
             widget.bg = beautiful.bg_normal
         else
-            naughty.notify({ text = awful.util.pread("ddate"):gsub("\n$", "") })
+            naughty.notify({ text = lib.markup.font("monospace",
+                                    awful.util.pread("cal"):gsub("\n+$", ""):
+                                    gsub("([^0-9])(" .. tonumber(os.date("%d")) .. ")([^0-9])",
+                                    "%1<span foreground=\"#FF0000\">%2</span>%3")),
+                             screen = capi.mouse.screen
+                           })
         end
     end)
 ))
@@ -143,7 +148,7 @@ local function update (trigger_alarms)
         widget.bg = beautiful.bg_normal
     end
 
-    widget.text = lib.markup.fg.color("#009000", "⚙ ") .. date
+    widget.text = date
 
     if trigger_alarms then
         local data = read_alarms(alarmfile)
@@ -151,7 +156,7 @@ local function update (trigger_alarms)
         for date, message in pairs(data) do
             if currentdate:match(date) then
                 naughty.notify({ text = message,
-                                 title = date,
+                                 title = currentdate,
                                  screen = capi.screen.count()
                               })
                 local add = true
@@ -161,7 +166,7 @@ local function update (trigger_alarms)
                         break
                     end
                 end
-                if add then table.insert(alarms, { date, message }) end
+                if add then table.insert(alarms, { currentdate, message }) end
             end
         end
         update(false)

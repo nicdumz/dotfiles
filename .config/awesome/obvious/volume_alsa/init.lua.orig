@@ -102,7 +102,6 @@ local function create(_, cardid, channel)
 
     local widget = capi.widget({ type  = "textbox" })
     obj.widget = widget
-    obj.align = widget.align
     obj[1] = widget
     obj.update = function() update(obj) end
 
