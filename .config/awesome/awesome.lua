@@ -9,15 +9,14 @@ require("naughty")
 
 require("revelation")
 
+require("mywidgets")
+
 require("obvious.popup_run_prompt")
 obvious.popup_run_prompt.set_slide(true)
 obvious.popup_run_prompt.set_move_speed(0.015)
 obvious.popup_run_prompt.set_opacity(0.5)
 obvious.popup_run_prompt.set_border_width(3)
 obvious.popup_run_prompt.set_height(25)
-
-require("obvious.cpu")
-require("obvious.volume_alsa")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
@@ -104,35 +103,6 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 --
--- Clock that spawns calendar
-mytextclock = awful.widget.textclock({ align = "right" })
-do
-    function spawn_calendar()
-        awful.util.spawn(awesome_path .. "/calendar.sh")
-    end
-    mytextclock:buttons( awful.button({ }, 1, spawn_calendar) )
-end
-
--- volume widget
-myvolume = obvious.volume_alsa()
-
--- memory widget
-meminfo = widget({ type = "textbox", align = "right" })
-do
-    function activeram()
-        local active, total
-        for line in io.lines('/proc/meminfo') do
-            for key, value in string.gmatch(line, "(%w+):\ +(%d+).+") do
-                if key == "MemFree" then free = tonumber(value)
-                elseif key == "MemTotal" then total = tonumber(value) end
-            end
-        end
-
-        return string.format("<span foreground='#00cd00'> %.0f%% </span>",
-                             ((total-free)/total)*100)
-    end
-    awful.hooks.timer.register(2, function() meminfo.text = activeram() end)
-end
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -357,7 +327,7 @@ do
             function (c)
                 c.fullscreen = not c.fullscreen
             end),
-        awful.key({ modkey, "Shift"   }, "c",
+        awful.key({ modkey }, "F4",
             function (c)
                 c:kill()
             end),
