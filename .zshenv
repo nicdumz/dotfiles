@@ -3,7 +3,7 @@ ZDOTDIR=~/.config/zsh
 
 export HISTSIZE=2000
 
-export HISTFILE="$HOME/.history"
+export HISTFILE=${HOME}/.history
 export SAVEHIST=$HISTSIZE
 
 export PYTHONPATH="$HOME/local/lib/python:$PYTHONPATH"
