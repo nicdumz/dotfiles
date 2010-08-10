@@ -19,8 +19,6 @@ bindkey -M vicmd "^E" edit-command-line
 
 xset -b
 
-zmodload zsh/parameter &>/dev/null
-
 # send alarm signal when a command completes
 # (useful for long-running tasks in awesome wm when displaying another tag)
 precmd () {
