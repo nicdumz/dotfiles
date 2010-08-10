@@ -1,7 +1,7 @@
 %include .private-hgrc
 [ui]
 username = Nicolas Dumazet <nicdumz.commits@gmail.com>
-editor = vim -c 'set ft=hgs'
+editor = gvim -v -c 'set ft=hgs'
 merge = vimdiff
 
 [smtp]
@@ -19,8 +19,9 @@ git = true
 
 [paths]
 crew = http://hg.intevation.org/mercurial/crew
+crewauth = ssh://hg@hg.intevation.org/mercurial/crew
 crew-stable = http://hg.intevation.org/mercurial/crew-stable
-hg-stable = http://selenic.com/repo/hg-stable
+hg = http://selenic.com/repo/hg
 
 my-mq = ssh://hg@bitbucket.org/nicdumz/mercurial-crew-mq
 pyrope = ssh://hg@bitbucket.org/nicdumz/pyrope/
@@ -47,6 +48,9 @@ highlight =
 record = 
 purge=
 transplant=
+rebase=
+bookmarks=
+progress=
 
 [inotify]
 log = /tmp/inotify.log
@@ -58,6 +62,7 @@ bomb = email -t mercurial-devel@selenic.com
 [web]
 allow_push = *
 push_ssl = false
+name = NicDumZ
 
 [merge-tools]
 vimdiff.executable = vim
