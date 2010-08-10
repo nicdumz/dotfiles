@@ -9,3 +9,7 @@ function vim() {
 alias wget='noglob wget'
 alias make='noglob make'
 alias entensity='noglob entensity'
+
+function resource() {
+    . ${ZDOTDIR}/.zshrc
+}
