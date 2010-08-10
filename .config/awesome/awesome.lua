@@ -64,18 +64,27 @@ end
 -- Define a tag table which hold all screen tags.
 tags = {}
 do
-    local my_tags = { "1:⌨ |",
-                      "2:www |",
-                      "3:✉ |",
-                      "4:zope |",
-                      "5:♫ |",
-                      "6 |",
-                      "7 |",
-                      "8 |",
-                      "9:⚡" }
+    -- layout, or hide or mwfact can be set
+    local my_tags = {
+        { name = "1:⌨ |", layout = awful.layout.suit.tile },
+        { name = "2:www |", mwfact = 0.8, layout = awful.layout.suit.tile },
+        { name = "3:✉ |", mwfact = 0.8, layout = awful.layout.suit.tile },
+        { name = "4:zope |", layout = awful.layout.suit.tile },
+        { name = "5:♫ |", mwfact = 0.8, layout = awful.layout.suit.tile },
+        { name = "6 |", layout = awful.layout.suit.tile },
+        { name = "7 |", layout = awful.layout.suit.tile },
+        { name = "8 |", layout = awful.layout.suit.tile },
+        { name = "9:⚡", layout = awful.layout.suit.tile },
+    }
     for s = 1, screen.count() do
-        -- Each screen has its own tag table.
-        tags[s] = awful.tag(my_tags, s, awful.layout.suit.tile)
+        tags[s] = {}
+        for i, v in ipairs(my_tags) do
+            tags[s][i] = tag({ name = v.name })
+            tags[s][i].screen = s
+            awful.tag.setproperty(tags[s][i], "layout", v.layout)
+            awful.tag.setproperty(tags[s][i], "mwfact", v.mwfact)
+            awful.tag.setproperty(tags[s][i], "hide",   v.hide)
+        end
     end
 end
 -- }}}
