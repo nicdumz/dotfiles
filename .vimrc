@@ -23,8 +23,6 @@ autocmd BufRead,BufNewFile */*nexedi* setlocal tabstop=2 shiftwidth=2 tags=~/nex
 autocmd BufRead bt5/*/bt/* setlocal binary
 
 " It's all text support
-" for zope Python script editions
-autocmd BufRead {localhost,\d\+.\d\+.\d\+.\d\+}.* setlocal ft=python
 " Mail?
 autocmd BufRead mail.google.com.* setlocal ft=mail
 
@@ -75,9 +73,8 @@ map <C-Right> :EnableDirs<CR>
 command! Pyflakes :!pyflakes %
 
 "123456789098732345678732356765434567865432345678987654345678767676767654345676544345345
-highlight MatchParen ctermbg=black guibg=#592929
 au BufWinEnter * if &textwidth >4
-\ | let w:m1=matchadd('MatchParen', printf('\%%<%dv.\%%>%dv', 81, 76), -1)
+"\ | let w:m1=matchadd('MatchParen', printf('\%%<%dv.\%%>%dv', 81, 76), -1)
 \ | let w:m2=matchadd('ErrorMsg', printf('\%%>%dv.\+', 80), -1)
 \ | endif
 
@@ -107,3 +104,4 @@ if &diff
 endif
 
 command! TrailingWhitespace :%s/ \+$//g
+command! Gvim :!gvim -c 'set noro' %:p
