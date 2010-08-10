@@ -94,10 +94,6 @@ chpwd() {
 print -Pn "\e]0;%n@%m: %~\a";
 #
 ##### HISTORY #####
-export HISTSIZE=2000
-
-export HISTFILE="$HOME/.history"
-export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 
 ##### VIM ######
@@ -106,7 +102,7 @@ bindkey -v
 
 function vim() {
     # replace vim somefile:xx -> vim somefile +xx
-    /bin/vim ${(@z)*/:/ +}
+    /usr/bin/gvim -v ${(@z)*/:/ +}
 }
 
 function zle-keymap-select {
@@ -139,16 +135,7 @@ alias ls='ls -F --color=auto --ignore=\*.pyc --ignore=\*~'
 
 zmodload zsh/parameter &>/dev/null
 
-export PYTHONPATH="$HOME/local/lib/python:$PYTHONPATH"
-
-export EDITOR=vim
-
 alias mq='hg -R $(hg root)/.hg/patches'
-export PATH="/usr/lib/ccache/bin:$HOME/local/bin:/usr/local/bin:$PATH"
-export GREP_OPTIONS="--exclude-dir=\.svn"
-
-export ERP5_BT5_CACHE=1
-export BROWSER="/usr/bin/firefox"
 . $HOME/local/lib/z.sh
 
 # ugly functions to navigate in buildout trees
@@ -210,4 +197,8 @@ unfunction zkbd_file; unset keyfile ret
 # (useful for long-running tasks in awesome wm when displaying another tag)
 precmd () {
     echo -ne '\a'
+}
+
+series() {
+    vim .hg/patches/series
 }
