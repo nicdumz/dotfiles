@@ -15,6 +15,8 @@ xrdb -merge $userresources
 
 urxvtd -q -f -o
 
+parcellite &
+
 case "$1" in
     gnome) exec gnome-session ;;
     awesome) exec $HOME/local/bin/run_awesome ;;
