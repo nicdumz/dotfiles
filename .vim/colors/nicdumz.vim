@@ -41,12 +41,14 @@ hi DiffText term=reverse cterm=bold ctermbg=1 gui=bold guibg=#ff8060
 hi Cursor guifg=bg guibg=fg
 hi lCursor guifg=bg guibg=fg
 
+hi MatchParen ctermbg=green guibg=#592929
+
 " Colors for syntax highlighting
 hi Comment term=bold ctermfg=4 guifg=#406090
 hi Constant term=underline ctermfg=1 guifg=#c00058
 hi Special term=bold ctermfg=5 guifg=SlateBlue
 hi Identifier term=underline ctermbg=234 ctermfg=2 cterm=bold guifg=DarkCyan
-hi Statement term=bold ctermfg=3 gui=bold guifg=Brown
+hi Statement term=bold ctermfg=220 gui=bold guifg=Brown
 hi PreProc term=underline ctermfg=5 guifg=Magenta3
 hi Type term=underline ctermfg=2 gui=bold guifg=SeaGreen
 hi Ignore cterm=bold ctermfg=7 guifg=bg
