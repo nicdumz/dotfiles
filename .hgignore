@@ -78,3 +78,5 @@ re:/\.(svn|git|hg)
 .zcompdump
 QSvn
 Trolltech
+openoffice
+sylpheed
