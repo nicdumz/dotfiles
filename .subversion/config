@@ -28,13 +28,13 @@ password-stores = gnome-keyring,kwallet
 ### Note that this option only prevents saving of *new* passwords;
 ### it doesn't invalidate existing passwords.  (To do that, remove
 ### the cache files by hand as described in the Subversion book.)
-# store-passwords = no
+store-passwords = yes
 ### Set store-auth-creds to 'no' to avoid storing any subversion
 ### credentials in the auth/ area of your config directory.
 ### It defaults to 'yes'.  Note that this option only prevents
 ### saving of *new* credentials;  it doesn't invalidate existing
 ### caches.  (To do that, remove the cache files by hand.)
-# store-auth-creds = no
+store-auth-creds = yes
 
 ### Section for configuring external helper applications.
 [helpers]
@@ -47,7 +47,7 @@ password-stores = gnome-keyring,kwallet
 ###   This will override the compile-time default, which is to use
 ###   Subversion's internal diff implementation.
 # diff-cmd = diff_program (diff, gdiff, etc.)
-diff-cmd = colordiff
+#diff-cmd = /usr/bin/colordiff
 ### Set diff3-cmd to the absolute path of your 'diff3' program.
 ###   This will override the compile-time default, which is to use
 ###   Subversion's internal diff3 implementation.
@@ -93,8 +93,7 @@ nicdumz = ssh -i /home/nicdumz/.ssh/nicdumz
 ### which Subversion will ignore in its 'status' output, and
 ### while importing or adding files and directories.
 ### '*' matches leading dots, e.g. '*.rej' matches '.foo.rej'.
-# global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo
-#   *.rej *~ #*# .#* .*.swp .DS_Store
+global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo *.rej *~ #*# .#* .*.swp .DS_Store .orig .hg .hgignore
 ### Set log-encoding to the default encoding for log messages
 # log-encoding = latin1
 ### Set use-commit-times to make checkout/update/switch/revert
