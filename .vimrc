@@ -103,5 +103,5 @@ if &diff
     noremap <Leader>p :diffput<cr>
 endif
 
-command! TrailingWhitespace :%s/ \+$//g
+command! TrailingWhitespace :%s/\s\+$//g
 command! Gvim :!gvim -c 'set noro' %:p
