@@ -252,10 +252,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "r", obvious.popup_run_prompt.run_prompt),
     awful.key({ modkey }, "d",
         function ()
-            local path_cmd = "dmenu_path | dmenu -b -nb '#222222'"
+            local prefix = "PATH=$HOME/local/bin/:$PATH "
+            local path_cmd = prefix .. "dmenu_path | dmenu -b -nb '#222222'"
             path_cmd = path_cmd .. " -nf '#aaaaaa' -sb '#ff0000' -sf '#ffffff'"
             local myexe = awful.util.pread(path_cmd)
-            awful.util.spawn_with_shell("PATH=$HOME/local/bin/:$PATH " .. myexe)
+            awful.util.spawn_with_shell(prefix .. myexe)
         end),
 
     awful.key({ modkey }, "x",
@@ -360,6 +361,7 @@ do
         { rule = { },
           properties = { border_width = beautiful.border_width,
                          border_color = beautiful.border_normal,
+                         size_hints_honor = false,
                          focus = true,
                          keys = clientkeys,
                          buttons = clientbuttons } },
