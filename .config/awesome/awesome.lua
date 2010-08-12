@@ -85,9 +85,24 @@ do
             awful.tag.setproperty(tags[s][i], "mwfact", v.mwfact)
             awful.tag.setproperty(tags[s][i], "hide",   v.hide)
         end
+        tags[s][1].selected = true
     end
 end
 -- }}}
+
+green = "#00f804"
+orange = "#ff6400"
+blue = "#00a7ec"
+-- {{{ Columns & Master Widget
+mastcolleft = widget({type = "textbox", name = "mastcolleft"});
+mastcolright = widget({type = "textbox", name = "mastcolleft"});
+mastcolleft.text = obvious.lib.markup.fg.color(green, "[")
+mastcolright.text = obvious.lib.markup.fg.color(green, "] ")
+colwidget = widget({type = "textbox", name = "colwidget"})
+colwidget.text = obvious.lib.markup.fg.color(orange, awful.tag.getncol())
+mastwidget = widget({type = "textbox", name = "mastwidget"})
+mastwidget.text = obvious.lib.markup.fg.color(blue, awful.tag.getnmaster())
+-- }}} Columns & Master Widget
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
@@ -193,6 +208,10 @@ for s = 1, screen.count() do
         },
         {
             mylayoutbox[s],
+        mastcolright,
+        colwidget,
+        mastwidget,
+        mastcolleft,
             myvolume,
             mytextclock,
             layout = awful.widget.layout.horizontal.rightleft
@@ -441,3 +460,16 @@ end
         end
     end
     awful.client.urgent.add = wrapper
+
+for i = 1,#tags[1] do
+    tags[1][i]:add_signal("property::ncol", function()
+        colwidget.text = obvious.lib.markup.fg.color(orange, awful.tag.getncol())
+    end)
+    tags[1][i]:add_signal("property::nmaster", function()
+        mastwidget.text = obvious.lib.markup.fg.color(blue, awful.tag.getnmaster())
+    end)
+    tags[1][i]:add_signal("property::selected", function()
+        colwidget.text = obvious.lib.markup.fg.color(orange, awful.tag.getncol())
+        mastwidget.text = obvious.lib.markup.fg.color(blue, awful.tag.getnmaster())
+    end)
+end
