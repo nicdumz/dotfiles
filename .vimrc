@@ -18,6 +18,7 @@ set ruler
 " move in file when typing /pattern
 set incsearch
 
+autocmd BufRead,BufNewFile */*localhost*.js* setlocal filetype=javascript
 autocmd BufRead,BufNewFile */mediawiki* setlocal noexpandtab
 autocmd BufRead,BufNewFile */*nexedi* setlocal tabstop=2 shiftwidth=2 tags=~/nexedi/buildout/tags
 autocmd BufRead bt5/*/bt/* setlocal binary
@@ -39,8 +40,8 @@ fu! DoRunPyBuffer()
     winc p
 endfu
 
-command! RunPyBuffer call DoRunPyBuffer()
-map <C-p> :RunPyBuffer<CR>
+command! XyzRunPyBuffer call DoRunPyBuffer()
+map <C-p> :XyzRunPyBuffer<CR>
 
 " Use <F7> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F7>
@@ -89,6 +90,7 @@ autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
 
 map <F1> <Esc>
 imap <F1> <Esc>
+imap <M-Space> <Esc>
 
 augroup VCSCommand
   au VCSCommand User VCSBufferCreated silent! map <unique> <buffer> q :bwipeout<cr>
@@ -105,3 +107,4 @@ endif
 
 command! TrailingWhitespace :%s/\s\+$//g
 command! Gvim :!gvim -c 'set noro' %:p
+command! RunTest :!python run-tests.py -i %
