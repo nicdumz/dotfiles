@@ -31,7 +31,7 @@ xterm*visualBell:       false
 XTerm*VT100*colorBDMode: off
 XTerm.VT100*colorULMode: off
 
-Xft.dpi:                 96 
+Xft.dpi:                 72
 Xft.hinting:             1
 Xft.hintstyle:           full
 
@@ -42,7 +42,7 @@ URxvt.saveLines:        5000
 URxvt.scrollBar:        false
 URxvt.scrollTtyKeypress:true
 URxvt.urgentOnBell:     true
-URxvt.font:             xft:Bitstream Vera Sans Mono:pixelsize=11
-URxvt.boldFont:         xft:Bitstream Vera Sans Mono:bold:pixelsize=11
+URxvt.font:             xft:Bitstream Vera Sans Mono-4:scale=2.7
+URxvt.boldFont:         xft:Bitstream Vera Sans Mono-4:bold:scale=2.7
 URxvt.visualBell:        false
 URxvt.linespace:        1
