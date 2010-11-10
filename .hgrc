@@ -23,14 +23,16 @@ crewauth = ssh://hg@hg.intevation.org/mercurial/crew
 crew-stable = http://hg.intevation.org/mercurial/crew-stable
 hg = http://selenic.com/repo/hg
 
-my-mq = ssh://hg@bitbucket.org/nicdumz/mercurial-crew-mq
-pyrope = ssh://hg@bitbucket.org/nicdumz/pyrope/
-docs = ssh://hg@bitbucket.org/nicdumz/docs/
-fsevents = ssh://hg@bitbucket.org/nicdumz/fsevents/
+my-mq = bb+ssh://nicdumz/mercurial-crew-mq
+pyrope = bb+ssh://nicdumz/pyrope/
+docs = bb+ssh://nicdumz/docs/
+fsevents = bb+ssh://nicdumz/fsevents/
 
-bot = ssh://hg@bitbucket.org/nicdumz/wikipedia-dumzibot/
-dotfiles = ssh://hg@bitbucket.org/nicdumz/dotfiles/
-libretweet = ssh://hg@bitbucket.org/nicdumz/libretweet/
+bot = bb+ssh://nicdumz/wikipedia-dumzibot/
+dotfiles = bb+ssh://nicdumz/dotfiles/
+libretweet = bb+ssh://nicdumz/libretweet/
+
+hgtest = ssh://hgtester@ry4an.org:2222/
 
 [extensions]
 graphlog =
@@ -51,6 +53,7 @@ transplant=
 rebase=
 bookmarks=
 progress=
+schemes=
 
 [inotify]
 log = /tmp/inotify.log
