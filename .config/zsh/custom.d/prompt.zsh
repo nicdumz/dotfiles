@@ -1,4 +1,4 @@
-VIMODE=''
+#VIMODE=''
 
 setprompt() {
     setopt prompt_subst;
@@ -50,7 +50,7 @@ ${PR_BOLD_BLACK}>${PR_GREEN}>${PR_BOLD_GREEN}>\
 ${PR_BOLD_WHITE} %_ ${PR_BOLD_BLACK}>${PR_GREEN}>\
 ${PR_BOLD_GREEN}>%f ';
 
-    RPROMPT='%U${PR_BOLD_CYAN}${VIMODE}%u%f'
+#    RPROMPT='%U${PR_BOLD_CYAN}${VIMODE}%u%f'
 }
 setprompt
 
@@ -62,15 +62,15 @@ chpwd() {
 print -Pn "\e]0;%n@%m: %~\a";
 
 function zle-keymap-select {
-    VIMODE="${${KEYMAP/vicmd/command}/(main|viins)/}"
+    #VIMODE="${${KEYMAP/vicmd/command}/(main|viins)/}"
     doprompt
     zle reset-prompt
 }
 zle -N zle-keymap-select
 
 function accept_line {
-    VIMODE=''
+    #VIMODE=''
     builtin zle .accept-line
 }
 zle -N accept_line
-bindkey -M vicmd "^M" accept_line
+#bindkey -M vicmd "^M" accept_line

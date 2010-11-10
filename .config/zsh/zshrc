@@ -5,14 +5,18 @@ setopt No_Verbose;
 setopt hist_ignore_all_dups
 
 ##### VIM ######
-set -o vi
-bindkey -v
+#set -o vi
+#bindkey -v
+bindkey -e
+
+# get back C-s and C-q
+stty -ixon
 
 # edit commandline
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey "^E" edit-command-line
-bindkey -M vicmd "^E" edit-command-line
+#autoload -U edit-command-line
+#zle -N edit-command-line
+#bindkey "^E" edit-command-line
+#bindkey -M vicmd "^E" edit-command-line
 
 
 #### Aliases, stuff.. ####
