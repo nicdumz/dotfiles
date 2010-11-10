@@ -1,11 +1,11 @@
 autoload zkbd
 function zkbd_file() {
-    [[ -f ~/.zkbd/${TERM}-${VENDOR}-${OSTYPE} ]] && printf '%s' ~/".zkbd/${TERM}-${VENDOR}-${OSTYPE}" && return 0
-    [[ -f ~/.zkbd/${TERM}-${DISPLAY}          ]] && printf '%s' ~/".zkbd/${TERM}-${DISPLAY}"          && return 0
+    [[ -f ${ZDOTDIR}/.zkbd/${TERM}-${VENDOR}-${OSTYPE} ]] && printf '%s' ${ZDOTDIR}/".zkbd/${TERM}-${VENDOR}-${OSTYPE}" && return 0
+    [[ -f ${ZDOTDIR}/.zkbd/${TERM}-${DISPLAY}          ]] && printf '%s' ${ZDOTDIR}/".zkbd/${TERM}-${DISPLAY}"          && return 0
     return 1
 }
 
-[[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
+[[ ! -d ${ZDOTDIR}/.zkbd ]] && mkdir ${ZDOTDIR}/.zkbd
 keyfile=$(zkbd_file)
 ret=$?
 if [[ ${ret} -ne 0 ]]; then
