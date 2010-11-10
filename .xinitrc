@@ -19,6 +19,7 @@ parcellite &
 
 case "$1" in
     gnome) exec gnome-session ;;
+    kde) exec startkde ;;
     awesome) exec $HOME/local/bin/run_awesome ;;
     *) exec $HOME/local/bin/run_awesome ;; #exec gnome-session ;;
 esac
