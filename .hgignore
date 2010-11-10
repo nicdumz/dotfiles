@@ -52,6 +52,8 @@ re:/\.(svn|git|hg)
 .ipython
 .jabbim
 .java
+.kde4
+.lincity-ng
 .local
 .macromedia
 .mdk
