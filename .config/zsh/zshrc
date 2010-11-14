@@ -29,6 +29,7 @@ precmd () {
     echo -ne '\a'
 }
 
+fpath=("$ZDOTDIR/site-functions" $fpath)
 # try to organize this mess
 for config_file ($ZDOTDIR/custom.d/*.zsh) source $config_file
 unset config_file
