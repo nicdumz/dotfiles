@@ -105,6 +105,8 @@ if &diff
     noremap <Leader>p :diffput<cr>
 endif
 
+nnoremap <Leader>pdb Oimport pdb; pdb.set_trace()<esc>==
+
 command! TrailingWhitespace :%s/\s\+$//g
 command! Gvim :!gvim -c 'set noro' %:p
 command! RunTest :!python run-tests.py -i %
