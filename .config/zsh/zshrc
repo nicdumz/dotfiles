@@ -23,13 +23,16 @@ stty -ixon
 
 xset -b
 
-# send alarm signal when a command completes
-# (useful for long-running tasks in awesome wm when displaying another tag)
-precmd () {
-    echo -ne '\a'
-}
 
 fpath=("$ZDOTDIR/site-functions" $fpath)
 # try to organize this mess
-for config_file ($ZDOTDIR/custom.d/*.zsh) source $config_file
+for config_file ($ZDOTDIR/custom.d/*.*sh) source $config_file
 unset config_file
+
+precmd () {
+    # send alarm signal when a command completes
+    # (useful for long-running tasks in awesome wm when displaying another tag)
+    echo -ne '\a'
+    # update z
+    z --add "$(pwd -P)"
+}
