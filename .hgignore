@@ -28,6 +28,7 @@ re:/\.(svn|git|hg)
 .buildout
 .ccache
 .chromium
+.config/akonadi
 .config/banshee
 .config/chromium
 .config/enchant
@@ -73,6 +74,7 @@ re:/\.(svn|git|hg)
 .sane
 .sk1
 .ssh
+.texlive2008
 .themes
 .thumbnails
 .thunderbird
