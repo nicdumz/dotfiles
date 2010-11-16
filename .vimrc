@@ -1,6 +1,10 @@
 set nocompatible
-syntax on
+
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
 filetype plugin on
+syntax on
 
 colorscheme nicdumz
 
