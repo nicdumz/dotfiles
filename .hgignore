@@ -78,6 +78,7 @@ re:/\.(svn|git|hg)
 .themes
 .thumbnails
 .thunderbird
+.virtualenvs
 .viminfo
 .zcompdump
 QSvn
