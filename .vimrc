@@ -28,6 +28,10 @@ set incsearch
 " strange vulnerability
 set modelines=0
 
+" try intelligent case search
+set ignorecase
+set smartcase
+
 autocmd BufRead,BufNewFile */*localhost*.js* setlocal filetype=javascript
 autocmd BufRead,BufNewFile */mediawiki* setlocal noexpandtab
 autocmd BufRead,BufNewFile */*nexedi* setlocal tabstop=2 shiftwidth=2 tags=~/nexedi/buildout/tags
