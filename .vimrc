@@ -38,6 +38,18 @@ set smartcase
 
 let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir build"
 
+if v:version >= 703
+    set colorcolumn=80
+else
+    "123456789098732345678732356765434567865432345678987654345678767676767654345676544345345
+    au BufWinEnter * if &textwidth >4
+    "\ | let w:m1=matchadd('MatchParen', printf('\%%<%dv.\%%>%dv', 81, 76), -1)
+    \ | let w:m2=matchadd('ErrorMsg', printf('\%%>%dv.\+', 80), -1)
+    \ | endif
+endif
+
+
+
 autocmd BufRead,BufNewFile */*localhost*.js* setlocal filetype=javascript
 autocmd BufRead,BufNewFile */mediawiki* setlocal noexpandtab
 autocmd BufRead,BufNewFile */*nexedi* setlocal tabstop=2 shiftwidth=2 tags=~/nexedi/buildout/tags
@@ -92,12 +104,6 @@ map <C-Left> :EnableDirs<CR>
 map <C-Right> :EnableDirs<CR>
 
 command! Pyflakes :!pyflakes %
-
-"123456789098732345678732356765434567865432345678987654345678767676767654345676544345345
-au BufWinEnter * if &textwidth >4
-"\ | let w:m1=matchadd('MatchParen', printf('\%%<%dv.\%%>%dv', 81, 76), -1)
-\ | let w:m2=matchadd('ErrorMsg', printf('\%%>%dv.\+', 80), -1)
-\ | endif
 
 "
 " Show trailing whitepace and spaces before a tab:         
