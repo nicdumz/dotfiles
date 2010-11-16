@@ -36,6 +36,8 @@ set modelines=0
 set ignorecase
 set smartcase
 
+let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir build"
+
 autocmd BufRead,BufNewFile */*localhost*.js* setlocal filetype=javascript
 autocmd BufRead,BufNewFile */mediawiki* setlocal noexpandtab
 autocmd BufRead,BufNewFile */*nexedi* setlocal tabstop=2 shiftwidth=2 tags=~/nexedi/buildout/tags
