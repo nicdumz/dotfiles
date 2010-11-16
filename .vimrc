@@ -19,6 +19,9 @@ set ruler
 set wildmode=longest,list
 set wildmenu
 
+" usually we're fast, but with urxvt color it's not always obvious
+set ttyfast
+
 " move in file when typing /pattern
 set incsearch
 
