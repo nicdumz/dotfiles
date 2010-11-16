@@ -15,6 +15,10 @@ set autoindent
 set laststatus=2
 set ruler
 
+" completion on commandline
+set wildmode=longest,list
+set wildmenu
+
 " move in file when typing /pattern
 set incsearch
 
