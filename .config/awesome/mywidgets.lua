@@ -27,5 +27,7 @@ do
         return string.format("<span foreground='#00cd00'> %.0f%% </span>",
                              ((total-free)/total)*100)
     end
-    awful.hooks.timer.register(2, function() meminfo.text = activeram() end)
+    meminfo_timer = timer({timeout = 2 })
+    meminfo_timer:add_signal("timeout", function() meminfo.text = activeram() end)
+    meminfo_timer:start()
 end
