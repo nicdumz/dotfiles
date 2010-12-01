@@ -34,10 +34,6 @@ set incsearch
 " strange vulnerability
 set modelines=0
 
-" try intelligent case search
-set ignorecase
-set smartcase
-
 let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir build"
 
 if v:version >= 703
