@@ -31,6 +31,7 @@ fsevents = bb+ssh://nicdumz/fsevents/
 bot = bb+ssh://nicdumz/wikipedia-dumzibot/
 dotfiles = bb+ssh://nicdumz/dotfiles/
 libretweet = bb+ssh://nicdumz/libretweet/
+patchshelter = bb+ssh://nicdumz/patchshelter/
 
 hgtest = ssh://hgtester@ry4an.org:2222/
 
@@ -55,6 +56,8 @@ bookmarks=
 progress=
 schemes=
 
+patchshelter = /home/nicdumz/opensource/patchshelter/
+
 [inotify]
 log = /tmp/inotify.log
 debug = True
@@ -70,3 +73,6 @@ name = NicDumZ
 [merge-tools]
 vimdiff.executable = vim
 vimdiff.args = -d $base $local $output $other +close +close
+
+[hooks]
+patchshelter.update=python:patchshelter.hooks.MH
