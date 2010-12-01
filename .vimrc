@@ -1,5 +1,7 @@
 set nocompatible
 
+let g:pyflakes_use_quickfix = 0
+
 filetype off
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
