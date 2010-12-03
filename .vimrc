@@ -37,7 +37,6 @@ set incsearch
 " strange vulnerability
 set modelines=0
 
-let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir build"
 
 if v:version >= 703
     set colorcolumn=80
@@ -49,17 +48,26 @@ else
     \ | endif
 endif
 
+" Show trailing whitepace and spaces before a tab:         
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
+
+command! TrailingWhitespace :%s/\s\+$//g
 
 
-autocmd BufRead,BufNewFile */*localhost*.js* setlocal filetype=javascript
-autocmd BufRead,BufNewFile */mediawiki* setlocal noexpandtab
-autocmd BufRead,BufNewFile */*nexedi* setlocal tabstop=2 shiftwidth=2 tags=~/nexedi/buildout/tags
-autocmd BufRead bt5/*/bt/* setlocal binary
+augroup filetypedetect
+    autocmd BufRead,BufNewFile */*localhost*.js* setf javascript
+    autocmd BufRead,BufNewFile */mediawiki* setlocal noexpandtab
+    autocmd BufRead,BufNewFile */*nexedi* setlocal tabstop=2 shiftwidth=2 tags=~/nexedi/buildout/tags
+    autocmd BufRead bt5/*/bt/* setlocal binary
 
-" It's all text support
-" Mail?
-autocmd BufRead mail.google.com.* setlocal ft=mail
+    " It's all text support
+    " Mail?
+    autocmd BufRead mail.google.com.* setf mail
+augroup END
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           <Python>
 fu! DoRunPyBuffer()
     pclose! " force preview window closed
     setlocal ft=python
@@ -76,14 +84,14 @@ endfu
 command! XyzRunPyBuffer call DoRunPyBuffer()
 map <C-p> :XyzRunPyBuffer<CR>
 
-" Use <F7> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F7>
+command! Pyflakes :!pyflakes %
 
-nmap :W :w
+nnoremap <Leader>pdb Oimport pdb; pdb.set_trace()<esc>==
+"                           </Python>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" CTRL-h to toggle search higlight
-map <C-H> :se invhls<cr>
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           <Keyboard hacks>
 " Unbind the cursor keys in insert, normal and visual modes.
 for prefix in ['i', 'n', 'v']
   for key in ['<Up>', '<Down>', '<Left>', '<Right>']
@@ -104,36 +112,35 @@ map <C-Up> :EnableDirs<CR>
 map <C-Left> :EnableDirs<CR>
 map <C-Right> :EnableDirs<CR>
 
-command! Pyflakes :!pyflakes %
-
-"
-" Show trailing whitepace and spaces before a tab:         
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
-
-
-" Override comment color
-"hi Comment term=bold ctermfg=blue
-
+" easier keyboard
 map <F1> <Esc>
 imap <F1> <Esc>
 imap <M-Space> <Esc>
+nmap :W :w
+"                           </Keyboard hacks>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+" Use <F7> to toggle between 'paste' and 'nopaste'
+set pastetoggle=<F7>
+
+" CTRL-h to toggle search higlight
+map <C-H> :se invhls<cr>
+
 
 augroup VCSCommand
   au VCSCommand User VCSBufferCreated silent! map <unique> <buffer> q :bwipeout<cr>
 augroup END
-
 let VCSCommandSVNDiffExt = "/usr/bin/diff"
 nmap <Leader>cr <Plug>VCSRevert
-
 if &diff
     noremap <Leader>u :diffupdate<cr>
     noremap <Leader>g :diffget<cr>
     noremap <Leader>p :diffput<cr>
 endif
 
-nnoremap <Leader>pdb Oimport pdb; pdb.set_trace()<esc>==
-
-command! TrailingWhitespace :%s/\s\+$//g
 command! Gvim :!gvim -c 'set noro' %:p
 command! RunTest :!python run-tests.py -i %
+
+let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir build"
