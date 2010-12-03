@@ -1,12 +1,12 @@
 set nocompatible
 
-let g:pyflakes_use_quickfix = 0
-
+"{{{ Pathogen plugin
 filetype off
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 filetype plugin on
 syntax on
+"}}}
 
 colorscheme nicdumz
 
@@ -16,10 +16,11 @@ set shiftwidth=4
 set smarttab
 set number
 set mouse=a
-
 set autoindent
 set laststatus=2
 set ruler
+
+set foldmethod=marker
 
 " unify clipboards
 set clipboard=unnamed
@@ -28,16 +29,18 @@ set clipboard=unnamed
 set wildmode=longest,list
 set wildmenu
 
-" usually we're fast, but with urxvt color it's not always obvious
-set ttyfast
-
 " move in file when typing /pattern
 set incsearch
+" CTRL-h to toggle search higlight
+map <C-H> :se invhls<cr>
 
 " strange vulnerability
 set modelines=0
+" usually we're fast, but with urxvt color it's not always obvious
+set ttyfast
 
 
+"{{{ Whitespace and long lines
 if v:version >= 703
     set colorcolumn=80
 else
@@ -53,6 +56,7 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
 
 command! TrailingWhitespace :%s/\s\+$//g
+"}}}
 
 
 augroup filetypedetect
@@ -66,74 +70,70 @@ augroup filetypedetect
     autocmd BufRead mail.google.com.* setf mail
 augroup END
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           <Python>
-fu! DoRunPyBuffer()
-    pclose! " force preview window closed
-    setlocal ft=python
+"{{{ Python
+    fu! DoRunPyBuffer()
+        pclose! " force preview window closed
+        setlocal ft=python
 
-    " copy the buffer into a new window, then run that buffer through python
-    sil %y a | below new | sil put a | sil %!python -
-    " indicate the output window as the current previewwindow
-    setlocal previewwindow ro nomodifiable nomodified
+        " copy the buffer into a new window then run that buffer through python
+        sil %y a | below new | sil put a | sil %!python -
+        " indicate the output window as the current previewwindow
+        setlocal previewwindow ro nomodifiable nomodified
 
-    " back into the original window
-    winc p
-endfu
+        " back into the original window
+        winc p
+    endfu
 
-command! XyzRunPyBuffer call DoRunPyBuffer()
-map <C-p> :XyzRunPyBuffer<CR>
+    command! XyzRunPyBuffer call DoRunPyBuffer()
+    map <C-p> :XyzRunPyBuffer<CR>
 
-command! Pyflakes :!pyflakes %
+    let g:pyflakes_use_quickfix = 0
+    command! Pyflakes :!pyflakes %
 
-nnoremap <Leader>pdb Oimport pdb; pdb.set_trace()<esc>==
-"                           </Python>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    nnoremap <Leader>pdb Oimport pdb; pdb.set_trace()<esc>==
+"}}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           <Keyboard hacks>
-" Unbind the cursor keys in insert, normal and visual modes.
-for prefix in ['i', 'n', 'v']
-  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-    exe prefix . "noremap " . key . " <Nop>"
-  endfor
-endfor
-
-fu! DoEnableDirs()
-  for prefix in ['i', 'n', 'v']
-    for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-      exe prefix . "unmap " . key
+"{{{ Keyboard
+    " Unbind the cursor keys in insert, normal and visual modes.
+    for prefix in ['i', 'n', 'v']
+      for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+        exe prefix . "noremap " . key . " <Nop>"
+      endfor
     endfor
-  endfor
-endfu
-command! EnableDirs call DoEnableDirs()
-map <C-Down> :EnableDirs<CR>
-map <C-Up> :EnableDirs<CR>
-map <C-Left> :EnableDirs<CR>
-map <C-Right> :EnableDirs<CR>
 
-" easier keyboard
-map <F1> <Esc>
-imap <F1> <Esc>
-imap <M-Space> <Esc>
-nmap :W :w
-"                           </Keyboard hacks>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    fu! DoEnableDirs()
+      for prefix in ['i', 'n', 'v']
+        for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+          exe prefix . "unmap " . key
+        endfor
+      endfor
+    endfu
+    command! EnableDirs call DoEnableDirs()
+    map <C-Down> :EnableDirs<CR>
+    map <C-Up> :EnableDirs<CR>
+    map <C-Left> :EnableDirs<CR>
+    map <C-Right> :EnableDirs<CR>
 
+    " easier keyboard
+    map <F1> <Esc>
+    imap <F1> <Esc>
+    imap <M-Space> <Esc>
+    nmap :W :w
+"}}}
 
 
 " Use <F7> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F7>
 
-" CTRL-h to toggle search higlight
-map <C-H> :se invhls<cr>
 
-
+"{{{ VCS plugin
 augroup VCSCommand
   au VCSCommand User VCSBufferCreated silent! map <unique> <buffer> q :bwipeout<cr>
 augroup END
 let VCSCommandSVNDiffExt = "/usr/bin/diff"
 nmap <Leader>cr <Plug>VCSRevert
+"}}}
+
 if &diff
     noremap <Leader>u :diffupdate<cr>
     noremap <Leader>g :diffget<cr>
