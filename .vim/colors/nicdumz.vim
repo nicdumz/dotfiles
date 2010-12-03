@@ -32,7 +32,7 @@ hi Visual term=reverse cterm=bold ctermbg=238 gui=reverse guifg=Grey80 guibg=fg
 hi VisualNOS term=bold,underline cterm=bold,underline gui=bold,underline
 hi WarningMsg term=standout ctermfg=1 gui=bold guifg=Red
 hi WildMenu term=standout ctermfg=0 ctermbg=3 guifg=Black guibg=Yellow
-hi Folded term=standout ctermfg=4 ctermbg=7 guifg=Black guibg=#e3c1a5
+hi Folded term=standout cterm=bold ctermfg=7 ctermbg=8 guifg=Black guibg=#e3c1a5
 hi FoldColumn term=standout ctermfg=4 ctermbg=7 guifg=DarkBlue guibg=Gray80
 hi DiffAdd term=bold ctermbg=4 guibg=White
 hi DiffChange term=bold ctermbg=5 guibg=#edb5cd
