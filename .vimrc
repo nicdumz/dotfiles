@@ -21,6 +21,9 @@ set autoindent
 set laststatus=2
 set ruler
 
+" unify clipboards
+set clipboard=unnamed
+
 " completion on commandline
 set wildmode=longest,list
 set wildmenu
