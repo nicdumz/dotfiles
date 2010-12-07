@@ -17,6 +17,10 @@ obvious.popup_run_prompt.set_move_speed(0.015)
 obvious.popup_run_prompt.set_opacity(0.5)
 obvious.popup_run_prompt.set_border_width(3)
 obvious.popup_run_prompt.set_height(25)
+function run_clean(cmd)
+    return awful.util.spawn_with_shell("LD_LIBRARY_PATH= " .. cmd)
+end
+obvious.popup_run_prompt.set_run_function(run_clean)
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
