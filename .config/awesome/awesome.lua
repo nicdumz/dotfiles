@@ -25,7 +25,7 @@ theme_path = awesome_path .. "/themes/default/theme.lua"
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvtc"
+terminal = "LD_LIBRARY_PATH= urxvtc"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -263,7 +263,7 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey,           }, "Return", function () awful.util.spawn_with_shell(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
@@ -280,7 +280,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "r", obvious.popup_run_prompt.run_prompt),
     awful.key({ modkey }, "d",
         function ()
-            local prefix = "PATH=$HOME/local/bin/:$PATH "
+            local prefix = "PATH=$HOME/local/bin/:$PATH LD_LIBRARY_PATH= "
             local path_cmd = prefix .. "dmenu_path | dmenu -b -nb '#222222'"
             path_cmd = path_cmd .. " -nf '#aaaaaa' -sb '#ff0000' -sf '#ffffff'"
             local myexe = awful.util.pread(path_cmd)
