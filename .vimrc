@@ -39,6 +39,8 @@ set modelines=0
 " usually we're fast, but with urxvt color it's not always obvious
 set ttyfast
 
+" no flashing or beeping
+set vb t_vb=
 
 "{{{ Whitespace and long lines
 if v:version >= 703
@@ -90,7 +92,7 @@ augroup END
     let g:pyflakes_use_quickfix = 0
     command! Pyflakes :!pyflakes %
 
-    nnoremap <Leader>pdb Oimport pdb; pdb.set_trace()<esc>==
+    nnoremap <Leader>pdb oimport pdb; pdb.set_trace()<esc>==
 "}}}
 
 "{{{ Keyboard
@@ -113,6 +115,9 @@ augroup END
     map <C-Up> :EnableDirs<CR>
     map <C-Left> :EnableDirs<CR>
     map <C-Right> :EnableDirs<CR>
+
+    " similar to vimperator
+    map <space> <C-f>
 
     " easier keyboard
     map <F1> <Esc>
