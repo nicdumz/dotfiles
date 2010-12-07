@@ -1,0 +1,8 @@
+set guioptions+=m
+command -nargs=* Google open google <args>
+
+map l gt
+map h gT
+
+map <F1> <Esc>
+set nextpattern+=\bcontinue\b,\bsuiv|suivant|suivante\b
