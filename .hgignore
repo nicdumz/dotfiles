@@ -7,6 +7,7 @@ re:^(?!\.).*
 .pyc
 .pyo
 .swp
+.orig
 
 re:\.xchat-gnome/(xchatlogs|scrollback)
 # stateful data
@@ -19,6 +20,8 @@ re:/\.(svn|git|hg)
 /README
 /TODO
 
+mandriva
+
 
 .RapidSVN
 .Skype
@@ -27,6 +30,7 @@ re:/\.(svn|git|hg)
 .beagle
 .buildout
 .ccache
+.chandler
 .chromium
 .config/akonadi
 .config/banshee
@@ -80,6 +84,7 @@ re:/\.(svn|git|hg)
 .thunderbird
 .virtualenvs
 .viminfo
+.z
 .zcompdump
 QSvn
 Trolltech
