@@ -1,7 +1,0 @@
-set guioptions+=m
-
-map l gt
-map h gT
-
-map <F1> <Esc>
-set nextpattern+=\\bcontinue\\b,\\bsuiv|suivant|suivante\\b
