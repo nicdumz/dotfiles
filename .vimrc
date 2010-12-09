@@ -41,6 +41,7 @@ set ttyfast
 
 " no flashing or beeping
 set vb t_vb=
+set novisualbell
 
 "{{{ Whitespace and long lines
 if v:version >= 703
@@ -67,9 +68,9 @@ augroup filetypedetect
     autocmd BufRead,BufNewFile */*nexedi* setlocal tabstop=2 shiftwidth=2 tags=~/nexedi/buildout/tags
     autocmd BufRead bt5/*/bt/* setlocal binary
 
-    " It's all text support
+    " It's all text/external editor support
     " Mail?
-    autocmd BufRead mail.google.com.* setf mail
+    autocmd BufRead *mail.google.com* setf mail
 augroup END
 
 "{{{ Python
