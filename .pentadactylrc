@@ -1,6 +1,6 @@
 extdisable vimperator
 
-set guioptions+=cmT
+set guioptions+=cT
 set wildmode=list:full
 
 map l gt
