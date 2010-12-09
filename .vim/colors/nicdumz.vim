@@ -31,7 +31,7 @@ hi Title term=bold ctermfg=5 gui=bold guifg=DeepPink3
 hi Visual term=reverse cterm=bold ctermbg=238 gui=reverse guifg=Grey80 guibg=fg
 hi VisualNOS term=bold,underline cterm=bold,underline gui=bold,underline
 hi WarningMsg term=standout ctermfg=1 gui=bold guifg=Red
-hi WildMenu term=standout ctermfg=0 ctermbg=3 guifg=Black guibg=Yellow
+hi WildMenu term=standout ctermfg=Black ctermbg=3 guifg=Black guibg=Yellow
 hi Folded term=standout cterm=bold ctermfg=7 ctermbg=8 guifg=Black guibg=#e3c1a5
 hi FoldColumn term=standout ctermfg=4 ctermbg=7 guifg=DarkBlue guibg=Gray80
 hi DiffAdd term=bold ctermbg=4 guibg=White
@@ -53,7 +53,7 @@ hi PreProc term=underline ctermfg=5 guifg=Magenta3
 hi Type term=underline ctermfg=2 gui=bold guifg=SeaGreen
 hi Ignore cterm=bold ctermfg=7 guifg=bg
 hi Error term=reverse cterm=bold ctermfg=7 ctermbg=1 gui=bold guifg=White guibg=Red
-hi Todo term=standout ctermfg=0 ctermbg=3 guifg=Blue guibg=Yellow
+hi Todo term=standout ctermfg=Black ctermbg=3 guifg=Blue guibg=Yellow
 
 hi SpellBad cterm=reverse ctermbg=black
 
@@ -70,3 +70,7 @@ highlight PmenuThumb ctermfg=darkgreen
 highlight Pmenu ctermbg=yellow ctermfg=black
 
 highlight SpellBad cterm=reverse ctermbg=black
+
+hi TabLine cterm=none ctermfg=White ctermbg=Black
+hi TabLineSel cterm=bold ctermfg=Black ctermbg=7
+hi TabLineFill cterm=none ctermfg=White ctermbg=Black
