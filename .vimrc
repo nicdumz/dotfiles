@@ -45,7 +45,8 @@ set novisualbell
 
 "{{{ Whitespace and long lines
 if v:version >= 703
-    set colorcolumn=80
+    set colorcolumn=+1,+2
+    set relativenumber
 else
     "123456789098732345678732356765434567865432345678987654345678767676767654345676544345345
     au BufWinEnter * if &textwidth >4
@@ -71,6 +72,8 @@ augroup filetypedetect
     " It's all text/external editor support
     " Mail?
     autocmd BufRead *mail.google.com* setf mail
+
+    autocmd FileType gitcommit DiffGitCached | wincmd p
 augroup END
 
 "{{{ Python
