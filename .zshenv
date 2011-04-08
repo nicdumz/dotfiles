@@ -8,9 +8,10 @@ export SAVEHIST=$HISTSIZE
 
 export PYTHONPATH="$HOME/local/lib/python:$PYTHONPATH"
 
+export LESS=R
 export EDITOR=vim
 
-export PATH="/usr/lib/ccache/bin:$HOME/local/bin:/usr/local/bin:$PATH"
+export PATH="/usr/lib/ccache/bin:$HOME/.local/bin:$HOME/local/bin:/usr/local/bin:$PATH"
 export GREP_OPTIONS="--exclude-dir=\.svn"
 
 export BROWSER="/usr/bin/firefox"
