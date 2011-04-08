@@ -74,3 +74,5 @@ highlight SpellBad cterm=reverse ctermbg=black
 hi TabLine cterm=none ctermfg=White ctermbg=Black
 hi TabLineSel cterm=bold ctermfg=Black ctermbg=7
 hi TabLineFill cterm=none ctermfg=White ctermbg=Black
+
+hi ColorColumn term=none ctermfg=red ctermbg=none cterm=bold
