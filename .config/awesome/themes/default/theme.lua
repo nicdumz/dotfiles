@@ -31,15 +31,15 @@ theme.border_marked = "#91231c"
 --taglist_bg_focus = #ff0000
 
 -- Display the taglist squares
-theme.taglist_squares_sel = "/usr/local/share/awesome/themes/default/taglist/squarefw.png"
-theme.taglist_squares_unsel = "/usr/local/share/awesome/themes/default/taglist/squarew.png"
+theme.taglist_squares_sel = "/home/ndumazet/.config/awesome/themes/default/taglist/squarefw.png"
+theme.taglist_squares_unsel = "/home/ndumazet/.config/awesome/themes/default/taglist/squarew.png"
 
-theme.tasklist_floating_icon = "/usr/local/share/awesome/themes/default/tasklist/floatingw.png"
+theme.tasklist_floating_icon = "/home/ndumazet/.config/awesome/themes/default/tasklist/floatingw.png"
 
 -- Variables set for theming menu
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = "/usr/local/share/awesome/themes/default/submenu.png"
+theme.menu_submenu_icon = "/home/ndumazet/.config/awesome/themes/default/submenu.png"
 theme.menu_height   = "15"
 theme.menu_width    = "100"
 
@@ -49,46 +49,45 @@ theme.menu_width    = "100"
 --bg_widget    = #cc0000
 
 -- Define the image to load
-theme.titlebar_close_button_normal = "/usr/local/share/awesome/themes/default/titlebar/close_normal.png"
-theme.titlebar_close_button_focus = "/usr/local/share/awesome/themes/default/titlebar/close_focus.png"
+theme.titlebar_close_button_normal = "/home/ndumazet/.config/awesome/themes/default/titlebar/close_normal.png"
+theme.titlebar_close_button_focus = "/home/ndumazet/.config/awesome/themes/default/titlebar/close_focus.png"
 
-theme.titlebar_ontop_button_normal_inactive = "/usr/local/share/awesome/themes/default/titlebar/ontop_normal_inactive.png"
-theme.titlebar_ontop_button_focus_inactive = "/usr/local/share/awesome/themes/default/titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_active = "/usr/local/share/awesome/themes/default/titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_active = "/usr/local/share/awesome/themes/default/titlebar/ontop_focus_active.png"
+theme.titlebar_ontop_button_normal_inactive = "/home/ndumazet/.config/awesome/themes/default/titlebar/ontop_normal_inactive.png"
+theme.titlebar_ontop_button_focus_inactive = "/home/ndumazet/.config/awesome/themes/default/titlebar/ontop_focus_inactive.png"
+theme.titlebar_ontop_button_normal_active = "/home/ndumazet/.config/awesome/themes/default/titlebar/ontop_normal_active.png"
+theme.titlebar_ontop_button_focus_active = "/home/ndumazet/.config/awesome/themes/default/titlebar/ontop_focus_active.png"
 
-theme.titlebar_sticky_button_normal_inactive = "/usr/local/share/awesome/themes/default/titlebar/sticky_normal_inactive.png"
-theme.titlebar_sticky_button_focus_inactive = "/usr/local/share/awesome/themes/default/titlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_active = "/usr/local/share/awesome/themes/default/titlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_active = "/usr/local/share/awesome/themes/default/titlebar/sticky_focus_active.png"
+theme.titlebar_sticky_button_normal_inactive = "/home/ndumazet/.config/awesome/themes/default/titlebar/sticky_normal_inactive.png"
+theme.titlebar_sticky_button_focus_inactive = "/home/ndumazet/.config/awesome/themes/default/titlebar/sticky_focus_inactive.png"
+theme.titlebar_sticky_button_normal_active = "/home/ndumazet/.config/awesome/themes/default/titlebar/sticky_normal_active.png"
+theme.titlebar_sticky_button_focus_active = "/home/ndumazet/.config/awesome/themes/default/titlebar/sticky_focus_active.png"
 
-theme.titlebar_floating_button_normal_inactive = "/usr/local/share/awesome/themes/default/titlebar/floating_normal_inactive.png"
-theme.titlebar_floating_button_focus_inactive = "/usr/local/share/awesome/themes/default/titlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_active = "/usr/local/share/awesome/themes/default/titlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_active = "/usr/local/share/awesome/themes/default/titlebar/floating_focus_active.png"
+theme.titlebar_floating_button_normal_inactive = "/home/ndumazet/.config/awesome/themes/default/titlebar/floating_normal_inactive.png"
+theme.titlebar_floating_button_focus_inactive = "/home/ndumazet/.config/awesome/themes/default/titlebar/floating_focus_inactive.png"
+theme.titlebar_floating_button_normal_active = "/home/ndumazet/.config/awesome/themes/default/titlebar/floating_normal_active.png"
+theme.titlebar_floating_button_focus_active = "/home/ndumazet/.config/awesome/themes/default/titlebar/floating_focus_active.png"
 
-theme.titlebar_maximized_button_normal_inactive = "/usr/local/share/awesome/themes/default/titlebar/maximized_normal_inactive.png"
-theme.titlebar_maximized_button_focus_inactive = "/usr/local/share/awesome/themes/default/titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_active = "/usr/local/share/awesome/themes/default/titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_active = "/usr/local/share/awesome/themes/default/titlebar/maximized_focus_active.png"
+theme.titlebar_maximized_button_normal_inactive = "/home/ndumazet/.config/awesome/themes/default/titlebar/maximized_normal_inactive.png"
+theme.titlebar_maximized_button_focus_inactive = "/home/ndumazet/.config/awesome/themes/default/titlebar/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_normal_active = "/home/ndumazet/.config/awesome/themes/default/titlebar/maximized_normal_active.png"
+theme.titlebar_maximized_button_focus_active = "/home/ndumazet/.config/awesome/themes/default/titlebar/maximized_focus_active.png"
 
-wallpaper_path = io.popen("/home/nicdumz/local/bin/pick_one /home/nicdumz/Pictures/Wallpapers/*.jpg"):read()
 -- You can use your own command to set your wallpaper
-theme.wallpaper_cmd = { "xsetbg -border black -center -fillscreen " .. wallpaper_path}
+theme.wallpaper_cmd = { "/home/ndumazet/.local/wallpaper"}
 
 -- You can use your own layout icons like this:
-theme.layout_fairh = "/usr/local/share/awesome/themes/default/layouts/fairhw.png"
-theme.layout_fairv = "/usr/local/share/awesome/themes/default/layouts/fairvw.png"
-theme.layout_floating = "/usr/local/share/awesome/themes/default/layouts/floatingw.png"
-theme.layout_magnifier = "/usr/local/share/awesome/themes/default/layouts/magnifierw.png"
-theme.layout_max = "/usr/local/share/awesome/themes/default/layouts/maxw.png"
-theme.layout_fullscreen = "/usr/local/share/awesome/themes/default/layouts/fullscreenw.png"
-theme.layout_tilebottom = "/usr/local/share/awesome/themes/default/layouts/tilebottomw.png"
-theme.layout_tileleft = "/usr/local/share/awesome/themes/default/layouts/tileleftw.png"
-theme.layout_tile = "/usr/local/share/awesome/themes/default/layouts/tilew.png"
-theme.layout_tiletop = "/usr/local/share/awesome/themes/default/layouts/tiletopw.png"
+theme.layout_fairh = "/home/ndumazet/.config/awesome/themes/default/layouts/fairhw.png"
+theme.layout_fairv = "/home/ndumazet/.config/awesome/themes/default/layouts/fairvw.png"
+theme.layout_floating = "/home/ndumazet/.config/awesome/themes/default/layouts/floatingw.png"
+theme.layout_magnifier = "/home/ndumazet/.config/awesome/themes/default/layouts/magnifierw.png"
+theme.layout_max = "/home/ndumazet/.config/awesome/themes/default/layouts/maxw.png"
+theme.layout_fullscreen = "/home/ndumazet/.config/awesome/themes/default/layouts/fullscreenw.png"
+theme.layout_tilebottom = "/home/ndumazet/.config/awesome/themes/default/layouts/tilebottomw.png"
+theme.layout_tileleft = "/home/ndumazet/.config/awesome/themes/default/layouts/tileleftw.png"
+theme.layout_tile = "/home/ndumazet/.config/awesome/themes/default/layouts/tilew.png"
+theme.layout_tiletop = "/home/ndumazet/.config/awesome/themes/default/layouts/tiletopw.png"
 
-theme.awesome_icon = "/usr/local/share/awesome/icons/awesome16.png"
+theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 
 return theme
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:encoding=utf-8:textwidth=80

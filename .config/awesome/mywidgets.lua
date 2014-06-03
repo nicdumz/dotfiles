@@ -1,16 +1,13 @@
 require("obvious")
 
 -- Clock that spawns calendar
-mytextclock = awful.widget.textclock({ align = "right" })
-do
-    function spawn_calendar()
-        awful.util.spawn(awesome_path .. "/calendar.sh")
-    end
-    mytextclock:buttons( awful.button({ }, 1, spawn_calendar) )
-end
-
--- volume widget
-myvolume = obvious.volume_alsa()
+-- mytextclock = awful.widget.textclock({ align = "right" })
+-- do
+--     function spawn_calendar()
+--         awful.util.spawn(awesome_path .. "/calendar.sh")
+--     end
+--     mytextclock:buttons( awful.button({ }, 1, spawn_calendar) )
+-- end
 
 -- memory widget
 meminfo = widget({ type = "textbox", align = "right" })

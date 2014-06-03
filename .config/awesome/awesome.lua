@@ -29,9 +29,9 @@ theme_path = awesome_path .. "/themes/default/theme.lua"
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
-terminal = "LD_LIBRARY_PATH= urxvtc"
+terminal = "gnome-terminal"
 editor = "vim"
-editor_cmd = terminal .. " -e " .. editor
+editor_cmd = terminal .. " -e '" .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -71,14 +71,10 @@ do
     -- layout, or hide or mwfact can be set
     local my_tags = {
         { name = "1:⌨ |", layout = awful.layout.suit.tile },
-        { name = "2:www |", mwfact = 0.8, layout = awful.layout.suit.tile },
-        { name = "3:✉ |", mwfact = 0.8, layout = awful.layout.suit.tile },
-        { name = "4:zope |", layout = awful.layout.suit.tile },
-        { name = "5:♫ |", mwfact = 0.8, layout = awful.layout.suit.tile },
-        { name = "6 |", layout = awful.layout.suit.tile },
-        { name = "7 |", layout = awful.layout.suit.tile },
-        { name = "8 |", layout = awful.layout.suit.tile },
-        { name = "9:⚡", layout = awful.layout.suit.tile },
+        { name = "2:w/e |", mwfact = 0.8, layout = awful.layout.suit.tile },
+        { name = "3:xmpp | ", mwfact = 0.8, layout = awful.layout.suit.tile },
+        { name = "4:irc |", layout = awful.layout.suit.tile },
+        { name = "5:⚡", layout = awful.layout.suit.tile },
     }
     for s = 1, screen.count() do
         tags[s] = {}
@@ -112,7 +108,7 @@ mastwidget.text = obvious.lib.markup.fg.color(blue, awful.tag.getnmaster())
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome_path .. "/rc.lua" },
+   { "edit config", editor_cmd .. " " .. awesome_path .. "/awesome.lua'" },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -216,8 +212,6 @@ for s = 1, screen.count() do
         colwidget,
         mastwidget,
         mastcolleft,
-            myvolume,
-            mytextclock,
             layout = awful.widget.layout.horizontal.rightleft
         },
         mysystray,
@@ -254,6 +248,9 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ modkey,           }, "w", function() mymainmenu:show(true) end),
 
+    awful.key({}, "F1", function() awful.screen.focus(1) end),
+    awful.key({}, "F2", function() awful.screen.focus(2) end),
+
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function() awful.client.swap.byidx(1) end),
     awful.key({ modkey, "Shift"   }, "k", function() awful.client.swap.byidx(-1) end),
@@ -277,14 +274,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey,           }, "space", nextlayout),
+    awful.key({ modkey, "Control" }, "space", nextlayout),
     awful.key({ modkey, "Shift"   }, "space", prevlayout),
 
     -- Prompt
     awful.key({ modkey }, "r", obvious.popup_run_prompt.run_prompt),
-    awful.key({ modkey }, "d",
+    awful.key({ modkey }, "space",
         function ()
-            local prefix = "PATH=$HOME/local/bin/:$PATH LD_LIBRARY_PATH= "
+            local prefix = "PATH=/usr/local/bin:/usr/bin:/bin:$HOME/.local/bin "
             local path_cmd = prefix .. "dmenu_path | dmenu -b -nb '#222222'"
             path_cmd = path_cmd .. " -nf '#aaaaaa' -sb '#ff0000' -sf '#ffffff'"
             local myexe = awful.util.pread(path_cmd)
@@ -298,10 +295,6 @@ globalkeys = awful.util.table.join(
                 awful.util.eval, nil,
                 awful.util.getdir("cache") .. "/history_eval")
         end),
-    awful.key({ }, "#121",     function () myvolume:mute() end),
-    awful.key({ }, "#122",     function () myvolume:lower() end),
-    awful.key({ }, "#123",     function () myvolume:raise() end),
-
     awful.key({ }, "#172", function () awful.util.spawn("rhythmbox-client --play-pause") end),
     awful.key({ }, "#173", function () awful.util.spawn("rhythmbox-client --previous") end),
     awful.key({ }, "#171", function () awful.util.spawn("rhythmbox-client --next") end),
@@ -401,8 +394,12 @@ do
           properties = { floating = true } },
         { rule = { class = "Firefox" },
           properties = { tag = tags[1][2] } },
-        { rule = { class = "psi" },
-          properties = { tag = tags[1][3], floating = true } },
+        { rule = { class = "chrome" },
+          properties = { tag = tags[1][1] } },
+        { rule = { class = "Pidgin" },
+          properties = { tag = tags[2][3] } },
+        { rule = { class = "xchat-gnome" },
+          properties = { tag = tags[2][4] } },
         { rule = { class = "Thunderbird" },
           properties = { tag = tags[1][3] } },
         { rule = { name = "Music Player" },
@@ -477,3 +474,6 @@ for i = 1,#tags[1] do
         mastwidget.text = obvious.lib.markup.fg.color(blue, awful.tag.getnmaster())
     end)
 end
+
+
+awful.util.spawn_with_shell("sleep 2 && ~/.local/bin/wallpaper")
