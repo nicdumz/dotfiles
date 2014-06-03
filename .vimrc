@@ -1,3 +1,15 @@
+" "Add this as a /home/ndumazet/.vimrc file:
+" " Generic settings are supposed to be checked out in .../dotfiles:
+" if filereadable("/home/ndumazet/dotfiles/.vimrc")
+"   set rtp +=/home/ndumazet/dotfiles/.vim
+"   source /home/ndumazet/dotfiles/.vimrc
+" endif
+"
+" " Machine / Google-specific settings are there:
+" if filereadable("/home/ndumazet/.vimrc.after")
+"   source /home/ndumazet/.vimrc.after
+" endif
+
 set t_Co=256
 syntax off
 filetype off
@@ -5,29 +17,31 @@ set nocompatible
 " mutiple vulnerabilities.
 set nomodeline
 
-"{{{ vundle plugin
-set rtp ^=/home/ndumazet/.vim/bundle/vundle
-call vundle#rc("/home/ndumazet/.vim/bundle")
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/syntastic'
-Bundle 'tomasr/molokai'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/AfterColors.vim'
-" Some vcs integration
-"Bundle 'vim-scripts/vcscommand.vim'
-"}}}
+set rtp +=/home/ndumazet/.vim/bundle/vundle
+call vundle#begin("/home/ndumazet/.vim/bundle")
+Plugin 'gmarik/vundle'
 
-colorscheme molokai
-
+Plugin 'scrooloose/syntastic'
 set statusline=%f\ %h%m%r%=%c,%l/%L\ %P\ %#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}%*
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_check_on_open=1
+
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/AfterColors.vim'
+" Some vcs integration
+"Plugin 'vim-scripts/vcscommand.vim'
+call vundle#end()
+syntax on
+filetype plugin indent on
+
+colorscheme molokai
 
 set expandtab
 set tabstop=4
