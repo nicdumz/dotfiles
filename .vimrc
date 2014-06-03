@@ -1,14 +1,33 @@
-set nocompatible
-
-"{{{ Pathogen plugin
+set t_Co=256
+syntax off
 filetype off
-call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
-filetype plugin on
-syntax on
+set nocompatible
+" mutiple vulnerabilities.
+set nomodeline
+
+"{{{ vundle plugin
+set rtp ^=/home/ndumazet/.vim/bundle/vundle
+call vundle#rc("/home/ndumazet/.vim/bundle")
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/syntastic'
+Bundle 'tomasr/molokai'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/AfterColors.vim'
+" Some vcs integration
+"Bundle 'vim-scripts/vcscommand.vim'
 "}}}
 
-colorscheme nicdumz
+colorscheme molokai
+
+set statusline=%f\ %h%m%r%=%c,%l/%L\ %P\ %#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}%*
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_check_on_open=1
 
 set expandtab
 set tabstop=4
@@ -19,6 +38,10 @@ set mouse=a
 set autoindent
 set laststatus=2
 set ruler
+set hls
+
+" 5 lines around the cursor
+set scrolloff=5
 
 set foldmethod=marker
 
@@ -26,7 +49,7 @@ set foldmethod=marker
 set clipboard=unnamed
 
 " completion on commandline
-set wildmode=longest,list
+set wildmode=longest,list,full
 set wildmenu
 
 " move in file when typing /pattern
@@ -43,14 +66,18 @@ set ttyfast
 set vb t_vb=
 set novisualbell
 
+set nocursorline
+set nocursorcolumn
+
+set shortmess=a
+set cmdheight=2
+
 "{{{ Whitespace and long lines
 if v:version >= 703
-    set colorcolumn=+1,+2
-    set relativenumber
+    let &colorcolumn=join(range(81,400),",")
 else
     "123456789098732345678732356765434567865432345678987654345678767676767654345676544345345
     au BufWinEnter * if &textwidth >4
-    "\ | let w:m1=matchadd('MatchParen', printf('\%%<%dv.\%%>%dv', 81, 76), -1)
     \ | let w:m2=matchadd('ErrorMsg', printf('\%%>%dv.\+', 80), -1)
     \ | endif
 endif
@@ -58,46 +85,20 @@ endif
 " Show trailing whitepace and spaces before a tab:         
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
-
-command! TrailingWhitespace :%s/\s\+$//g
 "}}}
 
 
 augroup filetypedetect
     autocmd BufRead,BufNewFile */*localhost*.js* setf javascript
     autocmd BufRead,BufNewFile */mediawiki* setlocal noexpandtab
-    autocmd BufRead,BufNewFile */*nexedi* setlocal tabstop=2 shiftwidth=2 tags=~/nexedi/buildout/tags
-    autocmd BufRead bt5/*/bt/* setlocal binary
 
     " It's all text/external editor support
     " Mail?
     autocmd BufRead *mail.google.com* setf mail
+    autocmd BufRead *tmp/*flagfile* setf sh
 
     autocmd FileType gitcommit DiffGitCached | wincmd p
 augroup END
-
-"{{{ Python
-    fu! DoRunPyBuffer()
-        pclose! " force preview window closed
-        setlocal ft=python
-
-        " copy the buffer into a new window then run that buffer through python
-        sil %y a | below new | sil put a | sil %!python -
-        " indicate the output window as the current previewwindow
-        setlocal previewwindow ro nomodifiable nomodified
-
-        " back into the original window
-        winc p
-    endfu
-
-    command! XyzRunPyBuffer call DoRunPyBuffer()
-    map <C-p> :XyzRunPyBuffer<CR>
-
-    let g:pyflakes_use_quickfix = 0
-    command! Pyflakes :!pyflakes %
-
-    nnoremap <Leader>pdb oimport pdb; pdb.set_trace()<esc>==
-"}}}
 
 "{{{ Keyboard
     " Unbind the cursor keys in insert, normal and visual modes.
@@ -106,19 +107,6 @@ augroup END
         exe prefix . "noremap " . key . " <Nop>"
       endfor
     endfor
-
-    fu! DoEnableDirs()
-      for prefix in ['i', 'n', 'v']
-        for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-          exe prefix . "unmap " . key
-        endfor
-      endfor
-    endfu
-    command! EnableDirs call DoEnableDirs()
-    map <C-Down> :EnableDirs<CR>
-    map <C-Up> :EnableDirs<CR>
-    map <C-Left> :EnableDirs<CR>
-    map <C-Right> :EnableDirs<CR>
 
     " similar to vimperator
     map <space> <C-f>
@@ -134,22 +122,25 @@ augroup END
 " Use <F7> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F7>
 
-
-"{{{ VCS plugin
-augroup VCSCommand
-  au VCSCommand User VCSBufferCreated silent! map <unique> <buffer> q :bwipeout<cr>
-augroup END
-let VCSCommandSVNDiffExt = "/usr/bin/diff"
-nmap <Leader>cr <Plug>VCSRevert
-"}}}
-
-if &diff
-    noremap <Leader>u :diffupdate<cr>
-    noremap <Leader>g :diffget<cr>
-    noremap <Leader>p :diffput<cr>
-endif
-
-command! Gvim :!gvim -c 'set noro' %:p
-command! RunTest :!python run-tests.py -i %
-
 let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir build"
+
+function! SetupDiff()
+  if &readonly
+    set nomod nolist noma filetype=diff
+    map q :q<CR>
+  endif
+endfunction
+autocmd StdinReadPost * call SetupDiff()
+
+" If we have several files, open the first three ones in vert splits
+autocmd VimEnter * nested :vert ba 3
+
+" brace completion
+inoremap {<CR> {<CR><Esc>:call MySmartBraceComplete()<CR>O
+function! MySmartBraceComplete()
+  if getline(line('.')-1) =~ '^\s*\(class\|struct\)'
+    normal i};
+  else
+    normal i}
+  endif
+endfunction
