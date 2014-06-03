@@ -17,6 +17,17 @@ set nocompatible
 " mutiple vulnerabilities.
 set nomodeline
 
+" Magic auto-install
+let iCanHazVundle=1
+let vundle_readme=expand('/home/ndumazet/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p /home/ndumazet/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle /home/ndumazet/.vim/bundle/vundle
+  let iCanHazVundle=0
+endif
+
 set rtp +=/home/ndumazet/.vim/bundle/vundle
 call vundle#begin("/home/ndumazet/.vim/bundle")
 Plugin 'gmarik/vundle'
@@ -38,6 +49,13 @@ Plugin 'vim-scripts/AfterColors.vim'
 " Some vcs integration
 "Plugin 'vim-scripts/vcscommand.vim'
 call vundle#end()
+
+if iCanHazVundle == 0
+  echo "Installing Bundles, please ignore key map error messages"
+  echo ""
+  :PluginInstall
+endif
+
 syntax on
 filetype plugin indent on
 
@@ -138,13 +156,13 @@ set pastetoggle=<F7>
 
 let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir build"
 
-function! SetupDiff()
+function! SetupDiffFunc()
   if &readonly
     set nomod nolist noma filetype=diff
     map q :q<CR>
   endif
 endfunction
-autocmd StdinReadPost * call SetupDiff()
+command SetupDiff call SetupDiffFunc()
 
 " If we have several files, open the first three ones in vert splits
 autocmd VimEnter * nested :vert ba 3
