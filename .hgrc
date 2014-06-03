@@ -1,8 +1,8 @@
-%include .private-hgrc
 [ui]
 username = Nicolas Dumazet <nicdumz.commits@gmail.com>
 editor = gvim -v -c 'set ft=hgs'
 merge = vimdiff
+ssh = ssh -C
 
 [smtp]
 host = smtp.gmail.com
@@ -49,15 +49,15 @@ churn =
 hgext.convert =
 #hgsubversion = /home/nico/projets/hgsubversion/hgsubversion
 highlight =
-record = 
+record =
 purge=
 transplant=
 rebase=
 bookmarks=
-progress=
+#progress=
 schemes=
 
-patchshelter = /home/nicdumz/opensource/patchshelter/
+#patchshelter = /home/nicdumz/opensource/patchshelter/
 
 [inotify]
 log = /tmp/inotify.log
