@@ -14,9 +14,10 @@ hi Question term=standout ctermfg=2 gui=bold guifg=SeaGreen
 " Sober left line numbers
 hi LineNr term=underline ctermfg=242 guifg=Red3
 " Pimp the splits/statuses
-hi StatusLine term=bold,reverse cterm=bold ctermbg=166 ctermfg=7 guifg=Gray80 guibg=#c00058
-hi StatusLineNC term=reverse cterm=none ctermfg=24 ctermbg=black gui=bold guifg=PeachPuff guibg=Gray45
-hi VertSplit term=reverse cterm=none ctermbg=24 ctermfg=black gui=bold guifg=White guibg=Gray45
+"hi StatusLine cterm=bold ctermbg=166 ctermfg=7
+"hi StatusLineNC cterm=none ctermfg=24 ctermbg=black
+hi StatusLine cterm=none ctermbg=none ctermfg=242
+hi VertSplit cterm=none ctermbg=none ctermfg=242
 
 " Better (blue) comments
 hi Comment ctermfg=4

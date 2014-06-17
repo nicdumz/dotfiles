@@ -32,15 +32,22 @@ set rtp +=/home/ndumazet/.vim/bundle/vundle
 call vundle#begin("/home/ndumazet/.vim/bundle")
 Plugin 'gmarik/vundle'
 
+Plugin 'tomasr/molokai'
+let g:rehash256 = 1 " have the gui theme as close as possible as cterm
+Plugin 'bling/vim-airline'
+" default separators look terrible.
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
 Plugin 'scrooloose/syntastic'
-set statusline=%f\ %h%m%r%=%c,%l/%L\ %P\ %#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}%*
+" airline may (?) take care of this for us.
+"set statusline=%f\ %h%m%r%=%c,%l/%L\ %P\ %#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}%*
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_check_on_open=1
 
-Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
@@ -76,6 +83,8 @@ set hls
 set scrolloff=5
 
 set foldmethod=marker
+" Nicer vertical split
+set fillchars=vert:┃,fold:-
 
 " unify clipboards
 set clipboard=unnamed
