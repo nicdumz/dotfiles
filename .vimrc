@@ -38,6 +38,8 @@ Plugin 'bling/vim-airline'
 " default separators look terrible.
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+" blank the fileencoding / fileformat part
+let g:airline_section_y=''
 
 Plugin 'scrooloose/syntastic'
 " airline may (?) take care of this for us.
@@ -72,28 +74,30 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set smarttab
-set number
-set mouse=a
 set autoindent
-set laststatus=2
-set ruler
-set hls
 
-" 5 lines around the cursor
-set scrolloff=5
+set number " Show line numbers
+set mouse=a
+set laststatus=2 " Always show statusline.
+
+set ruler " Show curser position on statusline.
+set scrolloff=5 " 5 lines around the cursor
+
+set formatoptions+=j " Remove comment characters and others on J
+set history=1000 " Be modern
 
 set foldmethod=marker
-" Nicer vertical split
-set fillchars=vert:┃,fold:-
+set fillchars=vert:┃,fold:- " Nicer vertical split
 
-" unify clipboards
-set clipboard=unnamed
+set clipboard=unnamed " unify clipboards
 
-" completion on commandline
+" completions
 set wildmode=longest,list,full
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set wildmenu
 
+" search patterns
+set hls
 " move in file when typing /pattern
 set incsearch
 " CTRL-h to toggle search higlight
