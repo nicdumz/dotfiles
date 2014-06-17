@@ -35,9 +35,10 @@ Plugin 'gmarik/vundle'
 Plugin 'tomasr/molokai'
 let g:rehash256 = 1 " have the gui theme as close as possible as cterm
 Plugin 'bling/vim-airline'
-" default separators look terrible.
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+" This requires fancy patched fonts, e.g. DejaVu Sans Mono for Powerline (10)
+" See https://github.com/Lokaltog/powerline-fonts
+" The gnome terminal and/or .Xresources must be configured for it.
+let g:airline_powerline_fonts = 1
 " blank the fileencoding / fileformat part
 let g:airline_section_y=''
 
