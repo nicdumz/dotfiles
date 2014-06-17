@@ -82,6 +82,7 @@ set clipboard=unnamed
 
 " completion on commandline
 set wildmode=longest,list,full
+set wildignore=*.swp,*.bak,*.pyc,*.class
 set wildmenu
 
 " move in file when typing /pattern
@@ -89,8 +90,6 @@ set incsearch
 " CTRL-h to toggle search higlight
 map <C-H> :se invhls<cr>
 
-" strange vulnerability
-set modelines=0
 " usually we're fast, but with urxvt color it's not always obvious
 set ttyfast
 
@@ -104,21 +103,13 @@ set nocursorcolumn
 set shortmess=a
 set cmdheight=2
 
-"{{{ Whitespace and long lines
+" Whitespace and long lines
 if v:version >= 703
     let &colorcolumn=join(range(81,400),",")
-else
-    "123456789098732345678732356765434567865432345678987654345678767676767654345676544345345
-    au BufWinEnter * if &textwidth >4
-    \ | let w:m2=matchadd('ErrorMsg', printf('\%%>%dv.\+', 80), -1)
-    \ | endif
 endif
-
-" Show trailing whitepace and spaces before a tab:         
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
-"}}}
-
+set list
+set listchars=tab:»·,trail:·,extends:#,nbsp:·  " Show me tabs and trailing
+                                               " whitespace
 
 augroup filetypedetect
     autocmd BufRead,BufNewFile */*localhost*.js* setf javascript
