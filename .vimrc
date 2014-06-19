@@ -120,6 +120,7 @@ set cmdheight=2
 " Whitespace and long lines
 if v:version >= 703
     let &colorcolumn=join(range(81,400),",")
+    autocmd FileType qf setlocal colorcolumn=
 endif
 set list
 set listchars=tab:»·,trail:·,extends:#,nbsp:·  " Show me tabs and trailing
