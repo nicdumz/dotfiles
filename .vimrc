@@ -26,8 +26,7 @@ set encoding=utf-8
 let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
 let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '/home/ndumazet/.vim'
 
-
-" Magic auto-install, but only on unix.  (Auto-install on windows is a pain)
+" Magic auto-install, but only on Unix.  (Auto-install on Windows is a pain)
 let s:iCanHazVundle=1
 let s:vundle_readme=expand(s:vimDir . '/bundle/vundle/README.md')
 if !filereadable(s:vundle_readme) && !s:win_shell
@@ -54,9 +53,6 @@ set gfn=DejaVu_Sans_Mono_for_Powerline:h10:cANSI
 let g:airline_section_y=''
 
 Plugin 'scrooloose/syntastic'
-" airline may (?) take care of this for us.
-"set statusline=%f\ %h%m%r%=%c,%l/%L\ %P\ %#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}%*
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_always_populate_loc_list=1
@@ -193,3 +189,6 @@ function! MySmartBraceComplete()
     normal i}
   endif
 endfunction
+
+" Maximize gvim on startup.
+au GUIEnter * simalt ~x
