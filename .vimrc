@@ -18,14 +18,14 @@ set nocompatible
 set nomodeline
 
 " Magic auto-install
-let iCanHazVundle=1
-let vundle_readme=expand('/home/ndumazet/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
+let s:iCanHazVundle=1
+let s:vundle_readme=expand('/home/ndumazet/.vim/bundle/vundle/README.md')
+if !filereadable(s:vundle_readme)
   echo "Installing Vundle.."
   echo ""
   silent !mkdir -p /home/ndumazet/.vim/bundle
   silent !git clone https://github.com/gmarik/vundle /home/ndumazet/.vim/bundle/vundle
-  let iCanHazVundle=0
+  let s:iCanHazVundle=0
 endif
 
 set rtp +=/home/ndumazet/.vim/bundle/vundle
@@ -60,7 +60,7 @@ Plugin 'vim-scripts/AfterColors.vim'
 "Plugin 'vim-scripts/vcscommand.vim'
 call vundle#end()
 
-if iCanHazVundle == 0
+if s:iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
   echo ""
   :PluginInstall
