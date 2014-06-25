@@ -3,6 +3,7 @@ username = Nicolas Dumazet <nicdumz.commits@gmail.com>
 editor = gvim -v -c 'set ft=hgs'
 merge = vimdiff
 ssh = ssh -C
+portablefilenames = abort
 
 [smtp]
 host = smtp.gmail.com

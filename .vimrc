@@ -9,6 +9,10 @@
 " if filereadable("/home/ndumazet/.vimrc.after")
 "   source /home/ndumazet/.vimrc.after
 " endif
+"
+" Windows: Add this as a $HOME\_vimrc file:
+" let &runtimepath .= 'D:\dotfiles\.vim'
+" source D:\dotfiles\.vimrc
 
 set t_Co=256
 syntax off
@@ -16,20 +20,25 @@ filetype off
 set nocompatible
 " mutiple vulnerabilities.
 set nomodeline
+" Some locales are silly.
+set encoding=utf-8
 
-" Magic auto-install
-let iCanHazVundle=1
-let vundle_readme=expand('/home/ndumazet/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
+let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
+let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '/home/ndumazet/.vim'
+
+" Magic auto-install, but only on Unix.  (Auto-install on Windows is a pain)
+let s:iCanHazVundle=1
+let s:vundle_readme=expand(s:vimDir . '/bundle/vundle/README.md')
+if !filereadable(s:vundle_readme) && !s:win_shell
   echo "Installing Vundle.."
   echo ""
   silent !mkdir -p /home/ndumazet/.vim/bundle
   silent !git clone https://github.com/gmarik/vundle /home/ndumazet/.vim/bundle/vundle
-  let iCanHazVundle=0
+  let s:iCanHazVundle=0
 endif
 
-set rtp +=/home/ndumazet/.vim/bundle/vundle
-call vundle#begin("/home/ndumazet/.vim/bundle")
+let &runtimepath .= ',' . expand(s:vimDir . '/bundle/vundle')
+call vundle#begin(expand(s:vimDir . '/bundle'))
 Plugin 'gmarik/vundle'
 
 Plugin 'tomasr/molokai'
@@ -39,13 +48,11 @@ Plugin 'bling/vim-airline'
 " See https://github.com/Lokaltog/powerline-fonts
 " The gnome terminal and/or .Xresources must be configured for it.
 let g:airline_powerline_fonts = 1
+set gfn=DejaVu_Sans_Mono_for_Powerline:h10:cANSI
 " blank the fileencoding / fileformat part
 let g:airline_section_y = ''
 
 Plugin 'scrooloose/syntastic'
-" airline may (?) take care of this for us.
-"set statusline=%f\ %h%m%r%=%c,%l/%L\ %P\ %#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}%*
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_always_populate_loc_list = 1
@@ -61,7 +68,7 @@ Plugin 'vim-scripts/AfterColors.vim'
 "Plugin 'vim-scripts/vcscommand.vim'
 call vundle#end()
 
-if iCanHazVundle == 0
+if s:iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
   echo ""
   :PluginInstall
@@ -169,7 +176,7 @@ function! SetupDiffFunc()
     map q :q<CR>
   endif
 endfunction
-command SetupDiff call SetupDiffFunc()
+command! SetupDiff call SetupDiffFunc()
 
 " If we have several files, open the first three ones in vert splits
 autocmd VimEnter * nested :vert ba 3
@@ -183,3 +190,6 @@ function! MySmartBraceComplete()
     normal i}
   endif
 endfunction
+
+" Maximize gvim on startup.
+au GUIEnter * simalt ~x
