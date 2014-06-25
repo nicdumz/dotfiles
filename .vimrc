@@ -40,16 +40,17 @@ Plugin 'bling/vim-airline'
 " The gnome terminal and/or .Xresources must be configured for it.
 let g:airline_powerline_fonts = 1
 " blank the fileencoding / fileformat part
-let g:airline_section_y=''
+let g:airline_section_y = ''
 
 Plugin 'scrooloose/syntastic'
 " airline may (?) take care of this for us.
 "set statusline=%f\ %h%m%r%=%c,%l/%L\ %P\ %#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}%*
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_check_on_open=1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_aggregate_errors = 1
 
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
