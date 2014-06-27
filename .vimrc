@@ -192,4 +192,6 @@ function! MySmartBraceComplete()
 endfunction
 
 " Maximize gvim on startup.
-au GUIEnter * simalt ~x
+if s:win_shell
+  au GUIEnter * simalt ~x
+endif
