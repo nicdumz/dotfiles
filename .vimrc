@@ -122,7 +122,7 @@ set novisualbell
 set nocursorline
 set nocursorcolumn
 
-set shortmess=a
+set shortmess=aToOc
 set cmdheight=2
 
 " Whitespace and long lines
