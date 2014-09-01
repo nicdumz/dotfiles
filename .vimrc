@@ -48,7 +48,7 @@ Plugin 'bling/vim-airline'
 " See https://github.com/Lokaltog/powerline-fonts
 " The gnome terminal and/or .Xresources must be configured for it.
 let g:airline_powerline_fonts = 1
-set gfn=DejaVu_Sans_Mono_for_Powerline:h10:cANSI
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 " blank the fileencoding / fileformat part
 let g:airline_section_y = ''
 
