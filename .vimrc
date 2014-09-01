@@ -63,6 +63,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/AfterColors.vim'
 " Some vcs integration
 "Plugin 'vim-scripts/vcscommand.vim'
@@ -124,6 +125,7 @@ set nocursorcolumn
 
 set shortmess=aToOc
 set cmdheight=2
+set noswapfile
 
 " Whitespace and long lines
 if v:version >= 703
@@ -179,7 +181,8 @@ endfunction
 command! SetupDiff call SetupDiffFunc()
 
 " If we have several files, open the first three ones in vert splits
-autocmd VimEnter * nested :vert ba 3
+" vim -O3 does the same things
+" autocmd VimEnter * nested :vert ba 3
 
 " brace completion
 inoremap {<CR> {<CR><Esc>:call MySmartBraceComplete()<CR>O
