@@ -1,13 +1,13 @@
-" "Add this as a /home/ndumazet/.vimrc file:
+" "Add this as a ~/.vimrc file:
 " " Generic settings are supposed to be checked out in .../dotfiles:
-" if filereadable("/home/ndumazet/dotfiles/.vimrc")
-"   set rtp +=/home/ndumazet/dotfiles/.vim
-"   source /home/ndumazet/dotfiles/.vimrc
+" if filereadable(expand("~/dotfiles/.vimrc"))
+"   set rtp +=~/dotfiles/.vim
+"   source ~/dotfiles/.vimrc
 " endif
 "
 " " Machine / Google-specific settings are there:
-" if filereadable("/home/ndumazet/.vimrc.after")
-"   source /home/ndumazet/.vimrc.after
+" if filereadable(expand("~/.vimrc.after"))
+"   source ~/.vimrc.after
 " endif
 "
 " Windows: Add this as a $HOME\_vimrc file:
@@ -24,7 +24,7 @@ set nomodeline
 set encoding=utf-8
 
 let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
-let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '/home/ndumazet/.vim'
+let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '~/.vim'
 
 " Magic auto-install, but only on Unix.  (Auto-install on Windows is a pain)
 let s:iCanHazVundle=1
@@ -32,8 +32,8 @@ let s:vundle_readme=expand(s:vimDir . '/bundle/vundle/README.md')
 if !filereadable(s:vundle_readme) && !s:win_shell
   echo "Installing Vundle.."
   echo ""
-  silent !mkdir -p /home/ndumazet/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle /home/ndumazet/.vim/bundle/vundle
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
   let s:iCanHazVundle=0
 endif
 
