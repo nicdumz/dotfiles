@@ -1,0 +1,18 @@
+include ignores.prf
+
+# Have ssh do compression.
+sshargs = -C
+
+# Synchronize beginning at $HOME (and everything underneath it).
+path = .
+
+# The lists of directories to synchronize.  These are from the viewpoint of the
+# machine you will run unison on.  I usually run unison on my desktop to
+# initiate the synchronization, so this has an ssh path to my other machines.
+root = # /redacted/FIXME/ndumazet/ # $HOME, essentially
+root = # ssh://redacted.FIXME.dummy.internal.dns/.
+
+# Don't let unison ask me any questions.  This is essential for
+# running as a cron job.  When debugging, or when you need interaction,
+# you add -silent=false to the unison command line to override this.
+silent = true
