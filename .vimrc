@@ -48,7 +48,8 @@ Plugin 'bling/vim-airline'
 " See https://github.com/Lokaltog/powerline-fonts
 " The gnome terminal and/or .Xresources must be configured for it.
 let g:airline_powerline_fonts = 1
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+" Different font names for different OSes. :h11 is for MacOS.
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10,DejaVu\ Sans\ Mono\ for\ Powerline:h11
 " blank the fileencoding / fileformat part
 let g:airline_section_y = ''
 
@@ -93,7 +94,9 @@ set laststatus=2 " Always show statusline.
 set ruler " Show curser position on statusline.
 set scrolloff=5 " 5 lines around the cursor
 
-set formatoptions+=j " Remove comment characters and others on J
+if (v:version > 703 || v:version == 703 && has("patch541"))
+    set formatoptions+=j " Remove comment characters and others on J
+endif
 set history=1000 " Be modern
 
 set foldmethod=marker
@@ -123,7 +126,13 @@ set novisualbell
 set nocursorline
 set nocursorcolumn
 
-set shortmess=aToOc
+" c was introduced in 7.04
+if v:version >= 704
+    set shortmess=aToOc
+else
+    set shortmess=aToO
+endif
+
 set cmdheight=2
 set noswapfile
 
