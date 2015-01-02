@@ -1,0 +1,2 @@
+# Skeleton that only imports the versioned copy.
+%include ~/dotfiles/.hgrc
