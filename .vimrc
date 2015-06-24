@@ -191,3 +191,6 @@ endfunction
 if s:win_shell
   au GUIEnter * simalt ~x
 endif
+
+" No damn bell in gvim
+au GUIEnter * set visualbell t_vb=
