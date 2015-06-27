@@ -1,7 +1,7 @@
 " Generic settings are supposed to be versioned in ~/dotfiles:
-if filereadable(expand("~/dotfiles/.vimrc"))
-  set rtp +=~/dotfiles/.vim
-  source ~/dotfiles/.vimrc
+if filereadable(expand("__DOTFILESDIR__/.vimrc"))
+  set rtp +=__DOTFILESDIR__/.vim
+  source __DOTFILESDIR__/.vimrc
 endif
 
 " Machine / Google-specific settings are there:

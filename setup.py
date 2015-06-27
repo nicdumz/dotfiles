@@ -8,6 +8,8 @@ import os
 import shutil
 
 files = ['.gitconfig', '.hgrc', '.vimrc']
+# Replace this in skeletons by dotfiles repository path.
+magic_token = '__DOTFILESDIR__'
 
 destination = os.path.expanduser('~')
 source = os.path.dirname(os.path.realpath(__file__))
@@ -24,5 +26,10 @@ for f in files:
 for f in files:
     full_source = os.path.join(source, 'skel' + f)
     full_destination = os.path.join(destination, f)
-    shutil.copyfile(full_source, full_destination)
+    contents = ''
+    with open(full_source, 'r') as handle:
+        contents = handle.read()
+    contents = contents.replace(magic_token, source)
+    with open(full_destination, 'w') as handle:
+        handle.write(contents)
     shutil.copymode(full_source, full_destination)
