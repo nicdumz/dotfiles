@@ -36,7 +36,7 @@ libretweet = bb+ssh://nicdumz/libretweet/
 patchshelter = bb+ssh://nicdumz/patchshelter/
 
 hgtest = ssh://hgtester@ry4an.org:2222/
-webfaction = ssh://webfaction/tmp/buildwebsite
+webfaction = ssh://nicdumz@web245.webfaction.com/tmp/buildwebsite
 
 [extensions]
 graphlog =
