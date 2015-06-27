@@ -26,6 +26,8 @@ call vundle#begin(expand(s:vimDir . '/bundle'))
 Plugin 'gmarik/vundle'
 
 Plugin 'tomasr/molokai'
+let base16colorspace=256
+Plugin 'chriskempson/base16-vim'
 let g:rehash256 = 1 " have the gui theme as close as possible as cterm
 Plugin 'bling/vim-airline'
 " This requires fancy patched fonts, e.g. DejaVu Sans Mono for Powerline (10)
@@ -63,7 +65,10 @@ endif
 syntax on
 filetype plugin indent on
 
+set background=dark
 colorscheme molokai
+" colorscheme base16-flat
+" colorscheme base16-solarized
 
 set expandtab
 set tabstop=4
