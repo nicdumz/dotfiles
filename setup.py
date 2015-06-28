@@ -7,7 +7,7 @@
 import os
 import shutil
 
-files = ['.gitconfig', '.hgrc', '.vimrc']
+files = ['.gitconfig', '.hgrc', '.tmux.conf', '.vimrc']
 # Replace this in skeletons by dotfiles repository path.
 magic_token = '__DOTFILESDIR__'
 
