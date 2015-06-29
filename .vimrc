@@ -64,9 +64,20 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+" Support for color fixes in .vim/after
 Plugin 'vim-scripts/AfterColors.vim'
+" Snippets!
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsListSnippets = "<c-l>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " Some vcs integration
 "Plugin 'vim-scripts/vcscommand.vim'
+" Open correctly files: vim filename:103
+Plugin 'paulhybryant/file-line'
+" Export highlighted html to pastebin.
+Plugin 'google/vim-syncopate'
 call vundle#end()
 
 if s:iCanHazVundle == 0
@@ -93,7 +104,7 @@ set laststatus=2 " Always show statusline.
 set ruler " Show curser position on statusline.
 set scrolloff=5 " 5 lines around the cursor
 
-set formatoptions+=j " Remove comment characters and others on J
+set formatoptions+=rj " Remove comment characters and others on J
 set history=1000 " Be modern
 
 set foldmethod=marker
@@ -126,6 +137,9 @@ set nocursorcolumn
 set shortmess=aToOc
 set cmdheight=2
 set noswapfile
+
+set hidden
+set backspace=indent,eol,start
 
 " Whitespace and long lines
 if v:version >= 703
@@ -198,3 +212,6 @@ endfunction
 if s:win_shell
   au GUIEnter * simalt ~x
 endif
+
+" map OSC52 copy-paste (from osc52.vim plugin)
+vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
