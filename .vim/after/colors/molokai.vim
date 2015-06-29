@@ -1,6 +1,6 @@
 hi Normal ctermfg=07 ctermbg=00
 " Better background past 80 characters
-hi ColorColumn ctermbg=08
+hi ColorColumn ctermbg=18
 
 hi DiffText ctermbg=208
 hi DiffChange ctermbg=241
