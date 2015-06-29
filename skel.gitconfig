@@ -1,0 +1,3 @@
+# Skeleton that only imports the versioned copy.
+[include]
+path = __DOTFILESDIR__/.gitconfig

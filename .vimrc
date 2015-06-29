@@ -42,13 +42,16 @@ call vundle#begin(expand(s:vimDir . '/bundle'))
 Plugin 'gmarik/vundle'
 
 Plugin 'tomasr/molokai'
+let base16colorspace=256
+Plugin 'chriskempson/base16-vim'
 let g:rehash256 = 1 " have the gui theme as close as possible as cterm
 Plugin 'bling/vim-airline'
 " This requires fancy patched fonts, e.g. DejaVu Sans Mono for Powerline (10)
 " See https://github.com/Lokaltog/powerline-fonts
 " The gnome terminal and/or .Xresources must be configured for it.
 let g:airline_powerline_fonts = 1
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+" Different font names for different OSes. :h11 is for MacOS.
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10,DejaVu\ Sans\ Mono\ for\ Powerline:h11
 " blank the fileencoding / fileformat part
 let g:airline_section_y = ''
 
@@ -89,7 +92,10 @@ endif
 syntax on
 filetype plugin indent on
 
+set background=dark
 colorscheme molokai
+" colorscheme base16-flat
+" colorscheme base16-solarized
 
 set expandtab
 set tabstop=4
@@ -104,7 +110,9 @@ set laststatus=2 " Always show statusline.
 set ruler " Show curser position on statusline.
 set scrolloff=5 " 5 lines around the cursor
 
-set formatoptions+=rj " Remove comment characters and others on J
+if (v:version > 703 || v:version == 703 && has("patch541"))
+    set formatoptions+=rj " Remove comment characters and others on J
+endif
 set history=1000 " Be modern
 
 set foldmethod=marker
@@ -134,7 +142,13 @@ set novisualbell
 set nocursorline
 set nocursorcolumn
 
-set shortmess=aToOc
+" c was introduced in 7.04
+if v:version >= 704
+    set shortmess=aToOc
+else
+    set shortmess=aToO
+endif
+
 set cmdheight=2
 set noswapfile
 
@@ -215,3 +229,6 @@ endif
 
 " map OSC52 copy-paste (from osc52.vim plugin)
 vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
+
+" No damn bell in gvim
+au GUIEnter * set visualbell t_vb=

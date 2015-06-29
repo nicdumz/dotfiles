@@ -1,6 +1,6 @@
 [ui]
 username = Nicolas Dumazet <nicdumz.commits@gmail.com>
-editor = gvim -v -c 'set ft=hgs'
+editor = vim -v -c 'set ft=hgs'
 merge = vimdiff
 ssh = ssh -C
 portablefilenames = abort
@@ -36,7 +36,7 @@ libretweet = bb+ssh://nicdumz/libretweet/
 patchshelter = bb+ssh://nicdumz/patchshelter/
 
 hgtest = ssh://hgtester@ry4an.org:2222/
-webfaction = ssh://webfaction/tmp/buildwebsite
+webfaction = ssh://nicdumz@web245.webfaction.com/tmp/buildwebsite
 
 [extensions]
 graphlog =
