@@ -6,3 +6,13 @@
 [github]
 	user = nicdumz
 	token = XXX (good try)
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[alias]
+    ci = commit
+    co = checkout
+    st = status
+    glog = log --graph --decorate --branches=*
+    rdiff = diff --relative --no-prefix
