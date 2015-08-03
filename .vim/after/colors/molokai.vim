@@ -2,10 +2,10 @@ hi Normal ctermfg=07 ctermbg=00
 " Better background past 80 characters
 hi ColorColumn ctermbg=18
 
-hi DiffText ctermbg=208
+hi DiffText ctermbg=17
 hi DiffChange ctermbg=241
-hi DiffAdd ctermbg=107
-hi DiffDelete ctermbg=88
+hi DiffAdd ctermbg=22
+hi DiffDelete ctermbg=52
 
 " Don't kill my eyes on compile errors.
 "hi SpellBad cterm=undercurl ctermfg=190 ctermbg=NONE
@@ -27,3 +27,6 @@ hi Todo ctermbg=red
 " red constants/strings
 hi Constant cterm=bold ctermfg=1
 hi String cterm=none ctermfg=1
+
+hi FoldColumn ctermbg=none
+hi Folded ctermbg=18 ctermfg=8

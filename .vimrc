@@ -65,6 +65,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 Plugin 'paulhybryant/file-line'
 " Export highlighted html to pastebin.
 Plugin 'google/vim-syncopate'
+" See all 256 colors with :XtermColorTable
+Plugin 'guns/xterm-color-table.vim'
 call vundle#end()
 
 if s:iCanHazVundle == 0
@@ -78,7 +80,7 @@ filetype plugin indent on
 
 set background=dark
 colorscheme molokai
-" colorscheme base16-flat
+au GUIEnter * colorscheme base16-flat
 " colorscheme base16-solarized
 
 set expandtab
