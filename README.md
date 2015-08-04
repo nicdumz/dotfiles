@@ -1,4 +1,4 @@
-![Logo](logo.png "Logo")
+![Logo](logo.png "Logo" =200x)
 
 # Nicolas' dotfiles #
 
