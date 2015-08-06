@@ -1,35 +1,29 @@
-# Helper to setup small redirects to versioned copies of config:
-# Assuming a set of versioned skel.foo files, this will create copy skel.foo to
-# ~/.foo
-#
-# Most skeleton files will only 'import' a versioned copy from the correct
-# directory.
+# Helper to setup small redirects to versioned copies of config.
 import os
-import shutil
 
-files = ['.gitconfig', '.hgrc', '.tmux.conf', '.vimrc']
-# Replace this in skeletons by dotfiles repository path.
-magic_token = '__DOTFILESDIR__'
+files = ['.bash_profile', '.gitconfig', '.hgrc', '.tmux.conf', '.vimrc']
 
 destination = os.path.expanduser('~')
 source = os.path.dirname(os.path.realpath(__file__))
 
 for f in files:
-    full = os.path.join(destination, f)
-    if os.path.exists(full):
-        raise RuntimeError("%s already exists, can't create skeleton there." % full)
+  full = os.path.join(source, f)
+  assert os.path.exists(full), "File %s should exist" % full
 
+todo = []
 for f in files:
-    full = os.path.join(source, 'skel' + f)
-    assert os.path.exists(full), "Skeleton %s should exist" % full
+  full = os.path.join(destination, f)
+  if os.path.exists(full):
+    try:
+      path =  os.readlink(full)
+      if path == os.path.join(source, f):
+        continue
+    except:
+      raise RuntimeError("%s already exist and is not a link" % full)
+    os.unlink(full)
+  todo.append(f)
 
-for f in files:
-    full_source = os.path.join(source, 'skel' + f)
-    full_destination = os.path.join(destination, f)
-    contents = ''
-    with open(full_source, 'r') as handle:
-        contents = handle.read()
-    contents = contents.replace(magic_token, source)
-    with open(full_destination, 'w') as handle:
-        handle.write(contents)
-    shutil.copymode(full_source, full_destination)
+for f in todo:
+  full_source = os.path.join(source, f)
+  full_destination = os.path.join(destination, f)
+  os.symlink(full_source, full_destination)

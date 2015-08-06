@@ -1,3 +1,9 @@
+" Generic settings are supposed to be versioned in ~/dotfiles:
+if filereadable(expand("~/.dotfiles/.vimrc"))
+  " TODO: fix this to be cleaner
+  set rtp +=~/.dotfiles/.vim
+endif
+
 set t_Co=256
 syntax off
 filetype off
@@ -218,3 +224,8 @@ vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
 
 " No damn bell in gvim
 au GUIEnter * set visualbell t_vb=
+
+" And last, machine / Google-specific settings are there:
+if filereadable(expand("~/.vimrc.after"))
+  source ~/.vimrc.after
+endif
