@@ -7,9 +7,12 @@ fi
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/.local/bin
 
 export PATH
 unset USERNAME
+
+# color for ls and friends
+export CLICOLOR=true
 
 source ".dotfiles/subrepos/base16-shell/base16-flat.dark.sh"
