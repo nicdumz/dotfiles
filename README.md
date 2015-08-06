@@ -21,4 +21,5 @@ https://github.com/chriskempson/base16-gnome-terminal is nice and easy for gnome
 
 # Included as subrepos
 
-- https://github.com/chriskempson/base16-shell.git
+- Setup colors for bash: https://github.com/chriskempson/base16-shell.git
+- Custom Powerline fonts for vim status line: https://github.com/powerline/fonts.git
