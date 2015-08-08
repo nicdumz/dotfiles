@@ -3,6 +3,8 @@
 [user]
 	name = Nicolas Dumazet
 	email = nicdumz.commits@gmail.com
+[core]
+    editor = vim
 [github]
 	user = nicdumz
 	token = XXX (good try)
@@ -16,3 +18,5 @@
     st = status
     glog = log --graph --decorate --branches=*
     rdiff = diff --relative --no-prefix
+[push]
+	default = matching
