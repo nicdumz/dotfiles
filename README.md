@@ -7,7 +7,7 @@ Versioning together my dotfiles. Some of them may be useful to you, but I doubt 
 # Installation
 
     hg clone ssh://hg@bitbucket.org/nicdumz/dotfiles ~/.dotfiles
-    python ~/.dotfiles/setup.py
+    ~/.dotfiles/install.sh
 
 # Notes
 
@@ -22,4 +22,5 @@ https://github.com/chriskempson/base16-gnome-terminal is nice and easy for gnome
 # Included as subrepos
 
 - Setup colors for bash: https://github.com/chriskempson/base16-shell.git
-- Custom Powerline fonts for vim status line: https://github.com/powerline/fonts.git
+- Custom [Powerline fonts](https://github.com/powerline/fonts.git) for vim status line:
+- I'm using [dotbot](https://github.com/anishathalye/dotbot) for dotfiles management/setup.

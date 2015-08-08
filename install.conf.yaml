@@ -1,0 +1,14 @@
+[
+{
+    "clean":["~"]
+},
+{
+    "link": {
+        "~/.bash_profile": ".bash_profile",
+        "~/.gitconfig": ".gitconfig",
+        "~/.hgrc": ".hgrc",
+        "~/.tmux.conf": ".tmux.conf",
+        "~/.vimrc": ".vimrc",
+    }
+}
+]
