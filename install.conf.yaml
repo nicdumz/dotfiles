@@ -4,6 +4,9 @@
     ~/.vim/bundle/Vundle.vim:
         create: true
         path: subrepos/vim-vundle/
+    ~/.vim/dotfiles-symlink:
+        create: true
+        path: .vim/
     ~/.bash_profile: .bash_profile
     ~/.gitconfig: .gitconfig
     ~/.hgrc: .hgrc

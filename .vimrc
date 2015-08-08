@@ -1,8 +1,5 @@
-" Generic settings are supposed to be versioned in ~/dotfiles:
-if filereadable(expand("~/.dotfiles/.vimrc"))
-  " TODO: fix this to be cleaner
-  set rtp +=~/.dotfiles/.vim
-endif
+" Versioned .vim/ is symlinked to ~/.vim/dotfiles-symlink
+set rtp +=~/.vim/dotfiles-symlink
 
 set t_Co=256
 syntax off
