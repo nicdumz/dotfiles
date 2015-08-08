@@ -12,6 +12,7 @@
     ~/.hgrc: .hgrc
     ~/.tmux.conf: .tmux.conf
     ~/.vimrc: .vimrc
+    ~/.Xresources: .Xresources
 
 - shell:
   - [vim +PluginInstall +qall, Installing vim plugins]
