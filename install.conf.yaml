@@ -11,4 +11,4 @@
     ~/.vimrc: .vimrc
 
 - shell:
-  - vim +PluginInstall +qall
+  - [vim +PluginInstall +qall, Installing vim plugins]
