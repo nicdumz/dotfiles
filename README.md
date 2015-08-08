@@ -22,5 +22,6 @@ https://github.com/chriskempson/base16-gnome-terminal is nice and easy for gnome
 # Included as subrepos
 
 - Setup colors for bash: https://github.com/chriskempson/base16-shell.git
-- Custom [Powerline fonts](https://github.com/powerline/fonts.git) for vim status line:
+- Custom [Powerline fonts](https://github.com/powerline/fonts.git) for vim status line.
 - I'm using [dotbot](https://github.com/anishathalye/dotbot) for dotfiles management/setup.
+- [Vundle](https://github.com/gmarik/vundle) for vim plugin management.
