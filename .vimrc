@@ -16,20 +16,9 @@ set encoding=utf-8
 let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
 let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '~/.vim'
 
-" Magic auto-install, but only on Unix.  (Auto-install on Windows is a pain)
-let s:iCanHazVundle=1
-let s:vundle_readme=expand(s:vimDir . '/bundle/vundle/README.md')
-if !filereadable(s:vundle_readme) && !s:win_shell
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let s:iCanHazVundle=0
-endif
-
-let &runtimepath .= ',' . expand(s:vimDir . '/bundle/vundle')
+let &runtimepath .= ',' . expand(s:vimDir . '/bundle/Vundle.vim')
 call vundle#begin(expand(s:vimDir . '/bundle'))
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tomasr/molokai'
 let base16colorspace=256
@@ -60,7 +49,9 @@ Plugin 'tpope/vim-unimpaired'
 " Support for color fixes in .vim/after
 Plugin 'vim-scripts/AfterColors.vim'
 " Snippets!
-Plugin 'SirVer/ultisnips'
+if v:version >= 704
+    Plugin 'SirVer/ultisnips'
+endif
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsListSnippets = "<c-l>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
@@ -70,22 +61,20 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " Open correctly files: vim filename:103
 Plugin 'paulhybryant/file-line'
 " Export highlighted html to pastebin.
+Plugin 'google/maktaba'
 Plugin 'google/vim-syncopate'
 " See all 256 colors with :XtermColorTable
 Plugin 'guns/xterm-color-table.vim'
 call vundle#end()
 
-if s:iCanHazVundle == 0
-  echo "Installing Bundles, please ignore key map error messages"
-  echo ""
-  :PluginInstall
-endif
-
 syntax on
 filetype plugin indent on
 
 set background=dark
-colorscheme molokai
+if !empty(globpath(&rtp, 'colors/molokai.vim'))
+    " Not here during first installation
+    colorscheme molokai
+endif
 au GUIEnter * colorscheme base16-flat
 " colorscheme base16-solarized
 

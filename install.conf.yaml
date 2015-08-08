@@ -1,14 +1,14 @@
-[
-{
-    "clean":["~"]
-},
-{
-    "link": {
-        "~/.bash_profile": ".bash_profile",
-        "~/.gitconfig": ".gitconfig",
-        "~/.hgrc": ".hgrc",
-        "~/.tmux.conf": ".tmux.conf",
-        "~/.vimrc": ".vimrc",
-    }
-}
-]
+- clean: ['~']
+
+- link:
+    ~/.vim/bundle/Vundle.vim:
+        create: true
+        path: subrepos/vim-vundle/
+    ~/.bash_profile: .bash_profile
+    ~/.gitconfig: .gitconfig
+    ~/.hgrc: .hgrc
+    ~/.tmux.conf: .tmux.conf
+    ~/.vimrc: .vimrc
+
+- shell:
+  - vim +PluginInstall +qall

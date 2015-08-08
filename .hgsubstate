@@ -1,3 +1,4 @@
 5acf5629a8bd186399a378c37c10507675525514 subrepos/base16-shell
 4381c4cabbeb870f3fe18da4e7bbdee9a39c55fd subrepos/dotbot
 c4262ba2d4b5ec25c25607e5a802b10f42fca3b4 subrepos/powerline-fonts
+cfd3b2d388a8c2e9903d7a9d80a65539aabfe933 subrepos/vim-vundle
