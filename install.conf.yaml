@@ -16,3 +16,4 @@
 
 - shell:
   - [vim +PluginInstall +qall, Installing vim plugins]
+  - [./subrepos/fontinstall/fontinstall.sh subrepos/powerline-fonts/DejaVuSansMono/*.ttf, Installing fonts]
