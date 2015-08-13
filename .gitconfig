@@ -1,13 +1,13 @@
 # chmod 600 this buddy!
 
 [user]
-	name = Nicolas Dumazet
-	email = nicdumz.commits@gmail.com
+    name = Nicolas Dumazet
+    email = nicdumz.commits@gmail.com
 [core]
     editor = vim
 [github]
-	user = nicdumz
-	token = XXX (good try)
+    user = nicdumz
+    token = XXX (good try)
 [color]
     diff = auto
     status = auto
@@ -19,4 +19,4 @@
     glog = log --graph --decorate --branches=*
     rdiff = diff --relative --no-prefix
 [push]
-	default = matching
+    default = matching
