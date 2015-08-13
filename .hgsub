@@ -1,5 +1,6 @@
 subrepos/base16-shell = [git]https://github.com/chriskempson/base16-shell.git
 subrepos/dotbot = [git]https://github.com/anishathalye/dotbot
 subrepos/fontinstall = [git]git@bitbucket.org:nicdumz/fontinstall.git
+subrepos/gitignore-boilerplates = [git]https://github.com/simonwhitaker/gibo.git
 subrepos/powerline-fonts = [git]https://github.com/powerline/fonts.git
 subrepos/vim-vundle = [git]https://github.com/gmarik/vundle

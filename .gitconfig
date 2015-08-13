@@ -5,6 +5,7 @@
     email = nicdumz.commits@gmail.com
 [core]
     editor = vim
+    excludesfiles = ~/.gitignore
 [github]
     user = nicdumz
     token = XXX (good try)
