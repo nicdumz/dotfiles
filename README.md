@@ -25,3 +25,5 @@ https://github.com/chriskempson/base16-gnome-terminal is nice and easy for gnome
 - Custom [Powerline fonts](https://github.com/powerline/fonts.git) for vim status line.
 - I'm using [dotbot](https://github.com/anishathalye/dotbot) for dotfiles management/setup.
 - [Vundle](https://github.com/gmarik/vundle) for vim plugin management.
+- [gibo](https://github.com/simonwhitaker/gibo) to generate .gitconfig/hgignore files.
+- [fontinstall](https://bitbucket.org/nicdumz/fontinstall) to easily install fonts accross systems.
