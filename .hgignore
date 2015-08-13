@@ -1,0 +1,3 @@
+syntax: glob
+# Reuse generated gitconfigs from gibo
+include: ~/.gitconfig

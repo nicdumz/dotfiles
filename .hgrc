@@ -4,6 +4,7 @@ editor = vim -v -c 'set ft=hgs'
 merge = vimdiff
 ssh = ssh -C
 portablefilenames = abort
+ignore = ~/.hgignore
 
 [smtp]
 host = smtp.gmail.com

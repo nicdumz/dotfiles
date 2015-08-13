@@ -9,6 +9,7 @@
         path: .vim/
     ~/.bash_profile: .bash_profile
     ~/.gitconfig: .gitconfig
+    ~/.hgignore: .hgignore
     ~/.hgrc: .hgrc
     ~/.tmux.conf: .tmux.conf
     ~/.vimrc: .vimrc
