@@ -8,6 +8,7 @@
         create: true
         path: .vim/
     ~/.bash_profile: .bash_profile
+    ~/.bashrc: .bashrc
     ~/.gitconfig: .gitconfig
     ~/.hgignore: .hgignore
     ~/.hgrc: .hgrc
