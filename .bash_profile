@@ -16,3 +16,7 @@ unset USERNAME
 export CLICOLOR=true
 
 source ".dotfiles/subrepos/base16-shell/base16-flat.dark.sh"
+alias ls='ls --color=auto'
+
+export LANG=en_US.UTF-8
+unset LC_CTYPE
