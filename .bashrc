@@ -52,6 +52,13 @@ fi
 
 export PATH=$PATH:$HOME/.local/bin
 unset USERNAME
+
+# if homebrew is there.
+if [[ $(type -P brew) ]]; then
+    export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+    export MANPATH=$(brew --prefix coreutils)/libexec/gnuman:$MANPATH
+fi
+
 # color for ls and friends
 export CLICOLOR=true
 
