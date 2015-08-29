@@ -1,6 +1,9 @@
 - clean: ['~']
 
 - link:
+    ~/.config/fish/fish.config:
+        create: true
+        path: .config/fish/fish.config
     ~/.vim/bundle/Vundle.vim:
         create: true
         path: subrepos/vim-vundle/
