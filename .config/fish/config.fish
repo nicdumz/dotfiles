@@ -1,4 +1,4 @@
-set fish_greeting
+set -g -x fish_greeting ''
 
 set -x LANG en_US.utf8
 set -e LC_CTYPE
