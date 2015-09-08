@@ -1,3 +1,6 @@
 syntax: glob
 # Reuse generated gitconfigs from gibo
 include: ~/.gitconfig
+
+fish_history
+fishd*
