@@ -1,4 +1,5 @@
 subrepos/base16-shell = [git]https://github.com/chriskempson/base16-shell.git
+subrepos/byobu = [git]https://github.com/dustinkirkland/byobu.git
 subrepos/dotbot = [git]https://github.com/anishathalye/dotbot.git
 subrepos/fontinstall = [git]https://github.com/nicdumz/fontinstall.git
 subrepos/gitignore-boilerplates = [git]https://github.com/simonwhitaker/gibo.git
