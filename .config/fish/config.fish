@@ -1,6 +1,7 @@
 set -g -x fish_greeting ''
 
-set -x LANG en_US.utf8
+# Depending on systems, locale can be en_US.UTF8 or en_US.UTF-8
+set -x LANG (locale -a | grep -i "en_US.*utf")
 set -e LC_CTYPE
 
 set -x CLICOLOR true

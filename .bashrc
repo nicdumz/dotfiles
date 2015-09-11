@@ -62,6 +62,10 @@ fi
 # color for ls and friends
 export CLICOLOR=true
 
+# Depending on systems, locale can be en_US.UTF8 or en_US.UTF-8
+export LANG=$(locale -a | grep -i "en_US.*utf")
+unset LC_CTYPE
+
 source "$HOME/.dotfiles/subrepos/base16-shell/base16-flat.dark.sh"
 
 if [ -f ~/.bashrc.after ]; then
