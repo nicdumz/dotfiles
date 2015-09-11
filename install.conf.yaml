@@ -23,4 +23,4 @@
   - [vim +PluginInstall +qall, Installing vim plugins]
   - [./subrepos/fontinstall/fontinstall.sh subrepos/powerline-fonts/DejaVuSansMono/*.ttf, Installing powerline fonts]
   - [./subrepos/fontinstall/fontinstall.sh subrepos/hack-fonts/build/ttf/*.ttf, Installing hack fonts]
-  - [./subrepos/gitignore-boilerplates/gibo Linux OSX Vim > ~/.gitignore, Setting up gitignore]
+  - [./subrepos/gitignore-boilerplates/gibo Linux OSX Python Vim > ~/.gitignore, Setting up gitignore]
