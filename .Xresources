@@ -1,10 +1,10 @@
 URxvt*background: #000000
 URxvt*foreground: #DEDEDE
 !URxvt*font: xft:Monospace:pixelsize=14
-URxvt*font: xft:DejaVu Sans Mono for Powerline:antialias=true:pixelsize=14
+URxvt*font: xft:Hack:antialias=true:pixelsize=14
 !URxvt*font:					xft:DejaVu Sans Mono-10
 !URxvt*boldFont: xft:Monospace:bold:pixelsize=14
-URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:bold:antialias=true:pixelsize=14
+URxvt*boldFont: xft:Hack:bold:antialias=true:pixelsize=14
 URxvt*urgentOnBell: True
 URxvt*letterSpace: -1
 URxvt*saveLines: 1200
