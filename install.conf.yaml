@@ -4,6 +4,9 @@
     ~/.config/fish/config.fish:
         create: true
         path: .config/fish/config.fish
+    ~/.config/fish/functions/prompt_pwd.fish:
+        create: true
+        path: .config/fish/functions/prompt_pwd.fish
     ~/.vim/bundle/Vundle.vim:
         create: true
         path: subrepos/vim-vundle/
