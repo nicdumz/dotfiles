@@ -13,6 +13,8 @@ end
 
 set -x PATH $HOME/.local/bin $PATH
 
+set -x EDITOR vim
+
 function ls
     command ls --color=auto $argv
 end
