@@ -12,6 +12,8 @@ set encoding=utf-8
 
 let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
 let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '~/.vim'
+" Avoid issues when running in fish.
+set shell=/bin/bash
 
 let &runtimepath .= ',' . expand(s:vimDir . '/bundle/Vundle.vim')
 call vundle#begin(expand(s:vimDir . '/bundle'))
