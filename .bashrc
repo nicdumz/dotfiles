@@ -35,12 +35,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+. ~/.bash_aliases
+if [ -f ~/.bash_aliases.after ]; then
+    . ~/.bash_aliases.after
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -61,6 +58,8 @@ fi
 
 # color for ls and friends
 export CLICOLOR=true
+
+export P4DIFF='colordiff -u'
 
 # Depending on systems, locale can be en_US.UTF8 or en_US.UTF-8
 export LANG=$(locale -a | grep -i "en_US.*utf")

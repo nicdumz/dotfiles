@@ -14,17 +14,11 @@ end
 set -x PATH $HOME/.local/bin $PATH
 
 set -x EDITOR vim
+set -x P4DIFF 'colordiff -u'
 
-function ls
-    command ls --color=auto $argv
-end
-
-function grep
-    command grep --color=auto $argv
+. ~/.bash_aliases
+if [ -f ~/.bash_aliases.after ] then
+    . ~/.bash_aliases.after
 end
 
 eval sh "$HOME/.dotfiles/subrepos/base16-shell/base16-flat.dark.sh"
-
-if [ -f ~/.bashrc.after ]
-    . ~/.bashrc.after
-end
