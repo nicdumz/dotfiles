@@ -1,0 +1,24 @@
+[submodule "subrepos/base16-shell"]
+	path = subrepos/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
+[submodule "subrepos/byobu"]
+	path = subrepos/byobu
+	url = https://github.com/dustinkirkland/byobu.git
+[submodule "subrepos/dotbot"]
+	path = subrepos/dotbot
+	url = https://github.com/anishathalye/dotbot.git
+[submodule "subrepos/fontinstall"]
+	path = subrepos/fontinstall
+	url = https://github.com/nicdumz/fontinstall.git
+[submodule "subrepos/gitignore-boilerplates"]
+	path = subrepos/gitignore-boilerplates
+	url = https://github.com/simonwhitaker/gibo.git
+[submodule "subrepos/hack-fonts"]
+	path = subrepos/hack-fonts
+	url = https://github.com/chrissimpkins/Hack.git
+[submodule "subrepos/powerline-fonts"]
+	path = subrepos/powerline-fonts
+	url = https://github.com/powerline/fonts.git
+[submodule "subrepos/vim-vundle"]
+	path = subrepos/vim-vundle
+	url = https://github.com/gmarik/vundle.git
