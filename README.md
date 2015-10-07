@@ -6,7 +6,7 @@ Versioning together my dotfiles. Some of them may be useful to you, but I doubt 
 
 # Installation
 
-    hg clone https://github.com/nicdumz/dotfiles.git ~/.dotfiles
+    git clone https://github.com/nicdumz/dotfiles.git ~/.dotfiles
     ~/.dotfiles/install.sh
 
 # Notes
