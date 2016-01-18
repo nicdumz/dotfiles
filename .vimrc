@@ -229,3 +229,7 @@ au GUIEnter * set visualbell t_vb=
 if filereadable(expand("~/.vimrc.after"))
   source ~/.vimrc.after
 endif
+
+let mapleader=","
+map <leader>v :Vex!<cr>
+map <leader>s :Hex<cr>
