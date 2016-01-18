@@ -4,11 +4,28 @@ set rtp +=~/.vim/dotfiles-symlink
 set t_Co=256
 syntax off
 filetype off
-set nocompatible
+
+" lots of things that neovim does for me already
+if !has('nvim')
+    set autoindent
+    set backspace=indent,eol,start
+    " Some locales are silly.
+    set encoding=utf-8
+    " search patterns
+    set hlsearch
+    " move in file when typing /pattern
+    set incsearch
+    set laststatus=2 " Always show statusline.
+    set mouse=a
+    set nocompatible
+    set smarttab
+    " usually we're fast, but with urxvt color it's not always obvious
+    set ttyfast
+    set wildmenu
+endif
+
 " mutiple vulnerabilities.
 set nomodeline
-" Some locales are silly.
-set encoding=utf-8
 
 let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
 let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '~/.vim'
@@ -89,12 +106,8 @@ au GUIEnter * colorscheme base16-flat
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set smarttab
-set autoindent
 
 set number " Show line numbers
-set mouse=a
-set laststatus=2 " Always show statusline.
 
 set ruler " Show curser position on statusline.
 set scrolloff=5 " 5 lines around the cursor
@@ -102,7 +115,7 @@ set scrolloff=5 " 5 lines around the cursor
 if (v:version > 703 || v:version == 703 && has("patch541"))
     set formatoptions+=rj " Remove comment characters and others on J
 endif
-set history=1000 " Be modern
+set history=10000 " Be modern
 
 set foldmethod=marker
 set fillchars=vert:┃,fold:- " Nicer vertical split
@@ -112,17 +125,9 @@ set clipboard=unnamed " unify clipboards
 " completions
 set wildmode=longest,list,full
 set wildignore=*.swp,*.bak,*.pyc,*.class
-set wildmenu
 
-" search patterns
-set hls
-" move in file when typing /pattern
-set incsearch
 " CTRL-h to toggle search higlight
 map <C-H> :se invhls<cr>
-
-" usually we're fast, but with urxvt color it's not always obvious
-set ttyfast
 
 " no flashing or beeping
 set vb t_vb=
@@ -142,7 +147,6 @@ set cmdheight=2
 set noswapfile
 
 set hidden
-set backspace=indent,eol,start
 
 " Whitespace and long lines
 if v:version >= 703
