@@ -83,7 +83,7 @@ Plugin 'google/vim-syncopate'
 Plugin 'guns/xterm-color-table.vim'
 " git / perforce side colors
 Plugin 'mhinz/vim-signify'
-let g:singify_vcs_list = ['git', 'perforce']
+let g:signify_vcs_list = ['git', 'perforce']
 let g:signify_vcs_cmds = {
     \ 'perforce': 'p4 info >& /dev/null && env G4MULTIDIFF=0 P4DIFF=%d p4 diff -dU0 %f'
     \ }
