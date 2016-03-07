@@ -41,6 +41,7 @@ let base16colorspace=256
 Plugin 'chriskempson/base16-vim'
 let g:rehash256 = 1 " have the gui theme as close as possible as cterm
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " This requires fancy patched fonts, e.g. DejaVu Sans Mono for Powerline (10)
 " See https://github.com/Lokaltog/powerline-fonts
 " The gnome terminal and/or .Xresources must be configured for it.
