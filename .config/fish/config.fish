@@ -22,3 +22,5 @@ if [ -f ~/.bash_aliases.after ] then
 end
 
 eval sh "$HOME/.dotfiles/subrepos/base16-shell/base16-flat.dark.sh"
+
+alias vim=nvim
