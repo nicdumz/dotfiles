@@ -31,3 +31,4 @@
   - [./subrepos/fontinstall/fontinstall.sh subrepos/powerline-fonts/DejaVuSansMono/*.ttf, Installing powerline fonts]
   - [./subrepos/fontinstall/fontinstall.sh subrepos/hack-fonts/build/ttf/*.ttf, Installing hack fonts]
   - [./subrepos/gitignore-boilerplates/gibo Linux OSX Python Vim > ~/.gitignore, Setting up gitignore]
+  - [xrdb -merge ~/.Xresources, Update X Resources]
