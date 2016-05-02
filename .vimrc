@@ -67,7 +67,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/AfterColors.vim'
 " Snippets!
 if v:version >= 704
-    Plugin 'SirVer/ultisnips'
+    "Plugin 'SirVer/ultisnips'
 endif
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsListSnippets = "<c-l>"
