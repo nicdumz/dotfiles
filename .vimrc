@@ -32,16 +32,13 @@ let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '~/.vim'
 " Avoid issues when running in fish.
 set shell=/bin/bash
 
-let &runtimepath .= ',' . expand(s:vimDir . '/bundle/Vundle.vim')
-call vundle#begin(expand(s:vimDir . '/bundle'))
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'tomasr/molokai'
+call plug#begin(expand(s:vimDir . '/plugged'))
+Plug 'tomasr/molokai'
 let base16colorspace=256
-Plugin 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 let g:rehash256 = 1 " have the gui theme as close as possible as cterm
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " This requires fancy patched fonts, e.g. DejaVu Sans Mono for Powerline (10)
 " See https://github.com/Lokaltog/powerline-fonts
 " The gnome terminal and/or .Xresources must be configured for it.
@@ -51,23 +48,22 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10,DejaVu\ Sans\ Mono\ for\ Powe
 " blank the fileencoding / fileformat part
 let g:airline_section_y = ''
 
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 " Support for color fixes in .vim/after
-Plugin 'vim-scripts/AfterColors.vim'
+Plug 'vim-scripts/AfterColors.vim'
 " Snippets!
 if v:version >= 704
-    "Plugin 'SirVer/ultisnips'
+    "Plug 'SirVer/ultisnips'
 endif
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsListSnippets = "<c-l>"
@@ -76,24 +72,23 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " Some vcs integration
 "Plugin 'vim-scripts/vcscommand.vim'
 " Open correctly files: vim filename:103
-Plugin 'paulhybryant/file-line'
+Plug 'paulhybryant/file-line'
 " Export highlighted html to pastebin.
-Plugin 'google/maktaba'
-Plugin 'google/vim-syncopate'
+Plug 'google/maktaba' | Plug 'google/vim-syncopate'
 " See all 256 colors with :XtermColorTable
-Plugin 'guns/xterm-color-table.vim'
+Plug 'guns/xterm-color-table.vim'
 " git / perforce side colors
-Plugin 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'
 let g:signify_vcs_list = ['git', 'perforce']
 let g:signify_vcs_cmds = {
     \ 'perforce': 'p4 info >& /dev/null && env G4MULTIDIFF=0 P4DIFF=%d p4 diff -dU0 %f'
     \ }
 let g:signify_sign_delete = '-'
 " Whitespace highlighting / :StripWhitespace
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 
-Plugin 'google/vim-ft-bzl'
-call vundle#end()
+Plug 'google/vim-ft-bzl'
+call plug#end()
 
 syntax on
 filetype plugin indent on

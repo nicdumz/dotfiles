@@ -10,9 +10,6 @@
     ~/.config/nvim:
         create: true
         path: .vim/
-    ~/.vim/bundle/Vundle.vim:
-        create: true
-        path: subrepos/vim-vundle/
     ~/.vim/dotfiles-symlink:
         create: true
         path: .vim/
@@ -27,7 +24,12 @@
     ~/.Xresources: .Xresources
 
 - shell:
-  - [vim +PluginInstall +qall, Installing vim plugins]
+  - ["curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", vim-plug for vim]
+  - ["curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", vim-plug for neovim]
+  -
+    command: "vim '+PlugInstall|qall'"
+    description: Installing vim plugins
+    stdin: True
   - [./subrepos/fontinstall/fontinstall.sh subrepos/powerline-fonts/DejaVuSansMono/*.ttf, Installing powerline fonts]
   - [./subrepos/fontinstall/fontinstall.sh subrepos/hack-fonts/build/ttf/*.ttf, Installing hack fonts]
   - [./subrepos/gitignore-boilerplates/gibo Linux OSX Python Vim > ~/.gitignore, Setting up gitignore]
