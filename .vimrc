@@ -87,7 +87,6 @@ let g:signify_sign_delete = '-'
 " Whitespace highlighting / :StripWhitespace
 Plug 'ntpeters/vim-better-whitespace'
 
-Plug 'google/vim-ft-bzl'
 call plug#end()
 
 syntax on
