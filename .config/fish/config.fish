@@ -13,7 +13,7 @@ end
 
 set -x PATH $HOME/.local/bin $PATH
 
-set -x EDITOR vim
+set -x EDITOR nvim
 set -x P4DIFF 'colordiff -u'
 
 . ~/.bash_aliases
