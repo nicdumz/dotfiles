@@ -17,7 +17,7 @@ set -x EDITOR nvim
 set -x P4DIFF 'colordiff -u'
 
 . ~/.bash_aliases
-if [ -f ~/.bash_aliases.after ] then
+if test -f ~/.bash_aliases.after
     . ~/.bash_aliases.after
 end
 
