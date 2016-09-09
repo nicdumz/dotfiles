@@ -6,7 +6,8 @@ set -e LC_CTYPE
 
 set -x CLICOLOR true
 
-if type -p brew > /dev/null ^&1
+if test -f ~/brew/bin/brew
+    set PATH $HOME/brew/bin $PATH
     set PATH (brew --prefix coreutils)"/libexec/gnubin" $PATH
     set -x MANPATH (brew --prefix coreutils)"/libexec/gnuman" $MANPATH
 end
