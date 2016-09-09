@@ -1,0 +1,4 @@
+caskroom/cask
+caskroom/cask/xquartz
+caskroom/fonts
+homebrew/dupes
