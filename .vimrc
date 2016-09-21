@@ -230,3 +230,8 @@ endif
 let mapleader=","
 map <leader>v :Vex!<cr>
 map <leader>s :Hex<cr>
+
+command WQ wq
+command Wq wq
+command W w
+command Q q
