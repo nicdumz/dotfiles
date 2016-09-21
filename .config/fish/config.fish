@@ -6,7 +6,8 @@ set -e LC_CTYPE
 
 set -x CLICOLOR true
 
-if type -p brew > /dev/null
+if test -f ~/brew/bin/brew
+    set PATH $HOME/brew/bin $PATH
     set PATH (brew --prefix coreutils)"/libexec/gnubin" $PATH
     set -x MANPATH (brew --prefix coreutils)"/libexec/gnuman" $MANPATH
 end
@@ -17,7 +18,7 @@ set -x EDITOR nvim
 set -x P4DIFF 'colordiff -u'
 
 . ~/.bash_aliases
-if [ -f ~/.bash_aliases.after ] then
+if test -f ~/.bash_aliases.after
     . ~/.bash_aliases.after
 end
 
