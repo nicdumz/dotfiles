@@ -4,3 +4,5 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias diff=colordiff
+
+alias vim=nvim
