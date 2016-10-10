@@ -33,7 +33,7 @@ let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '~/.vim'
 set shell=/bin/bash
 
 call plug#begin(expand(s:vimDir . '/plugged'))
-Plug 'tomasr/molokai'
+Plug 'justinmk/molokai'
 let base16colorspace=256
 Plug 'chriskempson/base16-vim'
 let g:rehash256 = 1 " have the gui theme as close as possible as cterm
