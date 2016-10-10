@@ -11,6 +11,7 @@ if !has('nvim')
     set backspace=indent,eol,start
     " Some locales are silly.
     set encoding=utf-8
+    set history=10000 " Be modern
     " search patterns
     set hlsearch
     " move in file when typing /pattern
@@ -61,14 +62,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " Support for color fixes in .vim/after
 Plug 'vim-scripts/AfterColors.vim'
-" Snippets!
-if v:version >= 704
-    "Plug 'SirVer/ultisnips'
-endif
-let g:UltiSnipsExpandTrigger = "<c-j>"
-let g:UltiSnipsListSnippets = "<c-l>"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " Some vcs integration
 "Plugin 'vim-scripts/vcscommand.vim'
 " Open correctly files: vim filename:103
@@ -112,7 +105,6 @@ set scrolloff=5 " 5 lines around the cursor
 if (v:version > 703 || v:version == 703 && has("patch541"))
     set formatoptions+=rj " Remove comment characters and others on J
 endif
-set history=10000 " Be modern
 
 set foldmethod=marker
 set fillchars=vert:┃,fold:- " Nicer vertical split
@@ -122,16 +114,6 @@ set clipboard=unnamed " unify clipboards
 " completions
 set wildmode=longest,list,full
 set wildignore=*.swp,*.bak,*.pyc,*.class
-
-" CTRL-h to toggle search higlight
-map <C-H> :se invhls<cr>
-
-" no flashing or beeping
-set vb t_vb=
-set novisualbell
-
-set nocursorline
-set nocursorcolumn
 
 " c was introduced in 7.04
 if v:version >= 704
@@ -173,19 +155,29 @@ augroup END
       endfor
     endfor
 
-    " similar to vimperator
+    " space to PageDown, similar to vimperator
     map <space> <C-f>
 
-    " easier keyboard
+    " easier keyboard, when I accidentally hit F1 instead of Esc.
     map <F1> <Esc>
     imap <F1> <Esc>
     imap <M-Space> <Esc>
-    nmap :W :w
+
+    " CTRL-h to toggle search highlight
+    map <C-H> :se invhls<cr>
+
+    let mapleader=","
+    map <leader>v :Vex!<cr>
+    map <leader>s :Hex<cr>
+
+    command WQ wq
+    command Wq wq
+    command W w
+    command Q q
+
+    " Use <F7> to toggle between 'paste' and 'nopaste'
+    set pastetoggle=<F7>
 "}}}
-
-
-" Use <F7> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F7>
 
 let g:ackprg="ack -H --nocolor --nogroup --column --ignore-dir build"
 
@@ -196,10 +188,6 @@ function! SetupDiffFunc()
   endif
 endfunction
 command! SetupDiff call SetupDiffFunc()
-
-" If we have several files, open the first three ones in vert splits
-" vim -O3 does the same things
-" autocmd VimEnter * nested :vert ba 3
 
 " brace completion
 inoremap {<CR> {<CR><Esc>:call MySmartBraceComplete()<CR>O
@@ -219,6 +207,8 @@ endif
 " map OSC52 copy-paste (from osc52.vim plugin)
 vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
 
+" no flashing or beeping
+set vb t_vb= novisualbell
 " No damn bell in gvim
 au GUIEnter * set visualbell t_vb=
 
@@ -226,12 +216,3 @@ au GUIEnter * set visualbell t_vb=
 if filereadable(expand("~/.vimrc.after"))
   source ~/.vimrc.after
 endif
-
-let mapleader=","
-map <leader>v :Vex!<cr>
-map <leader>s :Hex<cr>
-
-command WQ wq
-command Wq wq
-command W w
-command Q q
