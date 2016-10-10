@@ -44,8 +44,14 @@ Plug 'vim-airline/vim-airline-themes'
 " See https://github.com/Lokaltog/powerline-fonts
 " The gnome terminal and/or .Xresources must be configured for it.
 let g:airline_powerline_fonts = 1
-" Different font names for different OSes. :h11 is for MacOS.
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10,DejaVu\ Sans\ Mono\ for\ Powerline:h11
+" Different font names for different OSes. :h11 is for MacOS/win.
+if has("gui_running")
+    if has("gui_gtk2")
+        set guifont=Hack
+    else
+        set guifont=Hack:h11
+    endif
+endif
 " blank the fileencoding / fileformat part
 let g:airline_section_y = ''
 
