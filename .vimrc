@@ -112,6 +112,10 @@ if (v:version > 703 || v:version == 703 && has("patch541"))
     set formatoptions+=rj " Remove comment characters and others on J
 endif
 
+if exists("+inccommand")
+    set inccommand=nosplit
+endif
+
 set foldmethod=marker
 set fillchars=vert:┃,fold:- " Nicer vertical split
 
