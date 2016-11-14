@@ -1,3 +1,4 @@
+caffeine
 dropbox
 flux
 macpass
