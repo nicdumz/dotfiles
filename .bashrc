@@ -65,7 +65,16 @@ export P4DIFF='colordiff -u'
 export LANG=$(locale -a | grep -i "en_US.*utf")
 unset LC_CTYPE
 
-source "$HOME/.dotfiles/subrepos/base16-shell/base16-flat.dark.sh"
+case "$TERM" in
+rxvt-256color)
+export TERM=screen-256color
+;;
+rxvt-unicode-256color)
+export TERM=screen-256color
+;;
+esac
+
+source "$HOME/.dotfiles/subrepos/base16-shell/scripts/base16-flat.sh"
 
 if [ -f ~/.bashrc.after ]; then
     . ~/.bashrc.after
