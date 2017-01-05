@@ -32,7 +32,6 @@ fsevents = bb+ssh://nicdumz/fsevents/
 
 bot = bb+ssh://nicdumz/wikipedia-dumzibot/
 dotfiles = bb+ssh://nicdumz/dotfiles/
-default-push = bb+ssh://nicdumz/dotfiles/
 libretweet = bb+ssh://nicdumz/libretweet/
 patchshelter = bb+ssh://nicdumz/patchshelter/
 
