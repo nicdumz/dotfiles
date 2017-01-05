@@ -1,6 +1,6 @@
 syntax: glob
 # Reuse generated gitignore from gibo
-include: ~/.gitignore
+%include: ~/.gitignore
 
 fish_history
 fishd*
