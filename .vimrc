@@ -55,13 +55,6 @@ endif
 " blank the fileencoding / fileformat part
 let g:airline_section_y = ''
 
-Plug 'scrooloose/syntastic'
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_aggregate_errors = 1
-
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -72,12 +65,22 @@ Plug 'vim-scripts/AfterColors.vim'
 "Plugin 'vim-scripts/vcscommand.vim'
 " Open correctly files: vim filename:103
 Plug 'paulhybryant/file-line'
-" Export highlighted html to pastebin.
-Plug 'google/maktaba' | Plug 'google/vim-syncopate'
+" Some scripts need newer vims
+if (v:version > 700)
+    Plug 'scrooloose/syntastic'
+    let g:syntastic_error_symbol = '✗'
+    let g:syntastic_warning_symbol = '⚠'
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_aggregate_errors = 1
+
+    " Export highlighted html to pastebin.
+    Plug 'google/maktaba' | Plug 'google/vim-syncopate'
+    " git / perforce side colors
+    Plug 'mhinz/vim-signify'
+endif
 " See all 256 colors with :XtermColorTable
 Plug 'guns/xterm-color-table.vim'
-" git / perforce side colors
-Plug 'mhinz/vim-signify'
 let g:signify_vcs_list = ['git', 'perforce']
 let g:signify_vcs_cmds = {
     \ 'perforce': 'p4 info >& /dev/null && env G4MULTIDIFF=0 P4DIFF=%d p4 diff -dU0 %f'
