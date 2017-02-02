@@ -58,6 +58,7 @@ rebase=
 bookmarks=
 #progress=
 schemes=
+histedit=
 
 #patchshelter = /home/nicdumz/opensource/patchshelter/
 
