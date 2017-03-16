@@ -47,6 +47,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+export SHELL=/usr/bin/fish
+
 export PATH=$PATH:$HOME/.local/bin
 unset USERNAME
 
@@ -65,15 +67,20 @@ export P4DIFF='colordiff -u'
 export LANG=$(locale -a | grep -i "en_US.*utf")
 unset LC_CTYPE
 
-case "$TERM" in
-rxvt-256color)
-export TERM=screen-256color
-;;
-rxvt-unicode-256color)
-export TERM=screen-256color
-;;
-esac
+# There is now the normal terminfo on my systems
+# case "$TERM" in
+# rxvt-256color)
+# export TERM=screen-256color
+# ;;
+# rxvt-unicode-256color)
+# export TERM=screen-256color
+# ;;
+# xterm)
+# export TERM=xterm-256color
+# ;;
+# esac
 
+# This breaks, like, most of the time.
 source "$HOME/.dotfiles/subrepos/base16-shell/scripts/base16-flat.sh"
 
 if [ -f ~/.bashrc.after ]; then
