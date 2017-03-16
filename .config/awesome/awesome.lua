@@ -70,15 +70,18 @@ tags = {}
 do
     -- layout, or hide or mwfact can be set
     local my_tags = {
-        { name = "1:⌨ |", layout = awful.layout.suit.tile },
-        { name = "2:w/e |", mwfact = 0.8, layout = awful.layout.suit.tile },
-        { name = "3:xmpp | ", mwfact = 0.8, layout = awful.layout.suit.tile },
-        { name = "4:irc |", layout = awful.layout.suit.tile },
-        { name = "5:⚡", layout = awful.layout.suit.tile },
+        {
+            { name = "www |", layout = awful.layout.suit.tile },
+            { name = "chat |", mwfact = 0.8, layout = awful.layout.suit.tile },
+            { name = "pers ", mwfact = 0.8, layout = awful.layout.suit.tile },
+        }, {
+            { name = "1 |", layout = awful.layout.suit.tile },
+            { name = "2 ", mwfact = 0.8, layout = awful.layout.suit.tile },
+        }
     }
-    for s = 1, screen.count() do
+    for s = 1, 2 do
         tags[s] = {}
-        for i, v in ipairs(my_tags) do
+        for i, v in ipairs(my_tags[s]) do
             tags[s][i] = tag({ name = v.name })
             tags[s][i].screen = s
             awful.tag.setproperty(tags[s][i], "layout", v.layout)
@@ -127,6 +130,9 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 --
+
+-- Create a textclock widget
+mytextclock = awful.widget.textclock({ align = "right" })
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -206,16 +212,17 @@ for s = 1, screen.count() do
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
-        {
+        -- {
             mylayoutbox[s],
-        mastcolright,
-        colwidget,
-        mastwidget,
-        mastcolleft,
-            layout = awful.widget.layout.horizontal.rightleft
-        },
-        mysystray,
-        meminfo,
+        -- mastcolright,
+        -- colwidget,
+        -- mastwidget,
+        -- mastcolleft,
+            -- layout = awful.widget.layout.horizontal.rightleft
+        -- },
+        s == 1 and mytextclock or nil,
+        s == 1 and mysystray or nil,
+        -- meminfo,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
@@ -295,11 +302,11 @@ globalkeys = awful.util.table.join(
                 awful.util.eval, nil,
                 awful.util.getdir("cache") .. "/history_eval")
         end),
-    awful.key({ }, "#172", function () awful.util.spawn("rhythmbox-client --play-pause") end),
-    awful.key({ }, "#173", function () awful.util.spawn("rhythmbox-client --previous") end),
-    awful.key({ }, "#171", function () awful.util.spawn("rhythmbox-client --next") end),
+    -- awful.key({ }, "#172", function () awful.util.spawn("rhythmbox-client --play-pause") end),
+    -- awful.key({ }, "#173", function () awful.util.spawn("rhythmbox-client --previous") end),
+    -- awful.key({ }, "#171", function () awful.util.spawn("rhythmbox-client --next") end),
 
-    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("screen-lock") end),
     awful.key({ modkey }, "e", revelation.revelation)
 )
 
@@ -396,6 +403,8 @@ do
           properties = { tag = tags[1][2] } },
         { rule = { class = "chrome" },
           properties = { tag = tags[1][1] } },
+        { rule = { name = "Google Hangouts" },
+          properties = { tag = tags[1][2] } },
         { rule = { class = "Pidgin" },
           properties = { tag = tags[2][3] } },
         { rule = { class = "xchat-gnome" },
@@ -476,4 +485,4 @@ for i = 1,#tags[1] do
 end
 
 
-awful.util.spawn_with_shell("sleep 2 && ~/.local/bin/wallpaper")
+-- awful.util.spawn_with_shell("sleep 2 && ~/.local/bin/wallpaper")
