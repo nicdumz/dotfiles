@@ -1,9 +1,4 @@
-URxvt*background: #000000
-URxvt*foreground: #DEDEDE
-!URxvt*font: xft:Monospace:pixelsize=14
 URxvt*font: xft:Hack:antialias=true:pixelsize=14
-!URxvt*font:					xft:DejaVu Sans Mono-10
-!URxvt*boldFont: xft:Monospace:bold:pixelsize=14
 URxvt*boldFont: xft:Hack:bold:antialias=true:pixelsize=14
 URxvt*urgentOnBell: True
 URxvt*letterSpace: -1
@@ -13,28 +8,54 @@ URxvt*scrollstyle: rxvt
 URxvt*perl-ext-common: default,matcher
 URxvt*urlLauncher: google-chrome
 URxvt*matcher.button: 1
-URxvt*colorUL: #86a2be
-! black
-URxvt*color0  : #2E3436
-URxvt*color8  : #555753
-! red
-URxvt*color1  : #CC0000
-URxvt*color9  : #EF2929
-! green
-URxvt*color2  : #4E9A06
-URxvt*color10 : #8AE234
-! yellow
-URxvt*color3  : #C4A000
-URxvt*color11 : #FCE94F
-! blue
-URxvt*color4  : #3465A4
-URxvt*color12 : #729FCF
-! magenta
-URxvt*color5  : #75507B
-URxvt*color13 : #AD7FA8
-! cyan
-URxvt*color6  : #06989A
-URxvt*color14 : #34E2E2
-! white
-URxvt*color7  : #D3D7CF
-URxvt*color15 : #EEEEEC
+
+! Base16 Flat
+! Scheme: Chris Kempson (http://chriskempson.com)
+
+#define base00 #2C3E50
+#define base01 #34495E
+#define base02 #7F8C8D
+#define base03 #95A5A6
+#define base04 #BDC3C7
+#define base05 #e0e0e0
+#define base06 #f5f5f5
+#define base07 #ECF0F1
+#define base08 #E74C3C
+#define base09 #E67E22
+#define base0A #F1C40F
+#define base0B #2ECC71
+#define base0C #1ABC9C
+#define base0D #3498DB
+#define base0E #9B59B6
+#define base0F #be643c
+
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
+
+*.color0:       base00
+*.color1:       base08
+*.color2:       base0B
+*.color3:       base0A
+*.color4:       base0D
+*.color5:       base0E
+*.color6:       base0C
+*.color7:       base05
+
+*.color8:       base03
+*.color9:       base08
+*.color10:      base0B
+*.color11:      base0A
+*.color12:      base0D
+*.color13:      base0E
+*.color14:      base0C
+*.color15:      base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*.color16:      base09
+*.color17:      base0F
+*.color18:      base01
+*.color19:      base02
+*.color20:      base04
+*.color21:      base06
