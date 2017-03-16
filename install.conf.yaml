@@ -1,6 +1,9 @@
 - clean: ['~']
 
 - link:
+    ~/.config/awesome:
+        create: true
+        path: .config/awesome/
     ~/.config/fish/config.fish:
         create: true
         path: .config/fish/config.fish
