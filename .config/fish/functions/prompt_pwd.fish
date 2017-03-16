@@ -2,7 +2,7 @@ function prompt_pwd --description 'Print the current working directory, shortend
     set p (echo $PWD | sed -e "s|^$HOME|~|")
     # Provide customization possibilities for local machines.
     if functions -q prompt_pwd_after
-        echo $p | prompt_pwd_after
+        prompt_pwd_after $p
     else
         echo $p
     end
