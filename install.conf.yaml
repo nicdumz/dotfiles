@@ -16,10 +16,12 @@
     ~/.vim/dotfiles-symlink:
         create: true
         path: .vim/
+    ~/.config/git/config:
+        create: true
+        path: .gitconfig
     ~/.bash_aliases: .bash_aliases
     ~/.bash_profile: .bash_profile
     ~/.bashrc: .bashrc
-    ~/.gitconfig: .gitconfig
     ~/.hgignore: .hgignore
     ~/.hgrc: .hgrc
     ~/.tmux.conf: .tmux.conf
@@ -35,6 +37,6 @@
     stdin: True
   - [./subrepos/fontinstall/fontinstall.sh subrepos/powerline-fonts/DejaVuSansMono/*.ttf, Installing powerline fonts]
   - [./subrepos/fontinstall/fontinstall.sh subrepos/hack-fonts/build/ttf/*.ttf, Installing hack fonts]
-  - [./subrepos/gitignore-boilerplates/gibo Linux OSX Python Vim > ~/.gitignore, Setting up gitignore]
+  - [./subrepos/gitignore-boilerplates/gibo Linux OSX Python Vim > ~/.config/git/ignore, Setting up gitignore]
   - [./install_brew.sh, Installing brew]
   - [xrdb -merge ~/.Xresources, Update X Resources]
