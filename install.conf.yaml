@@ -19,6 +19,15 @@
     ~/.config/git/config:
         create: true
         path: .gitconfig
+    ~/.local/bin/screen-lock:
+        create: true
+        path: .local/bin/lock-screen
+    ~/.local/bin/lock-screen:
+        create: true
+        path: .local/bin/lock-screen
+    ~/.local/bin/personal-chrome:
+        create: true
+        path: .local/bin/personal-chrome
     ~/.bash_aliases: .bash_aliases
     ~/.bash_profile: .bash_profile
     ~/.bashrc: .bashrc

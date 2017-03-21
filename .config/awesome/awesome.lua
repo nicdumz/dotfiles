@@ -17,13 +17,15 @@ obvious.popup_run_prompt.set_move_speed(0.015)
 obvious.popup_run_prompt.set_opacity(0.5)
 obvious.popup_run_prompt.set_border_width(3)
 obvious.popup_run_prompt.set_height(25)
-function run_clean(cmd)
-    return awful.util.spawn_with_shell("LD_LIBRARY_PATH= " .. cmd)
-end
-obvious.popup_run_prompt.set_run_function(run_clean)
+
+-- function run_clean(cmd)
+--     return awful.util.spawn_with_shell("env LD_LIBRARY_PATH= " .. cmd)
+-- end
+-- obvious.popup_run_prompt.set_run_function(run_clean)
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
+
 awesome_path = awful.util.getdir("config")
 theme_path = awesome_path .. "/themes/default/theme.lua"
 beautiful.init(theme_path)
@@ -253,7 +255,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function() mymainmenu:show(true) end),
+    awful.key({ modkey,           }, "w", function() mymainmenu:toggle() end),
 
     awful.key({}, "F1", function() awful.screen.focus(1) end),
     awful.key({}, "F2", function() awful.screen.focus(2) end),
@@ -273,6 +275,7 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn_with_shell(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
+    awful.key({ "Mod1", "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
@@ -281,19 +284,19 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey, "Control" }, "space", nextlayout),
+    awful.key({ modkey,           }, "space", nextlayout),
     awful.key({ modkey, "Shift"   }, "space", prevlayout),
 
     -- Prompt
     awful.key({ modkey }, "r", obvious.popup_run_prompt.run_prompt),
-    awful.key({ modkey }, "space",
-        function ()
-            local prefix = "PATH=/usr/local/bin:/usr/bin:/bin:$HOME/.local/bin "
-            local path_cmd = prefix .. "dmenu_path | dmenu -b -nb '#222222'"
-            path_cmd = path_cmd .. " -nf '#aaaaaa' -sb '#ff0000' -sf '#ffffff'"
-            local myexe = awful.util.pread(path_cmd)
-            awful.util.spawn_with_shell(prefix .. myexe)
-        end),
+    -- awful.key({ modkey }, "space",
+    --     function ()
+    --         local prefix = "PATH=/usr/local/bin:/usr/bin:/bin:$HOME/.local/bin "
+    --         local path_cmd = prefix .. "dmenu_path | dmenu -b -nb '#222222'"
+    --         path_cmd = path_cmd .. " -nf '#aaaaaa' -sb '#ff0000' -sf '#ffffff'"
+    --         local myexe = awful.util.pread(path_cmd)
+    --         awful.util.spawn_with_shell(prefix .. myexe)
+    --     end),
 
     awful.key({ modkey }, "x",
         function ()
@@ -307,6 +310,8 @@ globalkeys = awful.util.table.join(
     -- awful.key({ }, "#171", function () awful.util.spawn("rhythmbox-client --next") end),
 
     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("screen-lock") end),
+    -- Alt+Ctrl+l
+    awful.key({ "Mod1", "Control" }, "l", function () awful.util.spawn("screen-lock") end),
     awful.key({ modkey }, "e", revelation.revelation)
 )
 
@@ -405,6 +410,8 @@ do
           properties = { tag = tags[1][1] } },
         { rule = { name = "Google Hangouts" },
           properties = { tag = tags[1][2] } },
+        { rule = { instance = "google-chrome (.config/personal-chrome)" },
+          properties = { tag = tags[1][3] } },
         { rule = { class = "Pidgin" },
           properties = { tag = tags[2][3] } },
         { rule = { class = "xchat-gnome" },
@@ -486,3 +493,5 @@ end
 
 
 -- awful.util.spawn_with_shell("sleep 2 && ~/.local/bin/wallpaper")
+-- urgh this crashes
+-- awful.util.spawn("xautolock -time 5 -locker '/usr/local/google/home/ndumazet/.local/bin/screen-lock'")
