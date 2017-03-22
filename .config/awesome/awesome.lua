@@ -18,6 +18,18 @@ obvious.popup_run_prompt.set_opacity(0.5)
 obvious.popup_run_prompt.set_border_width(3)
 obvious.popup_run_prompt.set_height(25)
 
+function volume_up()
+  awful.util.spawn("amixer -D pulse sset Master 5%+")
+end
+
+function volume_down()
+  awful.util.spawn("amixer -D pulse sset Master 5%-")
+end
+
+function volume_mute()
+  awful.util.spawn("amixer -D pulse sset Master toggle")
+end
+
 -- function run_clean(cmd)
 --     return awful.util.spawn_with_shell("env LD_LIBRARY_PATH= " .. cmd)
 -- end
@@ -305,6 +317,10 @@ globalkeys = awful.util.table.join(
                 awful.util.eval, nil,
                 awful.util.getdir("cache") .. "/history_eval")
         end),
+
+    awful.key({ modkey, }, "Prior", volume_up),
+    awful.key({ modkey, }, "Next", volume_down),
+
     -- awful.key({ }, "#172", function () awful.util.spawn("rhythmbox-client --play-pause") end),
     -- awful.key({ }, "#173", function () awful.util.spawn("rhythmbox-client --previous") end),
     -- awful.key({ }, "#171", function () awful.util.spawn("rhythmbox-client --next") end),
