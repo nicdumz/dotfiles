@@ -4,8 +4,8 @@
 -- failsafe mode
 -- if the current config fail, load the default rc.lua
 
-require("awful")
-require("naughty")
+local awful = require("awful")
+local naughty = require("naughty")
 
 confdir = awful.util.getdir("config")
 local rc, err = loadfile(confdir .. "/awesome.lua");
@@ -18,9 +18,9 @@ end
 
 dofile("/etc/xdg/awesome/rc.lua");
 
-for s = 1,screen.count() do
-    mypromptbox[s].text = awful.util.escape(err:match("[^\n]*"));
-end
+awful.screen.connect_for_each_screen(function(s)
+    s.mypromptbox.widget.text = awful.util.escape(err:match("[^\n]*"));
+end)
 
 naughty.notify{text="Awesome crashed during startup on " .. os.date("%d/%m/%Y %T:\n\n") ..  err .. "\n", timeout = 0}
 

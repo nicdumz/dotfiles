@@ -28,6 +28,8 @@ wut = "#5F87AF"
 
 theme = {}
 
+local awful = require("awful")
+
 home          = os.getenv("HOME")
 config        = awful.util.getdir("config")
 shared        = "/usr/share/awesome"
