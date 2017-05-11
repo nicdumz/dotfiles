@@ -2,6 +2,9 @@
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
+
+awful.util.shell = '/bin/sh'
+
 -- Theme handling library
 require("beautiful")
 -- Notification library
@@ -29,6 +32,7 @@ end
 function volume_mute()
   awful.util.spawn("amixer -D pulse sset Master toggle")
 end
+
 
 -- function run_clean(cmd)
 --     return awful.util.spawn_with_shell("env LD_LIBRARY_PATH= " .. cmd)
@@ -86,7 +90,7 @@ do
     local my_tags = {
         {
             { name = "www |", layout = awful.layout.suit.tile },
-            { name = "chat |", mwfact = 0.8, layout = awful.layout.suit.tile },
+            { name = "chat |", mwfact = 0.5, layout = awful.layout.suit.tile.bottom },
             { name = "pers ", mwfact = 0.8, layout = awful.layout.suit.tile },
         }, {
             { name = "1 |", layout = awful.layout.suit.tile },
@@ -425,6 +429,8 @@ do
         { rule = { class = "chrome" },
           properties = { tag = tags[1][1] } },
         { rule = { name = "Google Hangouts" },
+          properties = { tag = tags[1][2] } },
+        { rule = { name = "Chat" },
           properties = { tag = tags[1][2] } },
         { rule = { instance = "google-chrome (.config/personal-chrome)" },
           properties = { tag = tags[1][3] } },
