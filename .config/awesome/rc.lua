@@ -1,5 +1,7 @@
 -- failsafe mode for 4.0
--- if the current config fail, load the default rc.lua
+--
+-- (1) Try to load ~/.config/awesome/awesome.rc
+-- (2) if the current config fail, fallback on default rc.lua
 
 local awful = require("awful")
 local naughty = require("naughty")
