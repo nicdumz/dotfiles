@@ -1,7 +1,4 @@
---stolen from http://www.markurashi.de/dotfiles/awesome/rc.lua
--- ( http://gitorious.org/awesome-config/awesome-config/blobs/master/rc.lua )
-
--- failsafe mode
+-- failsafe mode for 4.0
 -- if the current config fail, load the default rc.lua
 
 local awful = require("awful")
@@ -23,5 +20,3 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 
 naughty.notify{text="Awesome crashed during startup on " .. os.date("%d/%m/%Y %T:\n\n") ..  err .. "\n", timeout = 0}
-
-
