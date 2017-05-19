@@ -55,7 +55,7 @@ beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "gnome-terminal"
-editor = "vim"
+editor = "nvim"
 editor_cmd = terminal .. " -e '" .. editor
 
 -- Default modkey.
@@ -458,33 +458,40 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "o",     awful.client.movetoscreen),
-    awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle),
     awful.key({ modkey,           }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
-        end),
-    awful.key({ modkey }, "F4",
+            c:raise()
+        end,
+        {description = "toggle fullscreen", group = "client"}),
+    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+              {description = "close", group = "client"}),
+    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+              {description = "toggle floating", group = "client"}),
+    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+              {description = "move to master", group = "client"}),
+    awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
+              {description = "move to screen", group = "client"}),
+    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
+              {description = "toggle keep on top", group = "client"}),
+    awful.key({ modkey,           }, "n",
         function (c)
-            c:kill()
-        end),
-    awful.key({ modkey, "Control" }, "Return",
+            -- The client currently has the input focus, so it cannot be
+            -- minimized, since minimized clients can't have the focus.
+            c.minimized = true
+        end ,
+        {description = "minimize", group = "client"}),
+    awful.key({ modkey,           }, "m",
         function (c)
-            c:swap(awful.client.getmaster())
-        end),
+            c.maximized = not c.maximized
+            c:raise()
+        end ,
+        {description = "maximize", group = "client"}),
     awful.key({ modkey, "Shift"   }, "r",
         function (c)
             c:redraw()
-        end),
-    awful.key({ modkey,           }, "n",
-        function (c)
-            c.minimized = not c.minimized
-        end),
-    awful.key({ modkey,           }, "m",
-        function (c)
-            c.maximized_horizontal = not c.maximized_horizontal
-            c.maximized_vertical   = not c.maximized_vertical
-        end)
+        end,
+        {description = "redraw", group = "client"})
 )
 
 clientbuttons = awful.util.table.join(
