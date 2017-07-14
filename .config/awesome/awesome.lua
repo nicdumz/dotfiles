@@ -29,20 +29,20 @@ local volume = require("volume")
 awful.util.shell = '/bin/sh'
 
 function volume_up()
-  awful.util.spawn("amixer -D pulse sset Master 5%+")
+  awful.spawn("amixer -D pulse sset Master 5%+")
 end
 
 function volume_down()
-  awful.util.spawn("amixer -D pulse sset Master 5%-")
+  awful.spawn("amixer -D pulse sset Master 5%-")
 end
 
 function volume_mute()
-  awful.util.spawn("amixer -D pulse sset Master toggle")
+  awful.spawn("amixer -D pulse sset Master toggle")
 end
 
 
 -- function run_clean(cmd)
---     return awful.util.spawn_with_shell("env LD_LIBRARY_PATH= " .. cmd)
+--     return awful.with_shell("env LD_LIBRARY_PATH= " .. cmd)
 -- end
 -- obvious.popup_run_prompt.set_run_function(run_clean)
 
@@ -55,7 +55,7 @@ beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "gnome-terminal"
-editor = "nvim"
+editor = "vim"
 editor_cmd = terminal .. " -e '" .. editor
 
 -- Default modkey.
@@ -194,28 +194,33 @@ awful.screen.connect_for_each_screen(function(s)
         awful.tag.add("www", {
             layout = awful.layout.suit.tile,
             screen = s,
+            master_width_factor = 0.45,
             selected = true,
+            gap = 5,
         })
         awful.tag.add("chat", {
-            layout = awful.layout.suit.tile.bottom,
-            mwfact = 0.5,
+            layout = awful.layout.suit.tile,
+            master_width_factor = 0.5,
             screen = s,
+            gap = 5,
         })
         awful.tag.add("pers", {
             layout = awful.layout.suit.tile,
-            mwfact = 0.8,
             screen = s,
+            gap = 5,
         })
     else
         awful.tag.add("1", {
             layout = awful.layout.suit.tile,
             screen = s,
             selected = true,
+            gap = 5,
         })
         awful.tag.add("2", {
             layout = awful.layout.suit.tile,
-            mwfact = 0.8,
+            master_width_factor = 0.8,
             screen = s,
+            gap = 5,
         })
     end
 
@@ -367,7 +372,7 @@ globalkeys = awful.util.table.join(
     --         local path_cmd = prefix .. "dmenu_path | dmenu -b -nb '#222222'"
     --         path_cmd = path_cmd .. " -nf '#aaaaaa' -sb '#ff0000' -sf '#ffffff'"
     --         local myexe = awful.util.pread(path_cmd)
-    --         awful.util.spawn_with_shell(prefix .. myexe)
+    --         awful.with_shell(prefix .. myexe)
     --     end),
 
     awful.key({ modkey }, "x",
@@ -390,14 +395,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "Next", volume_down,
               {description = "Decrease volume", group = "custom"}),
 
-    -- awful.key({ }, "#172", function () awful.util.spawn("rhythmbox-client --play-pause") end),
-    -- awful.key({ }, "#173", function () awful.util.spawn("rhythmbox-client --previous") end),
-    -- awful.key({ }, "#171", function () awful.util.spawn("rhythmbox-client --next") end),
+    -- awful.key({ }, "#172", function () awful.spawn("rhythmbox-client --play-pause") end),
+    -- awful.key({ }, "#173", function () awful.spawn("rhythmbox-client --previous") end),
+    -- awful.key({ }, "#171", function () awful.spawn("rhythmbox-client --next") end),
 
-    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("screen-lock") end,
+    awful.key({ modkey, "Control" }, "l", function () awful.spawn("screen-lock") end,
               {description = "Lock screen", group = "custom"}),
     -- Alt+Ctrl+l
-    awful.key({ "Mod1", "Control" }, "l", function () awful.util.spawn("screen-lock") end,
+    awful.key({ "Mod1", "Control" }, "l", function () awful.spawn("screen-lock") end,
               {description = "Lock screen", group = "custom"}),
     awful.key({ modkey }, "e", revelation.revelation)
 )
@@ -602,8 +607,8 @@ do
     function setnormal(c)
         c.border_color = beautiful.border_normal
     end
-    client.add_signal("focus", setfocus)
-    client.add_signal("unfocus", setnormal)
+    client.connect_signal("focus", setfocus)
+    client.connect_signal("unfocus", setnormal)
 end
 -- }}}
 
@@ -620,6 +625,6 @@ end
     end
     awful.client.urgent.add = wrapper
 
--- awful.util.spawn_with_shell("sleep 2 && ~/.local/bin/wallpaper")
+-- awful.with_shell("sleep 2 && ~/.local/bin/wallpaper")
 -- urgh this crashes
--- awful.util.spawn("xautolock -time 5 -locker '/usr/local/google/home/ndumazet/.local/bin/screen-lock'")
+-- awful.spawn("xautolock -time 5 -locker '/usr/local/google/home/ndumazet/.local/bin/screen-lock'")

@@ -47,7 +47,7 @@ end
 themedir      = themes .. themename
 
 
-theme.font          = "Hack 9"
+theme.font          = "Hack 12"
 
 -- dark
 theme.bg_normal     = base00
@@ -63,10 +63,10 @@ theme.fg_focus      = base07
 theme.fg_urgent     = base06
 theme.fg_minimize   = base06
 
-theme.border_width  = "2"
-theme.border_normal = base00
-theme.border_focus  = base0D
-theme.border_marked = "#91231c"
+theme.border_width  = "5"
+theme.border_normal = base01
+theme.border_focus  = base08
+theme.border_marked = base08
 
 -- There are another variables sets
 -- overriding the default one when
@@ -86,8 +86,8 @@ theme.tasklist_floating_icon = themedir .. "/tasklist/floatingw.png"
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themedir .. "/submenu.png"
-theme.menu_height   = "15"
-theme.menu_width    = "100"
+theme.menu_height   = 30
+theme.menu_width    = 200
 
 -- You can add as many variables as
 -- you wish and access them by using

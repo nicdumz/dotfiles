@@ -1,5 +1,5 @@
-URxvt*font: xft:Hack:antialias=true:pixelsize=14
-URxvt*boldFont: xft:Hack:bold:antialias=true:pixelsize=14
+URxvt*font: xft:Hack:antialias=true:pixelsize=16
+URxvt*boldFont: xft:Hack:bold:antialias=true:pixelsize=16
 URxvt*urgentOnBell: True
 URxvt*letterSpace: -1
 URxvt*saveLines: 1200
