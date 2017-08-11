@@ -1,4 +1,5 @@
 caskroom/cask
-caskroom/cask/xquartz
 caskroom/fonts
+homebrew/core
 homebrew/dupes
+neovim/neovim

@@ -1,4 +1,13 @@
 caffeine
+calibre
 dropbox
 flux
+font-awesome-terminal-fonts
+font-fontawesome
+font-roboto
+font-roboto-condensed
+font-roboto-mono
+fontexplorer-x-pro
+kobo
 macpass
+xquartz
