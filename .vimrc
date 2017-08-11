@@ -158,6 +158,12 @@ augroup filetypedetect
     autocmd BufRead *tmp/*flagfile* setf sh
 
     autocmd FileType gitcommit DiffGitCached | wincmd p
+
+    autocmd FileType html setlocal shiftwidth=2 tabstop=2
+    " Regenerating mako files takes a few seconds for webdev things.
+    autocmd BufWritePost *.mako silent make
+    " Open cwindow in case of make errors
+    autocmd QuickFixCmdPost *make* cwindow
 augroup END
 
 "{{{ Keyboard
