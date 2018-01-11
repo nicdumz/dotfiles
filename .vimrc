@@ -88,6 +88,13 @@ let g:signify_vcs_cmds = {
 let g:signify_sign_delete = '-'
 " Whitespace highlighting / :StripWhitespace
 Plug 'ntpeters/vim-better-whitespace'
+" typescript highlighting
+Plug 'leafgarland/typescript-vim'
+" Ultisnips engine, no snippets.
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 call plug#end()
 
