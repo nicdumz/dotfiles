@@ -568,6 +568,9 @@ awful.rules.rules = {
     { rule = { instance = "google-chrome (.config/personal-chrome)" },
       properties = { screen = 1, tag = "pers" }
     },
+    { rule = { name = "Google Play Music", role = "app" },
+      properties = { screen = 1, tag = "pers", floating = true }
+    },
 }
 -- }}}
 
