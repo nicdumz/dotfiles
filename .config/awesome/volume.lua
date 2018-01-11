@@ -28,11 +28,11 @@ volume_widget = wibox.widget {
 ]]
 volume_widget:connect_signal("button::press", function(_,_,_,button)
     if (button == 4) then
-        awful.spawn("amixer -D pulse sset Master 5%+", false)
+        awful.spawn("amixer sset Master 5%+", false)
     elseif (button == 5) then
-        awful.spawn("amixer -D pulse sset Master 5%-", false)
+        awful.spawn("amixer sset Master 5%-", false)
     elseif (button == 1) then
-        awful.spawn("amixer -D pulse sset Master toggle", false)
+        awful.spawn("amixer sset Master toggle", false)
     end
 end)
 
@@ -40,8 +40,8 @@ volume_widget.tooltip = awful.tooltip({objects = {volume_widget}})
 volume_widget.tooltip:set_mode("mouse")
 
 watch(
-    'amixer -D pulse sget Master', 1,
-    function(widget, stdout, stderr, reason, exit_code)   
+    'amixer sget Master', 1,
+    function(widget, stdout, stderr, reason, exit_code)
         local mute = string.match(stdout, "%[(o%D%D?)%]")
         local volume = string.match(stdout, "(%d?%d?%d)%%")
         widget.tooltip:set_text(volume .. "%")

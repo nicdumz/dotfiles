@@ -29,15 +29,15 @@ local volume = require("volume")
 awful.util.shell = '/bin/sh'
 
 function volume_up()
-  awful.spawn("amixer -D pulse sset Master 5%+")
+  awful.util.spawn("amixer sset Master 5%+")
 end
 
 function volume_down()
-  awful.spawn("amixer -D pulse sset Master 5%-")
+  awful.util.spawn("amixer sset Master 5%-")
 end
 
 function volume_mute()
-  awful.spawn("amixer -D pulse sset Master toggle")
+  awful.util.spawn("amixer sset Master toggle")
 end
 
 
@@ -326,7 +326,7 @@ globalkeys = awful.util.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -399,10 +399,10 @@ globalkeys = awful.util.table.join(
     -- awful.key({ }, "#173", function () awful.spawn("rhythmbox-client --previous") end),
     -- awful.key({ }, "#171", function () awful.spawn("rhythmbox-client --next") end),
 
-    awful.key({ modkey, "Control" }, "l", function () awful.spawn("screen-lock") end,
+    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("screen-lock") end,
               {description = "Lock screen", group = "custom"}),
     -- Alt+Ctrl+l
-    awful.key({ "Mod1", "Control" }, "l", function () awful.spawn("screen-lock") end,
+    awful.key({ "Mod1", "Control" }, "l", function () awful.util.spawn("screen-lock") end,
               {description = "Lock screen", group = "custom"}),
     awful.key({ modkey }, "e", revelation.revelation)
 )
@@ -562,7 +562,7 @@ awful.rules.rules = {
     { rule = { name = "Google Hangouts" },
       properties = { screen = 1, tag = "chat" }
     },
-    { rule = { name = "Chat" },
+    { rule = { class = "Chat" },
       properties = { screen = 1, tag = "chat" }
     },
     { rule = { instance = "google-chrome (.config/personal-chrome)" },
@@ -628,3 +628,4 @@ end
 -- awful.with_shell("sleep 2 && ~/.local/bin/wallpaper")
 -- urgh this crashes
 -- awful.spawn("xautolock -time 5 -locker '/usr/local/google/home/ndumazet/.local/bin/screen-lock'")
+awful.spawn('gnome-screensaver')
