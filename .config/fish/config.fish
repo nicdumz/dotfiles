@@ -21,6 +21,7 @@ else
     set -x EDITOR nvim
 end
 set -x P4DIFF 'colordiff -u'
+set -x CC clang
 
 . ~/.bash_aliases
 if test -f ~/.bash_aliases.after
