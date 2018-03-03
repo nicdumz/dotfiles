@@ -65,6 +65,14 @@ Plug 'vim-scripts/AfterColors.vim'
 "Plugin 'vim-scripts/vcscommand.vim'
 " Open correctly files: vim filename:103
 Plug 'paulhybryant/file-line'
+
+" Disable native MatchParen for better things.
+Plug 'luochen1990/rainbow'
+let g:rainbow_conf = {
+   \ 'ctermfgs': ['Darkblue', 'darkgreen', 'darkcyan', 'darkred', 'darkmagenta', 'brown', 'grey', 'lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],}
+let g:rainbow_active = 1
+let loaded_matchparen = 1
+
 " Some scripts need newer vims
 if (v:version > 700)
     Plug 'scrooloose/syntastic'
