@@ -198,6 +198,12 @@ awful.screen.connect_for_each_screen(function(s)
             selected = true,
             gap = 5,
         })
+        awful.tag.add("www2", {
+            layout = awful.layout.suit.tile,
+            screen = s,
+            master_width_factor = 0.45,
+            gap = 5,
+        })
         awful.tag.add("chat", {
             layout = awful.layout.suit.tile,
             master_width_factor = 0.5,
@@ -394,7 +400,10 @@ globalkeys = awful.util.table.join(
               {description = "Increase volume", group = "custom"}),
     awful.key({ modkey, }, "Next", volume_down,
               {description = "Decrease volume", group = "custom"}),
-
+    awful.key({}, "XF86AudioRaiseVolume", volume_up,
+              {description = "Increase volume", group = "custom"}),
+    awful.key({}, "XF86AudioLowerVolume", volume_down,
+              {description = "Decrease volume", group = "custom"}),
     -- awful.key({ }, "#172", function () awful.spawn("rhythmbox-client --play-pause") end),
     -- awful.key({ }, "#173", function () awful.spawn("rhythmbox-client --previous") end),
     -- awful.key({ }, "#171", function () awful.spawn("rhythmbox-client --next") end),
@@ -556,17 +565,23 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = true }
     },
 
-    { rule = { class = "chrome" },
+    { rule = { instance = "google-chrome" },
       properties = { screen = 1, tag = "www" }
     },
+
+    -- Note: Beware of '-' in Lua patterns.
+    { rule = { instance = "google.chrome.*chrome.profile.NONPRIV" },
+      properties = { screen = 1, tag = "www2" }
+    },
+    { rule = { instance = "google.chrome.*personal.chrome" },
+      properties = { screen = 1, tag = "pers" }
+    },
+
     { rule = { name = "Google Hangouts" },
       properties = { screen = 1, tag = "chat" }
     },
     { rule = { class = "Chat" },
       properties = { screen = 1, tag = "chat" }
-    },
-    { rule = { instance = "google-chrome (.config/personal-chrome)" },
-      properties = { screen = 1, tag = "pers" }
     },
     { rule = { name = "Google Play Music", role = "app" },
       properties = { screen = 1, tag = "pers", floating = true }
