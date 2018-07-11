@@ -17,13 +17,6 @@ require("debian.menu")
 
 local revelation = require("revelation")
 
-require("obvious.popup_run_prompt")
-obvious.popup_run_prompt.set_slide(true)
-obvious.popup_run_prompt.set_move_speed(0.015)
-obvious.popup_run_prompt.set_opacity(0.5)
-obvious.popup_run_prompt.set_border_width(3)
-obvious.popup_run_prompt.set_height(25)
-
 local volume = require("volume")
 
 awful.util.shell = '/bin/sh'
