@@ -32,11 +32,11 @@ if test -f ~/.config/fish/config-google.fish
     . ~/.config/fish/config-google.fish
 end
 
-if status --is-interactive
-    eval sh "$HOME/.dotfiles/subrepos/base16-shell/scripts/base16-flat.sh"
-end
+# if status --is-interactive
+#     eval sh "$HOME/.dotfiles/subrepos/base16-shell/scripts/base16-flat.sh"
+# end
 
-set -x TERM xterm-256color
+# set -x TERM xterm-256color
 set -x XDG_CONFIG_HOME $HOME/.config
 
 function __fish_complete_users --description 'Print a list of local users, with the real user name as a description'

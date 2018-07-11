@@ -81,7 +81,7 @@ unset LC_CTYPE
 # esac
 
 # This breaks, like, most of the time.
-source "$HOME/.dotfiles/subrepos/base16-shell/scripts/base16-flat.sh"
+# source "$HOME/.dotfiles/subrepos/base16-shell/scripts/base16-flat.sh"
 
 if [ -f ~/.bashrc.after ]; then
     . ~/.bashrc.after

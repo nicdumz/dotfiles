@@ -1,7 +1,6 @@
 " Versioned .vim/ is symlinked to ~/.vim/dotfiles-symlink
 set rtp +=~/.vim/dotfiles-symlink
 
-set t_Co=256
 syntax off
 filetype off
 
@@ -34,10 +33,16 @@ let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '~/.vim'
 set shell=/bin/bash
 
 call plug#begin(expand(s:vimDir . '/plugged'))
+" Colorschemes
 Plug 'justinmk/molokai'
-let base16colorspace=256
+Plug 'KeitaNakamura/neodark.vim'
 Plug 'chriskempson/base16-vim'
-let g:rehash256 = 1 " have the gui theme as close as possible as cterm
+Plug 'rakr/vim-one'
+
+" Those 2 go together
+" Plug 'sheerun/vim-polyglot'
+Plug 'trevordmiller/nova-vim'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " This requires fancy patched fonts, e.g. DejaVu Sans Mono for Powerline (10)
@@ -60,27 +65,36 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " Support for color fixes in .vim/after
-Plug 'vim-scripts/AfterColors.vim'
+" Disabled to see how that works with nova theme
+" Plug 'vim-scripts/AfterColors.vim'
 " Some vcs integration
-"Plugin 'vim-scripts/vcscommand.vim'
+" Plug 'vim-scripts/vcscommand.vim'
 " Open correctly files: vim filename:103
 Plug 'paulhybryant/file-line'
 
 " Disable native MatchParen for better things.
 Plug 'luochen1990/rainbow'
 let g:rainbow_conf = {
-   \ 'ctermfgs': ['Darkblue', 'darkgreen', 'darkcyan', 'darkred', 'darkmagenta', 'brown', 'grey', 'lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],}
+   \ 'guifgs': ['#DAD996', '#F1C392', '#D08FC1', '#9A95DF'],
+   \ 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],}
 let g:rainbow_active = 1
 let loaded_matchparen = 1
 
 " Some scripts need newer vims
 if (v:version > 700)
-    Plug 'scrooloose/syntastic'
+    " Plug 'scrooloose/syntastic'
     let g:syntastic_error_symbol = '✗'
     let g:syntastic_warning_symbol = '⚠'
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_check_on_open = 1
     let g:syntastic_aggregate_errors = 1
+    " Faster than syntastic?
+    " Plug 'w0rp/ale'
+    let g:ale_sign_error = '✗'
+    let g:ale_sign_warning = '⚠'
+    let g:ale_sign_style_error = '✗'
+    let g:ale_sign_style_warning = '⚠'
+    let g:airline#extensions#ale#enabled = 1
 
     " Export highlighted html to pastebin.
     Plug 'google/maktaba' | Plug 'google/vim-syncopate'
@@ -104,18 +118,22 @@ let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
+" Show content of " registers
+Plug 'junegunn/vim-peekaboo'
+
 call plug#end()
 
 syntax on
 filetype plugin indent on
 
 set background=dark
-if !empty(globpath(&rtp, 'colors/molokai.vim'))
-    " Not here during first installation
-    colorscheme molokai
+if has('nvim') || has('termguicolors')
+  set termguicolors
+  if !empty(globpath(&rtp, 'colors/nova.vim'))
+      " Not here during first installation
+      colorscheme nova
+  endif
 endif
-au GUIEnter * colorscheme base16-flat
-" colorscheme base16-solarized
 
 set expandtab
 set tabstop=4
@@ -123,7 +141,7 @@ set shiftwidth=4
 
 set number " Show line numbers
 
-set ruler " Show curser position on statusline.
+set ruler " Show cursor position on statusline.
 set scrolloff=5 " 5 lines around the cursor
 
 if (v:version > 703 || v:version == 703 && has("patch541"))
