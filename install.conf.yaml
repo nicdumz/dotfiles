@@ -10,6 +10,9 @@
     ~/.config/fish/functions/prompt_pwd.fish:
         create: true
         path: .config/fish/functions/prompt_pwd.fish
+    ~/.config/kitty:
+        create: true
+        path: .config/kitty/
     ~/.config/nvim:
         create: true
         path: .vim/
