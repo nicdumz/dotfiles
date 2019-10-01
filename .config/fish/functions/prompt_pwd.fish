@@ -4,6 +4,7 @@ function prompt_pwd --description 'Print the current working directory, shortend
     if functions -q prompt_pwd_after
         prompt_pwd_after $p
     else
-        echo "$p "
+        # u200C is a Zero-Width non-joining character to prevent ligatures.
+        printf "$p\u200C"
     end
 end
