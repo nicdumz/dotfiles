@@ -4,6 +4,6 @@ function prompt_pwd --description 'Print the current working directory, shortend
     if functions -q prompt_pwd_after
         prompt_pwd_after $p
     else
-        echo $p
+        echo "$p "
     end
 end
