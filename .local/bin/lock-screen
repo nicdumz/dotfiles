@@ -1,2 +1,5 @@
 #!/bin/sh
-gnome-screensaver-command --lock
+/usr/share/goobuntu-desktop-files/xsecurelock.sh
+
+# reset capslock to escape.
+setxkbmap -option caps:escape

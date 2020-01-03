@@ -1,5 +1,5 @@
 xrandr --output DP-1 --primary --auto --rotate normal
-xautolock -time 3 -locker "gnome-screensaver-command --lock" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" &
+xautolock -time 3 -locker "/usr/share/goobuntu-desktop-files/xsecurelock.sh" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" &
 xset -b
 setxkbmap -option "caps:escape"
 xrdb -merge ~/.Xresources
