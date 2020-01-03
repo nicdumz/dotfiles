@@ -576,6 +576,9 @@ awful.rules.rules = {
     { rule = { class = "Chat" },
       properties = { screen = 1, tag = "chat" }
     },
+    { rule = { name = "CIRC" },
+      properties = { screen = 1, tag = "chat" }
+    },
     { rule = { name = "Google Play Music", role = "app" },
       properties = { screen = 1, tag = "pers", floating = true }
     },
