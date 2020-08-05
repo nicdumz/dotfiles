@@ -14,6 +14,7 @@ if test -f ~/brew/bin/brew
 end
 
 set -x PATH $HOME/.local/bin $PATH
+set -x PATH $HOME/go/bin $PATH
 
 if test -f ~/.local/bin/fish
     set -x EDITOR ~/.local/bin/nvim
