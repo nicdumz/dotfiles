@@ -10,6 +10,14 @@ it :)
     git clone https://github.com/nicdumz/dotfiles.git ~/.dotfiles
     ~/.dotfiles/install.sh
 
+## Irssi
+
+After setting irssi you may want to setup the layout:
+
+    /run autorun/adv_windowlist.pl
+    /toggle awl_viewer
+    /save
+
 # Notes
 
 ## Base16
