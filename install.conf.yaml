@@ -4,6 +4,9 @@
     ~/.config/awesome:
         create: true
         path: .config/awesome/
+    ~/.config/redshift/redshift.conf:
+        create: true
+        path: .config/redshift/redshift.conf
     ~/.config/fish/config.fish:
         create: true
         path: .config/fish/config.fish
