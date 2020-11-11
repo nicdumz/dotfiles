@@ -43,3 +43,7 @@ set -x XDG_CONFIG_HOME $HOME/.config
 function __fish_complete_users --description 'Print a list of local users, with the real user name as a description'
     awk 'BEGIN { FS = ":"; OFS = "\t" } $0 !~ /^[[:space:]]*#/ { print $1, $5 }' /etc/passwd
 end
+function ssh --wraps ssh
+  # most remote hosts do not know xterm-kitty
+  TERM=xterm /usr/bin/ssh $argv
+end
