@@ -10,9 +10,6 @@
     ~/.config/fish/config.fish:
         create: true
         path: .config/fish/config.fish
-    ~/.config/fish/functions/prompt_pwd.fish:
-        create: true
-        path: .config/fish/functions/prompt_pwd.fish
     ~/.config/kitty:
         create: true
         path: .config/kitty/
