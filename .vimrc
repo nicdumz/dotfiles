@@ -4,6 +4,8 @@ set rtp +=~/.vim/dotfiles-symlink
 syntax off
 filetype off
 
+let g:python3_host_prog='/usr/bin/python3'
+
 " lots of things that neovim does for me already
 if !has('nvim')
     set autoindent
