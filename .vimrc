@@ -3,8 +3,7 @@ set rtp +=~/.vim/dotfiles-symlink
 
 syntax off
 filetype off
-
-let g:python3_host_prog='/usr/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " lots of things that neovim does for me already
 if !has('nvim')
@@ -81,6 +80,8 @@ let g:rainbow_conf = {
    \ 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],}
 let g:rainbow_active = 1
 let loaded_matchparen = 1
+
+Plug 'nathangrigg/vim-beancount'
 
 " Some scripts need newer vims
 if (v:version > 700)
