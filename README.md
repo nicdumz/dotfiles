@@ -36,6 +36,13 @@ terminal profiles.
 https://trevordmiller.com/projects/nova is actually nice too, it makes sense to
 create a 'Nova' terminal profile and follow instructions there to set it up.
 
+## Redshift and apparmor
+
+```
+$ cat /etc/apparmor.d/local/usr.bin.redshift
+owner @{HOME}/.dotfiles/.config/redshift/redshift.conf r,
+```
+
 # Included as subrepos
 
 -   Setup colors for bash: https://github.com/chriskempson/base16-shell.git
