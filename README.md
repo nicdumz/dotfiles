@@ -54,4 +54,4 @@ owner @{HOME}/.dotfiles/.config/redshift/redshift.conf r,
 -   [gibo](https://github.com/simonwhitaker/gibo) to generate
     .gitconfig/hgignore files.
 -   [fontinstall](https://github.com/nicdumz/fontinstall) to easily install
-    fonts accross systems.
+    fonts across systems.
