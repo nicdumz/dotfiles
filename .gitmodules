@@ -15,5 +15,5 @@
 	url = https://github.com/gmarik/vundle.git
 [submodule "subrepos/nerd-fonts"]
 	path = subrepos/nerd-fonts
-	url = git@github.com:ryanoasis/nerd-fonts.git
+	url = https://github.com:ryanoasis/nerd-fonts.git
 	shallow = true
