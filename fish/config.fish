@@ -58,7 +58,7 @@ set tide_context_bg_color green
 set tide_context_default_color black
 set tide_context_root_color red
 set tide_context_ssh_color black
-set tide_left_prompt_items pwd git newline
+set tide_left_prompt_items pwd git newline prompt_char
 set tide_pwd_bg_color blue
 set tide_status_failure_bg_color red
 set tide_status_failure_color yellow
@@ -78,13 +78,14 @@ set tide_git_untracked_color 000000
 set tide_git_upstream_color 000000
 set tide_jobs_bg_color 444444
 set tide_jobs_color 4E9A06
+set tide_jobs_verbose true
 set tide_left_prompt_frame_color 585858
-set tide_left_prompt_frame_enabled true
+set tide_left_prompt_frame_enabled false
 set tide_left_prompt_item_separator_diff_color 
 set tide_left_prompt_item_separator_same_color 
 set tide_left_prompt_pad_items true
 set tide_left_prompt_prefix 
-set tide_left_prompt_suffix 
+set tide_left_prompt_suffix " "
 set tide_nvm_bg_color 75507B
 set tide_nvm_color 2E3436
 set tide_os_bg_color CED7CF
@@ -98,7 +99,7 @@ set tide_pwd_color_truncated_dirs BCBCBC
 set tide_pwd_dir_icon 
 set tide_pwd_home_icon 
 set tide_right_prompt_frame_color 585858
-set tide_right_prompt_frame_enabled true
+set tide_right_prompt_frame_enabled false
 set tide_right_prompt_item_separator_diff_color 
 set tide_right_prompt_item_separator_same_color 
 set tide_right_prompt_items 'status'  'cmd_duration'  'context'  'jobs'  'vi_mode'
@@ -123,3 +124,6 @@ set tide_vi_mode_visual_bg_color 000080
 set tide_vi_mode_visual_color 000000
 set tide_vi_mode_visual_icon VISUAL
 set tide_virtual_env_bg_color 444444
+set tide_prompt_char_failure_color red
+set tide_prompt_char_success_color green
+set tide_prompt_char_icon 
