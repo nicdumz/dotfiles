@@ -19,3 +19,5 @@
     default = matching
 [credential]
     helper = store
+[url "git@github.com:"]
+    pushInsteadOf = https://github.com/
