@@ -5,6 +5,7 @@ set -g -x fish_greeting ''
 set -x LANG (locale -a | grep -i "en_US.*utf")
 set -e LC_CTYPE
 
+set -x LC_ALL "en_US.utf8"
 set -x CLICOLOR true
 
 if test -f ~/brew/bin/brew
