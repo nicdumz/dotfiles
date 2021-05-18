@@ -1,53 +1,47 @@
-- clean: ['~']
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
 
 - link:
-    ~/.config/awesome:
-        create: true
-        path: .config/awesome/
-    ~/.config/redshift/redshift.conf:
-        create: true
-        path: .config/redshift/redshift.conf
     ~/.config/fish/config.fish:
-        create: true
-        path: .config/fish/config.fish
+        path: fish/config.fish
     ~/.config/fish/fish_plugins:
-        create: true
-        path: .config/fish/fish_plugins
+        path: fish/fish_plugins
     ~/.config/kitty:
-        create: true
-        path: .config/kitty/
     ~/.config/nvim:
-        create: true
-        path: .vim/
+        path: vim/
     ~/.vim/dotfiles-symlink:
-        create: true
-        path: .vim/
+        path: vim/
     ~/.config/git/config:
-        create: true
-        path: .gitconfig
+        path: gitconfig
     ~/.local/bin/screen-lock:
-        create: true
-        path: .local/bin/lock-screen
+        path: local/bin/lock-screen
     ~/.local/bin/lock-screen:
-        create: true
-        path: .local/bin/lock-screen
-    ~/.local/bin/personal-chrome:
-        create: true
-        path: .local/bin/personal-chrome
-    ~/.bash_aliases: .bash_aliases
-    ~/.bash_profile: .bash_profile
-    ~/.bashrc: .bashrc
-    ~/.hgignore: .hgignore
-    ~/.hgrc: .hgrc
-    ~/.tmux.conf: .tmux.conf
-    ~/.vimrc: .vimrc
-    ~/.Xresources: .Xresources
-    ~/.xinitrc: .xinitrc
-    ~/.xprofile: .xprofile
+        path: local/bin/lock-screen
+    ~/.config/awesome:
+    ~/.config/redshift:
+    ~/.config/user-dirs.dirs:
+    ~/.bash_aliases:
+    ~/.bash_profile:
+    ~/.bashrc:
+    ~/.hgignore:
+    ~/.hgrc:
+    ~/.tmux.conf:
+    ~/.vimrc:
+    ~/.Xresources:
+    ~/.xinitrc:
+    ~/.xprofile:
 
 - shell:
-  - ["curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", vim-plug for vim]
-  - ["curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", vim-plug for neovim]
+  - ["curl -fLo ~/vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", vim-plug for vim]
+  - ["curl -fLo ~/local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", vim-plug for neovim]
   - ["curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher@4.3.0", fisher install]
   - [fisher update]
   -
@@ -58,4 +52,4 @@
   - [./subrepos/gitignore-boilerplates/gibo dump Linux OSX Python Vim > ~/.config/git/ignore, Setting up gitignore]
   - [./install_brew.sh, Installing brew]
   - [xrdb -merge ~/.Xresources, Update X Resources]
-  - ["curl -fLo ~/.irssi/scripts/autorun/adv_windowlist.pl --create-dirs https://raw.githubusercontent.com/irssi/scripts.irssi.org/master/scripts/adv_windowlist.pl", irssi adv_windowlist]
+  - ["curl -fLo ~/irssi/scripts/autorun/adv_windowlist.pl --create-dirs https://raw.githubusercontent.com/irssi/scripts.irssi.org/master/scripts/adv_windowlist.pl", irssi adv_windowlist]
