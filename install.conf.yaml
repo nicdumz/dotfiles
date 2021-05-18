@@ -10,6 +10,9 @@
     ~/.config/fish/config.fish:
         create: true
         path: .config/fish/config.fish
+    ~/.config/fish/fish_plugins:
+        create: true
+        path: .config/fish/fish_plugins
     ~/.config/kitty:
         create: true
         path: .config/kitty/
@@ -45,12 +48,13 @@
 - shell:
   - ["curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", vim-plug for vim]
   - ["curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", vim-plug for neovim]
+  - ["curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher@4.3.0", fisher install]
+  - [fisher update]
   -
     command: "vim '+PlugInstall|qall'"
     description: Installing vim plugins
     stdin: True
-  - [./subrepos/fontinstall/fontinstall.sh subrepos/powerline-fonts/DejaVuSansMono/*.ttf, Installing powerline fonts]
-  - [./subrepos/fontinstall/fontinstall.sh subrepos/hack-fonts/build/ttf/*.ttf, Installing hack fonts]
+  - [./subrepos/nerd-fonts/install.sh CascadiaCode DejaVuSansMono Hack Meslo, Installing fonts]
   - [./subrepos/gitignore-boilerplates/gibo dump Linux OSX Python Vim > ~/.config/git/ignore, Setting up gitignore]
   - [./install_brew.sh, Installing brew]
   - [xrdb -merge ~/.Xresources, Update X Resources]

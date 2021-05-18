@@ -47,3 +47,16 @@ function ssh --wraps ssh
   # most remote hosts do not know xterm-kitty
   TERM=xterm /usr/bin/ssh $argv
 end
+
+set fish_color_command green
+set fish_color_autosuggestion white
+set tide_context_always_display true
+set tide_context_bg_color green
+set tide_context_default_color black
+set tide_context_root_color red
+set tide_context_ssh_color black
+set tide_left_prompt_items pwd git newline
+set tide_pwd_bg_color blue
+set tide_status_failure_bg_color red
+set tide_status_failure_color yellow
+set tide_status_success_color green
