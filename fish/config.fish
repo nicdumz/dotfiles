@@ -50,7 +50,7 @@ function ssh --wraps ssh
 end
 
 set fish_color_command green
-set fish_color_autosuggestion white
+set fish_color_autosuggestion magenta
 
 # Tide setup
 set tide_context_always_display true
