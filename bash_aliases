@@ -6,3 +6,4 @@ alias egrep='egrep --color=auto'
 alias diff=colordiff
 
 alias vim=nvim
+alias kittydiff='kitty +kitten diff'
