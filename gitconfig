@@ -3,6 +3,7 @@
     email = nicdumz.commits@gmail.com
 [core]
     editor = nvim
+    excludesfile = ~/.config/git/ignore
 [github]
     user = nicdumz
 [color]

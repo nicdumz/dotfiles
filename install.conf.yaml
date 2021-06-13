@@ -51,7 +51,7 @@
     description: Installing vim plugins
     stdin: True
   - [./subrepos/nerd-fonts/install.sh CascadiaCode DejaVuSansMono Hack Meslo, Installing fonts]
-  - [./subrepos/gitignore-boilerplates/gibo dump Linux OSX Python Vim > ~/.config/git/ignore, Setting up gitignore]
+  - [./subrepos/gitignore-boilerplates/gibo dump Linux OSX Python Vim VisualStudioCode > ~/.config/git/ignore, Setting up gitignore]
   - [./install_brew.sh, Installing brew]
   - [xrdb -merge ~/.Xresources, Update X Resources]
   - ["curl -fLo ~/irssi/scripts/autorun/adv_windowlist.pl --create-dirs https://raw.githubusercontent.com/irssi/scripts.irssi.org/master/scripts/adv_windowlist.pl", irssi adv_windowlist]
