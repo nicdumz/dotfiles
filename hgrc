@@ -1,7 +1,7 @@
 [ui]
 username = Nicolas Dumazet <nicdumz.commits@gmail.com>
 editor = vim -v -c 'set ft=hgs'
-merge = vimdiff
+merge = mergediff
 ssh = ssh -C
 portablefilenames = abort
 ignore = ~/.hgignore
@@ -59,6 +59,8 @@ bookmarks=
 #progress=
 schemes=
 histedit=
+# prettier graphs using fancy fonts
+beautifygraph=
 
 #patchshelter = /home/nicdumz/opensource/patchshelter/
 
@@ -80,3 +82,12 @@ vimdiff.args = -d $base $local $output $other +close +close
 
 [hooks]
 patchshelter.update=python:patchshelter.hooks.MH
+
+[trainingwheels]
+revert--all=false
+
+[color]
+# bold green current CL in graph.
+desc.here = green bold
+[google-change-tags]
+default.markdown=true
