@@ -9,6 +9,10 @@
     ~/.config:
       recursive: true
 
+- shell:
+  - [nvim --version, checking that neovim is installed]
+  - [git submodule update --init --recursive, Installing submodules]
+
 - link:
     ~/.config/fish/completions/exa.fish:
         path: fish/completions/exa.fish
