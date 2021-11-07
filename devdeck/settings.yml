@@ -5,47 +5,54 @@ decks:
     controls:
     - name: devdeck.controls.clock_control.ClockControl
       key: 0
-    - name: devdeck.controls.command_control.CommandControl
+    # Column for shelve light
+    - name: devdeck_hue.toggle.Toggle
+      key: 2
+      settings:
+        host: 192.168.1.241
+        light_id: 1
+    - name: devdeck_hue.brightness.Increase
+      key: 7
+      settings:
+        host: 192.168.1.241
+        light_id: 1
+        step: 25
+    - name: devdeck_hue.brightness.Decrease
+      key: 12
+      settings:
+        host: 192.168.1.241
+        light_id: 1
+        step: 25
+    # Column for overhead light
+    - name: devdeck_hue.toggle.Toggle
       key: 3
       settings:
-        command:
-        - python3
-        - /home/ndumazet/.devdeck/hue.py
-        - toggle
-        icon: /home/ndumazet/.devdeck/lightbulb_white_512.png
-    - name: devdeck.controls.command_control.CommandControl
+        host: 192.168.1.241
+        light_id: 4
+    - name: devdeck_hue.brightness.Increase
       key: 8
       settings:
-        command:
-        - python3
-        - /home/ndumazet/.devdeck/hue.py
-        - plus
-        icon: /home/ndumazet/.devdeck/brightness_high_white_512.png
-    - name: devdeck.controls.command_control.CommandControl
+        host: 192.168.1.241
+        light_id: 4
+        step: 25
+    - name: devdeck_hue.brightness.Decrease
       key: 13
       settings:
-        command:
-        - python3
-        - /home/ndumazet/.devdeck/hue.py
-        - minus
-        icon: /home/ndumazet/.devdeck/brightness_low_white_512.png
+        host: 192.168.1.241
+        light_id: 4
+        step: 25
+    # Column for elgato
     - name: devdeck_key_light.key_light_toggle_control.KeyLightToggleControl
       key: 4
       settings:
         host: 192.168.1.240
-    - name: devdeck.controls.command_control.CommandControl
+    - name: devdeck_key_light.brightness.Increase
       key: 9
       settings:
-        command:
-        - python3
-        - /home/ndumazet/.devdeck/elgato.py
-        - plus
-        icon: /home/ndumazet/.devdeck/brightness_high_white_512.png
-    - name: devdeck.controls.command_control.CommandControl
+        host: 192.168.1.240
+        step: 10
+    - name: devdeck_key_light.brightness.Decrease
       key: 14
       settings:
-        command:
-        - python3
-        - /home/ndumazet/.devdeck/elgato.py
-        - minus
-        icon: /home/ndumazet/.devdeck/brightness_low_white_512.png
+        host: 192.168.1.240
+        step: 10
