@@ -1,0 +1,51 @@
+decks:
+- name: devdeck.decks.single_page_deck_controller.SinglePageDeckController
+  serial_number: DL30K1A78181
+  settings:
+    controls:
+    - name: devdeck.controls.clock_control.ClockControl
+      key: 0
+    - name: devdeck.controls.command_control.CommandControl
+      key: 3
+      settings:
+        command:
+        - python3
+        - /home/ndumazet/.devdeck/hue.py
+        - toggle
+        icon: /home/ndumazet/.devdeck/lightbulb_white_512.png
+    - name: devdeck.controls.command_control.CommandControl
+      key: 8
+      settings:
+        command:
+        - python3
+        - /home/ndumazet/.devdeck/hue.py
+        - plus
+        icon: /home/ndumazet/.devdeck/brightness_high_white_512.png
+    - name: devdeck.controls.command_control.CommandControl
+      key: 13
+      settings:
+        command:
+        - python3
+        - /home/ndumazet/.devdeck/hue.py
+        - minus
+        icon: /home/ndumazet/.devdeck/brightness_low_white_512.png
+    - name: devdeck_key_light.key_light_toggle_control.KeyLightToggleControl
+      key: 4
+      settings:
+        host: 192.168.1.240
+    - name: devdeck.controls.command_control.CommandControl
+      key: 9
+      settings:
+        command:
+        - python3
+        - /home/ndumazet/.devdeck/elgato.py
+        - plus
+        icon: /home/ndumazet/.devdeck/brightness_high_white_512.png
+    - name: devdeck.controls.command_control.CommandControl
+      key: 14
+      settings:
+        command:
+        - python3
+        - /home/ndumazet/.devdeck/elgato.py
+        - minus
+        icon: /home/ndumazet/.devdeck/brightness_low_white_512.png

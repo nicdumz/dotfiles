@@ -23,6 +23,8 @@
     ~/.config/kitty:
     ~/.config/nvim:
         path: vim/
+    ~/.devdeck:
+        path: devdeck/
     ~/.vim/dotfiles-symlink:
         path: vim/
     ~/.config/git/config:
