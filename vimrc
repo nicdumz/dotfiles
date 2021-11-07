@@ -3,6 +3,9 @@ set rtp +=~/.vim/dotfiles-symlink
 
 syntax off
 filetype off
+
+" let me use 2 tabs if i want
+let g:python_recommended_style = 0
 let g:python3_host_prog = '/usr/bin/python3'
 
 " lots of things that neovim does for me already
@@ -123,6 +126,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 " Show content of " registers
 Plug 'junegunn/vim-peekaboo'
+Plug 'nathangrigg/vim-beancount'
 
 call plug#end()
 
@@ -196,6 +200,7 @@ augroup filetypedetect
     autocmd FileType gitcommit DiffGitCached | wincmd p
 
     autocmd FileType html setlocal shiftwidth=2 tabstop=2
+    autocmd FileType python setlocal shiftwidth=2 tabstop=2
     " Regenerating mako files takes a few seconds for webdev things.
     autocmd BufWritePost *.mako silent make
     " Open cwindow in case of make errors
