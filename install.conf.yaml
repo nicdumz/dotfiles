@@ -61,3 +61,4 @@
   - [./install_brew.sh, Installing brew]
   - [xrdb -merge ~/.Xresources, Update X Resources]
   - ["curl -fLo ~/irssi/scripts/autorun/adv_windowlist.pl --create-dirs https://raw.githubusercontent.com/irssi/scripts.irssi.org/master/scripts/adv_windowlist.pl", irssi adv_windowlist]
+  - [systemctl --user enable ~/.devdeck/devdeck.service]
