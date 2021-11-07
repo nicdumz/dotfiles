@@ -1,0 +1,13 @@
+[Unit]
+Description=Start devdeck
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+StandardOutput=file:/home/ndumazet/.devdeck/stdout.log
+StandardError=file:/home/ndumazet/.devdeck/stderr.log
+ExecStart=/home/ndumazet/.local/bin/devdeck
+
+[Install]
+WantedBy=default.target
