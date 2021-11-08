@@ -8,6 +8,8 @@ Type=simple
 StandardOutput=file:/home/ndumazet/.devdeck/stdout.log
 StandardError=file:/home/ndumazet/.devdeck/stderr.log
 ExecStart=/home/ndumazet/.local/bin/devdeck
+Restart=always
+RestartSec=2
 
 [Install]
 WantedBy=default.target
