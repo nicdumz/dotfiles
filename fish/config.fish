@@ -60,9 +60,6 @@ set -g tide_context_color_root red
 set -g tide_context_color_ssh black
 set -g tide_left_prompt_items pwd git newline character
 set -g tide_pwd_bg_color blue
-set -g tide_status_failure_bg_color red
-set -g tide_status_color_failure yellow
-set -g tide_status_color_success green
 set -g tide_always_display true
 set -g tide_cmd_duration_bg_color C4A000
 set -g tide_cmd_color_duration 000000
@@ -92,7 +89,7 @@ set -g tide_os_color 080808
 set -g tide_print_newline_before_prompt false
 set -g tide_prompt_color_frame_and_connection 585858
 set -g tide_prompt_pad_items true
-set -g tide_pwd_markers 'first'  'last'  'google3'
+set -g tide_pwd_markers first last google3 $tile_pwd_markers
 set -g tide_pwd_color_anchors E4E4E4
 set -g tide_pwd_color_dirs E4E4E4
 set -g tide_pwd_color_truncated_dirs BCBCBC
@@ -102,13 +99,16 @@ set -g tide_right_prompt_frame_color 585858
 set -g tide_right_prompt_frame_enabled false
 set -g tide_right_prompt_separator_diff_color 
 set -g tide_right_prompt_separator_same_color 
-set -g tide_right_prompt_items 'status'  'cmd_duration'  'context'  'jobs'  'vi_mode'
+set -g tide_right_prompt_items status cmd_duration context jobs virtual_env vi_mode
 set -g tide_right_prompt_prefix 
 set -g tide_right_prompt_suffix 
 set -g tide_rustc_bg_color FF8700
 set -g tide_rustc_color 2E3436
-set -g tide_status_always_display true
-set -g tide_status_bg_color 2E3436
+# set -g tide_status_bg_color 2E3436
+set -g tide_status_bg_color 303030
+set -g tide_status_bg_color_failure red
+set -g tide_status_color_failure yellow
+set -g tide_status_color green
 set -g tide_time_bg_color D3D7CF
 set -g tide_time_color 000000
 set -g tide_time_format
