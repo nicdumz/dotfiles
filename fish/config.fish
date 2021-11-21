@@ -3,21 +3,21 @@ set -g -x fish_greeting ''
 
 # Depending on systems, locale can be en_US.UTF8 or en_US.UTF-8
 set -x LANG (locale -a | grep -i "en_US.*utf")
+set -x LC_ALL (locale -a | grep -i "en_US.*utf")
 set -e LC_CTYPE
 
-set -x LC_ALL "en_US.utf8"
 set -x CLICOLOR true
 
 if test -f ~/brew/bin/brew
-    set PATH $HOME/brew/bin $PATH
-    set PATH (brew --prefix coreutils)"/libexec/gnubin" $PATH
+    fish_add_path $HOME/brew/bin
+    fish_add_path (brew --prefix coreutils)"/libexec/gnubin"
     set -x MANPATH (brew --prefix coreutils)"/libexec/gnuman" $MANPATH
 end
 
-set -x PATH $HOME/.local/bin $PATH
-set -x PATH $HOME/go/bin $PATH
+fish_add_path $HOME/.local/bin
+fish_add_path $HOME/go/bin
 
-if test -f ~/.local/bin/fish
+if test -f ~/.local/bin/nvim
     set -x EDITOR ~/.local/bin/nvim
 else
     set -x EDITOR nvim
@@ -53,77 +53,76 @@ set fish_color_command green
 set fish_color_autosuggestion magenta
 
 # Tide setup
-set tide_context_always_display true
-set tide_context_bg_color green
-set tide_context_default_color black
-set tide_context_root_color red
-set tide_context_ssh_color black
-set tide_left_prompt_items pwd git newline prompt_char
-set tide_pwd_bg_color blue
-set tide_status_failure_bg_color red
-set tide_status_failure_color yellow
-set tide_status_success_color green
-set tide_always_display true
-set tide_cmd_duration_bg_color C4A000
-set tide_cmd_duration_color 000000
-set tide_cmd_duration_icon 
-set tide_git_bg_color 4E9A06
-set tide_git_branch_color 000000
-set tide_git_conflicted_color 000000
-set tide_git_dirty_color 000000
-set tide_git_operation_color 000000
-set tide_git_staged_color 000000
-set tide_git_stash_color 000000
-set tide_git_untracked_color 000000
-set tide_git_upstream_color 000000
-set tide_jobs_bg_color 444444
-set tide_jobs_color 4E9A06
-set tide_jobs_verbose true
-set tide_left_prompt_frame_color 585858
-set tide_left_prompt_frame_enabled false
-set tide_left_prompt_item_separator_diff_color 
-set tide_left_prompt_item_separator_same_color 
-set tide_left_prompt_pad_items true
-set tide_left_prompt_prefix 
-set tide_left_prompt_suffix " "
-set tide_nvm_bg_color 75507B
-set tide_nvm_color 2E3436
-set tide_os_bg_color CED7CF
-set tide_os_color 080808
-set tide_print_newline_before_prompt false
-set tide_prompt_connection_color 585858
-set tide_pwd_anchors 'first'  'last'  'google3'
-set tide_pwd_color_anchors E4E4E4
-set tide_pwd_color_dirs E4E4E4
-set tide_pwd_color_truncated_dirs BCBCBC
-set tide_pwd_dir_icon 
-set tide_pwd_home_icon 
-set tide_right_prompt_frame_color 585858
-set tide_right_prompt_frame_enabled false
-set tide_right_prompt_item_separator_diff_color 
-set tide_right_prompt_item_separator_same_color 
-set tide_right_prompt_items 'status'  'cmd_duration'  'context'  'jobs'  'vi_mode'
-set tide_right_prompt_pad_items true
-set tide_right_prompt_prefix 
-set tide_right_prompt_suffix 
-set tide_rust_bg_color FF8700
-set tide_rust_color 2E3436
-set tide_status_always_display true
-set tide_status_success_bg_color 2E3436
-set tide_time_bg_color D3D7CF
-set tide_time_color 000000
-set tide_time_format
-set tide_vi_mode_default_bg_color 008000
-set tide_vi_mode_default_color 000000
-set tide_vi_mode_default_icon DEFAULT
-set tide_vi_mode_insert_bg_color 444444
-set tide_vi_mode_replace_bg_color 808000
-set tide_vi_mode_replace_color 000000
-set tide_vi_mode_replace_icon REPLACE
-set tide_vi_mode_visual_bg_color 000080
-set tide_vi_mode_visual_color 000000
-set tide_vi_mode_visual_icon VISUAL
-set tide_virtual_env_bg_color 444444
-set tide_prompt_char_failure_color red
-set tide_prompt_char_success_color green
-set tide_prompt_char_icon 
+set -g tide_context_always_display true
+set -g tide_context_bg_color green
+set -g tide_context_color_default black
+set -g tide_context_color_root red
+set -g tide_context_color_ssh black
+set -g tide_left_prompt_items pwd git newline character
+set -g tide_pwd_bg_color blue
+set -g tide_status_failure_bg_color red
+set -g tide_status_color_failure yellow
+set -g tide_status_color_success green
+set -g tide_always_display true
+set -g tide_cmd_duration_bg_color C4A000
+set -g tide_cmd_color_duration 000000
+set -g tide_cmd_duration_icon 
+set -g tide_git_bg_color 4E9A06
+# set -g tide_git_color_branch white
+# set -g tide_git_color_conflicted white
+# set -g tide_git_color_dirty white
+# set -g tide_git_color_operation white
+# set -g tide_git_color_staged white
+# set -g tide_git_color_stash white
+# set -g tide_git_color_untracked white
+# set -g tide_git_color_upstream white
+set -g tide_jobs_bg_color 444444
+set -g tide_jobs_color 4E9A06
+set -g tide_jobs_verbose true
+set -g tide_left_prompt_frame_color 585858
+set -g tide_left_prompt_frame_enabled false
+set -g tide_left_prompt_separator_diff_color 
+set -g tide_left_prompt_separator_same_color 
+set -g tide_left_prompt_prefix 
+set -g tide_left_prompt_suffix " "
+set -g tide_nvm_bg_color 75507B
+set -g tide_nvm_color 2E3436
+set -g tide_os_bg_color CED7CF
+set -g tide_os_color 080808
+set -g tide_print_newline_before_prompt false
+set -g tide_prompt_color_frame_and_connection 585858
+set -g tide_prompt_pad_items true
+set -g tide_pwd_markers 'first'  'last'  'google3'
+set -g tide_pwd_color_anchors E4E4E4
+set -g tide_pwd_color_dirs E4E4E4
+set -g tide_pwd_color_truncated_dirs BCBCBC
+set -g tide_pwd_dir_icon 
+set -g tide_pwd_icon_home 
+set -g tide_right_prompt_frame_color 585858
+set -g tide_right_prompt_frame_enabled false
+set -g tide_right_prompt_separator_diff_color 
+set -g tide_right_prompt_separator_same_color 
+set -g tide_right_prompt_items 'status'  'cmd_duration'  'context'  'jobs'  'vi_mode'
+set -g tide_right_prompt_prefix 
+set -g tide_right_prompt_suffix 
+set -g tide_rustc_bg_color FF8700
+set -g tide_rustc_color 2E3436
+set -g tide_status_always_display true
+set -g tide_status_bg_color 2E3436
+set -g tide_time_bg_color D3D7CF
+set -g tide_time_color 000000
+set -g tide_time_format
+set -g tide_vi_mode_bg_color_default 008000
+set -g tide_vi_mode_color_default 000000
+set -g tide_vi_mode_icon_default DEFAULT
+# set -g tide_vi_mode_insert_bg_color 444444
+set -g tide_vi_mode_bg_color_replace 808000
+set -g tide_vi_mode_color_replace 000000
+set -g tide_vi_mode_icon_replace REPLACE
+set -g tide_vi_mode_bg_color_visual 000080
+set -g tide_vi_mode_color_visual 000000
+set -g tide_vi_mode_icon_visual VISUAL
+set -g tide_virtual_env_bg_color 444444
+set -g tide_character_failure_color red
+set -g tide_character_success_color green
+set -g tide_character_icon 
