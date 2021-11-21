@@ -6,7 +6,11 @@ filetype off
 
 " let me use 2 tabs if i want
 let g:python_recommended_style = 0
-let g:python3_host_prog = '/usr/bin/python3'
+if filereadable(expand("~/brew/bin/python3"))
+    let g:python3_host_prog = expand("~/brew/bin/python3")
+else
+    let g:python3_host_prog = '/usr/bin/python3'
+endif
 
 " lots of things that neovim does for me already
 if !has('nvim')
