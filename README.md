@@ -7,16 +7,23 @@ it :)
 
 # Installation
 
-    git clone https://github.com/nicdumz/dotfiles.git ~/.dotfiles
-    ~/.dotfiles/install.sh
+Assuming debian:
+
+```bash
+sudo apt install git neovim kitty exa irssi hexchat
+git clone https://github.com/nicdumz/dotfiles.git ~/.dotfiles
+~/.dotfiles/install.sh
+```
 
 ## Irssi
 
 After setting irssi you may want to setup the layout:
 
-    /run autorun/adv_windowlist.pl
-    /toggle awl_viewer
-    /save
+```bash
+/run autorun/adv_windowlist.pl
+/toggle awl_viewer
+/save
+```
 
 # Notes
 
