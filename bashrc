@@ -50,16 +50,8 @@ fi
 export PATH=$PATH:$HOME/.local/bin
 unset USERNAME
 
-# if homebrew is there.
-if [[ $(type -P brew) ]]; then
-    export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
-    export MANPATH=$(brew --prefix coreutils)/libexec/gnuman:$MANPATH
-fi
-
 # color for ls and friends
 export CLICOLOR=true
-
-export P4DIFF='colordiff -u'
 
 # Depending on systems, locale can be en_US.UTF8 or en_US.UTF-8
 export LANG=$(locale -a | grep -i "en_US.*utf")
