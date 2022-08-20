@@ -3,9 +3,7 @@
     "semanticCommits": "enabled",
     "labels": ["renovatebot"],
     "dependencyDashboard": true,
-    // "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
-    // "automerge": true,
     "ignoreTests": true,
     "regexManagers": [
         {
@@ -14,5 +12,5 @@
                 "# renovate: depName=(?<depName>.*) datasource=(?<datasource>.*)\\n\\s*current_\\w+_version=(?<currentValue>.+)\\b"
             ]
         }
-    ],
+    ]
 }
