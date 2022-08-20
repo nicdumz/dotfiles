@@ -56,5 +56,5 @@ create a 'Nova' terminal profile and follow instructions there to set it up.
 
 ```
 $ cat /etc/apparmor.d/local/usr.bin.redshift
-owner @{HOME}/.dotfiles/.config/redshift/redshift.conf r,
+owner @{HOME}/.config/redshift/redshift.conf r,
 ```
