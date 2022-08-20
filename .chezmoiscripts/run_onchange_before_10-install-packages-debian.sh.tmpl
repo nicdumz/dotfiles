@@ -31,14 +31,13 @@ pip_packages=(
 )
 
 for package in ${debian_packages[@]}; do
-  status="$(dpkg-query -W --showformat='${db:Status-Status}' "$package" 2>&1)"
-  if [ ! $? = 0 ] || [ ! "$status" = installed ]; then
+  if [[ ! $(dpkg-query -W --showformat='${db:Status-Status}' "$package" 2>&1) = installed ]]; then
     echo "installing debian package $package"
-{{ if ne .chezmoi.username "root" -}}
+{{ if ne .chezmoi.username "root" }}
     sudo apt install -y $package
-{{ else -}}
+    {{ else -}}
     apt install -y $package
-{{ end -}}
+{{- end }}
   fi
 done
 
