@@ -10,16 +10,21 @@ debian_packages=(
   curl
   exa
   fish
-  fontconfig
   git
-  hexchat
   irssi
-  kitty
   neovim
   python3-pip
   python3-venv
   unzip
 )
+
+{{ if (not .headless) -}}
+packages+=(
+  fontconfig
+  hexchat
+  kitty
+)
+{{ end -}}
 
 pip_packages=(
   powerline-status

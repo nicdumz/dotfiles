@@ -1,0 +1,13 @@
+{{- /* Checks if running interactively */ -}}
+{{- $interactive := stdinIsATTY -}}
+
+{{- /* Template file for chezmoi config file */ -}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq $hostname "jonsnow" -}}
+{{-   $headless = true -}}
+{{- end -}}
+
+data:
+  headless: {{ $headless }}

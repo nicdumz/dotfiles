@@ -1,4 +1,4 @@
-{{ if (and (eq .chezmoi.os "linux") (ne .chezmoi.username "root")) -}}
+{{ if (and (eq .chezmoi.os "linux") (not .headless) (ne .chezmoi.username "root")) -}}
 #!/bin/bash
 
 set -eufo pipefail
