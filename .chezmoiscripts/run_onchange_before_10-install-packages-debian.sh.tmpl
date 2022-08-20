@@ -26,7 +26,8 @@ pip_packages=(
 )
 
 for package in ${debian_packages[@]}; do
-  if ! $(dpkg-query -W -f='installed' $package &> /dev/null); then
+  status="$(dpkg-query -W --showformat='${db:Status-Status}' "$package" 2>&1)"
+  if [ ! $? = 0 ] || [ ! "$status" = installed ]; then
     echo "installing debian package $package"
 {{ if ne .chezmoi.username "root" -}}
     sudo apt install -y $package

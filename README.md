@@ -10,7 +10,7 @@ it :)
 Assuming debian:
 
 ```bash
-$ sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply --ssh nicdumz
+sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply --ssh nicdumz
 ```
 
 Afterwards everything is managed via `chezmoi`.
