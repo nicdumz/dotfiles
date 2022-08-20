@@ -29,6 +29,13 @@ After setting irssi you may want to setup the layout:
 
 I use https://chezmoi.io for dotfiles management.
 
+## Regular updates
+
+```bash
+chezmoi git pull
+chezmoi apply
+```
+
 ## Base16
 
 I seem to always forget, but I actually quite like the base16 color themes:
