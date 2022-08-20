@@ -10,10 +10,10 @@ it :)
 Assuming debian:
 
 ```bash
-sudo apt install git neovim kitty exa irssi hexchat
-git clone https://github.com/nicdumz/dotfiles.git ~/.dotfiles
-~/.dotfiles/install.sh
+$ sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply --ssh nicdumz
 ```
+
+Afterwards everything is managed via `chezmoi`.
 
 ## Irssi
 
@@ -26,6 +26,8 @@ After setting irssi you may want to setup the layout:
 ```
 
 # Notes
+
+I use https://chezmoi.io for dotfiles management.
 
 ## Base16
 
@@ -49,16 +51,3 @@ create a 'Nova' terminal profile and follow instructions there to set it up.
 $ cat /etc/apparmor.d/local/usr.bin.redshift
 owner @{HOME}/.dotfiles/.config/redshift/redshift.conf r,
 ```
-
-# Included as subrepos
-
--   Setup colors for bash: https://github.com/chriskempson/base16-shell.git
--   Custom [Powerline fonts](https://github.com/powerline/fonts) for vim status
-    line.
--   I'm using [dotbot](https://github.com/anishathalye/dotbot) for dotfiles
-    management/setup.
--   [Vundle](https://github.com/gmarik/vundle) for vim plugin management.
--   [gibo](https://github.com/simonwhitaker/gibo) to generate
-    .gitconfig/hgignore files.
--   [fontinstall](https://github.com/nicdumz/fontinstall) to easily install
-    fonts across systems.

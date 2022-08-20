@@ -1,5 +1,4 @@
-" Versioned .vim/ is symlinked to ~/.vim/dotfiles-symlink
-set rtp +=~/.vim/dotfiles-symlink
+set rtp +=~/.vim/versioned
 
 syntax off
 filetype off

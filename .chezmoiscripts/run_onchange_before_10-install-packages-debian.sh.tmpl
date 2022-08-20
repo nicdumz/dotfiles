@@ -1,0 +1,44 @@
+{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian" "ubuntu")) -}}
+#!/bin/bash
+
+set -eufo pipefail
+
+echo -e "\033[0;32m>>>>> Begin Setting Up Packages <<<<<\033[0m"
+
+# List of packages to install
+debian_packages=(
+  curl
+  exa
+  fish
+  fontconfig
+  git
+  hexchat
+  irssi
+  kitty
+  neovim
+  python3-pip
+  python3-venv
+  unzip
+)
+
+pip_packages=(
+  powerline-status
+)
+
+for package in ${debian_packages[@]}; do
+  if ! $(dpkg-query -W -f='installed' $package &> /dev/null); then
+    echo "installing debian package $package"
+{{ if ne .chezmoi.username "root" -}}
+    sudo apt install -y $package
+{{ else -}}
+    apt install -y $package
+{{ end -}}
+  fi
+done
+
+for package in ${pip_packages[@]}; do
+  pip3 install --user $package
+done
+
+echo -e "\033[0;32m>>>>> Finish Setting Up Packages <<<<<\033[0m"
+{{ end -}}

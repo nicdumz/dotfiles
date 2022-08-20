@@ -1,0 +1,33 @@
+{{ if (and (eq .chezmoi.os "linux") (ne .chezmoi.username "root")) -}}
+#!/bin/bash
+
+set -eufo pipefail
+
+# List of Nerd Fonts font to install
+nerdfonts_fonts=(CascadiaCode DejaVuSansMono Hack Meslo)
+# List of urls to download font, supported files can be .ttf or .zip
+font_dir=~/.local/share/fonts
+
+# renovate: depName=ryanoasis/nerd-fonts
+current_nerdfonts_version=v2.1.0
+
+echo -e "\033[0;32m>>>>> Begin Setting Up Fonts <<<<<\033[0m"
+updated_counter=0
+for font in ${nerdfonts_fonts[@]}; do
+  if $(fc-list | grep -i "$font Nerd Font" &> /dev/null); then
+    echo "$font is already installed"
+  else
+    echo "installing $font"
+    mkdir -p $font_dir/$font
+    curl -fLo $font_dir/$font.zip https://github.com/ryanoasis/nerd-fonts/releases/download/$current_nerdfonts_version/$font.zip && unzip -o "$font_dir/$font.zip" -d $font_dir/$font && rm $font_dir/$font.zip
+    updated_counter=$((updated_counter + 1))
+  fi
+done
+
+# reset font cache
+if [ $updated_counter -gt 0 ]; then
+  echo "refreshing font cache"
+  fc-cache -vf "$font_dir"
+fi
+echo -e "\033[0;32m>>>>> Finish Setting Up Fonts <<<<<\033[0m"
+{{ end -}}

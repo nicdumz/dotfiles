@@ -1,2 +1,0 @@
-#!/bin/sh
-google-chrome --user-data-dir=.config/personal-chrome &> /dev/null &
