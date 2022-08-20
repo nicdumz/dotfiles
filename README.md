@@ -7,7 +7,7 @@ it :)
 
 # Installation
 
-Assuming debian:
+Assuming some debian flavor, this should just work:
 
 ```bash
 sh -c "$(curl -fsLS https://chezmoi.io/get)" -- -b ~/.local/bin init --apply --ssh nicdumz
@@ -27,13 +27,13 @@ After setting irssi you may want to setup the layout:
 
 # Notes
 
-I use https://chezmoi.io for dotfiles management.
+I use https://chezmoi.io for dotfiles management, this is the `chezmoi` CLI.
 
 ## Regular updates
 
 ```bash
-chezmoi git pull
-chezmoi apply
+chezmoi git pull  # pull latest changes from this repo
+chezmoi apply     # apply changes, including diff detection
 ```
 
 ## Base16
