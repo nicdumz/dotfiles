@@ -2,6 +2,7 @@
     type = "file"
     url = "https://www.toptal.com/developers/gitignore/api/linux,visualstudiocode,vim,python,macos"
     refreshPeriod = "744h"  # 31d
+{{ if (eq .chezmoi.hostname "jonsnow") }}
 # renovate: depName=grafana/mimir datasource=github-releases
 {{ $currentMimirVersion := "mimir-2.2.0" -}}
 [".local/bin/mimirtool"]
@@ -9,6 +10,7 @@
     url = "https://github.com/grafana/mimir/releases/download/{{ $currentMimirVersion }}/mimirtool-{{ .chezmoi.os }}-{{ .chezmoi.arch }}"
     executable = true
     refreshPeriod = "744h"  # 31d
+{{ end }}
 [".local/share/nvim/site/autoload/plug.vim"]
     type = "file"
     url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
