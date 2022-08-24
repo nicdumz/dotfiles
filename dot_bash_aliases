@@ -7,3 +7,4 @@ alias diff=colordiff
 
 alias vim=nvim
 alias kittydiff='kitty +kitten diff'
+alias chezmoi-google="chezmoi -S ~/.local/share/chezmoi-google"
