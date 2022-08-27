@@ -7,12 +7,6 @@
     "ignoreTests": true,
     "regexManagers": [
         {
-            "fileMatch": ["\\.chezmoiscripts\\/.+\\.sh\\.tmpl$"],
-            "matchStrings": [
-                "# renovate: depName=(?<depName>.*) datasource=(?<datasource>.*)\\n\\s*current_\\w+_version=(?<currentValue>.+)\\b"
-            ]
-        },
-        {
             "fileMatch": ["\\.chezmoiexternal\\.toml"],
             "matchStrings": [
                 "# renovate: depName=(?<depName>.*) datasource=(?<datasource>.*)\\n.*current.*Version := \"(?<currentValue>.+)\"\\b"

@@ -1,0 +1,7 @@
+{{ if (and (eq .chezmoi.os "linux") (not .headless) (ne .chezmoi.username "root")) -}}
+#!/bin/bash
+
+set -eufo pipefail
+
+fc-cache "{{ .chezmoi.homeDir }}/{{ .fontsdir }}"
+{{ end -}}
