@@ -26,11 +26,15 @@ packages+=(
 )
 {{ end -}}
 
+# note: still have un-upstreamed keylight changes
 pip_packages=(
+  devdeck
+  devdeck-hue
   powerline-status
+  "devdeck-key-light @ git+https://github.com/nicdumz/devdeck-key-light"
 )
 
-for package in ${debian_packages[@]}; do
+for package in "${debian_packages[@]}"; do
   if [[ ! $(dpkg-query -W --showformat='${db:Status-Status}' "$package" 2>&1) = installed ]]; then
     echo "installing debian package $package"
 {{ if ne .chezmoi.username "root" }}
@@ -41,8 +45,9 @@ for package in ${debian_packages[@]}; do
   fi
 done
 
-for package in ${pip_packages[@]}; do
-  pip3 install --user $package
+# python3 hash: {{ include "/usr/bin/python3" | sha256sum }}
+for package in "${pip_packages[@]}"; do
+  pip3 install --user --upgrade "$package"
 done
 
 echo -e "\033[0;32m>>>>> Finish Setting Up Packages <<<<<\033[0m"
