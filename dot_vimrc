@@ -88,6 +88,8 @@ let g:rainbow_active = 1
 let loaded_matchparen = 1
 
 Plug 'nathangrigg/vim-beancount'
+let g:linuxsty_patterns = [ "/home/ndumazet/code/kernel" ]
+Plug 'vivien/vim-linux-coding-style'
 
 " Some scripts need newer vims
 if (v:version > 700)
