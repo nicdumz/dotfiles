@@ -46,7 +46,9 @@ function ssh --wraps ssh
 end
 
 # VS Code integration, see https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
-string match -q "$TERM_PROGRAM" "vscode" and . (code --locate-shell-integration-path fish)
+if string match -q "$TERM_PROGRAM" "vscode"
+  . (code --locate-shell-integration-path fish)
+end
 
 set fish_color_command green
 set fish_color_autosuggestion magenta
