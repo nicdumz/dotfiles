@@ -29,10 +29,11 @@ packages+=(
 
 # note: still have un-upstreamed keylight changes
 pip_packages=(
+  "devdeck-key-light @ git+https://github.com/nicdumz/devdeck-key-light"
   devdeck
   devdeck-hue
   powerline-status
-  "devdeck-key-light @ git+https://github.com/nicdumz/devdeck-key-light"
+  pynvim
 )
 
 for package in "${debian_packages[@]}"; do
