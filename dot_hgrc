@@ -1,6 +1,6 @@
 [ui]
 username = Nicolas Dumazet <nicdumz.commits@gmail.com>
-editor = vim -v -c 'set ft=hgs'
+editor = nvim -v -c 'set ft=hgs'
 merge = mergediff
 ssh = ssh -C
 portablefilenames = abort
