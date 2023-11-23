@@ -48,7 +48,7 @@ Plug 'rakr/vim-one'
 
 " Those 2 go together
 " Plug 'sheerun/vim-polyglot'
-Plug 'trevordmiller/nova-vim'
+Plug 'nicdumz/nova-vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
