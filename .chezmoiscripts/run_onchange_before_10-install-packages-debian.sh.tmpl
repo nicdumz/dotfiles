@@ -21,8 +21,8 @@ debian_packages=(
   unzip
 )
 
-{{ if (not .headless) -}}
-packages+=(
+{{ if not .headless -}}
+debian_packages+=(
   fontconfig
   hexchat
   kitty
