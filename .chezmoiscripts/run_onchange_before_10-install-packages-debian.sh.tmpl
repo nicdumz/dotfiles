@@ -43,10 +43,10 @@ done
 # python3 hash: {{ include "/usr/bin/python3" | sha256sum }}
 
 ## devdeck
-pipx install devdeck
-# note: still have un-upstreamed keylight changes
-pipx inject devdeck devdeck-hue "devdeck-key-light @ git+https://github.com/nicdumz/devdeck-key-light"
-pipx upgrade-all --include-injected
+# note: still have un-upstreamed changes
+pipx install -f devdeck
+pipx inject --include-apps --include-deps -f devdeck "git+https://github.com/nicdumz/devdeck-core" "git+https://github.com/nicdumz/devdeck" "git+https://github.com/nicdumz/devdeck-key-light" "git+https://github.com/nicdumz/devdeck-hue"
+pipx upgrade-all --include-injected -f
 
 ## powerline (for tmux)
 # there's no pipx version yet
