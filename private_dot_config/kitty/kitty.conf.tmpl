@@ -1,5 +1,9 @@
 font_family CaskaydiaCove Nerd Font
+{{ if eq .chassisType "desktop" -}}
+font_size 15.0
+{{ else -}}
 font_size 11.0
+{{ end -}}
 cursor_stop_blinking_after 0
 scrollback_lines 20000
 open_url_modifiers ctrl
