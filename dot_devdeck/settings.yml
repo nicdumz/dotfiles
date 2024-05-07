@@ -56,3 +56,31 @@ decks:
       settings:
         host: 192.168.1.240
         step: 10
+    # Blinds up/down
+    - name: 'devdeck_home_assistant.call_service_control.CallServiceControl'
+      key: 1
+      settings:
+        api_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4OTUyNzgxZmRiNmM0MWVjYWVmZTYwODU3MDhjNGE4YyIsImlhdCI6MTcxNTExNDg5NiwiZXhwIjoyMDMwNDc0ODk2fQ.HxOg8TU9SUr3vmJLtBtgni86VHMcAj8KUMUZ5uuP6Zg'
+        url: 'https://homeassistant.home.nicdumz.fr'
+        service: cover.open_cover
+        data:
+          entity_id: cover.office
+        emoji: ':upwards_button:'
+    - name: 'devdeck_home_assistant.call_service_control.CallServiceControl'
+      key: 6
+      settings:
+        api_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4OTUyNzgxZmRiNmM0MWVjYWVmZTYwODU3MDhjNGE4YyIsImlhdCI6MTcxNTExNDg5NiwiZXhwIjoyMDMwNDc0ODk2fQ.HxOg8TU9SUr3vmJLtBtgni86VHMcAj8KUMUZ5uuP6Zg'
+        url: 'https://homeassistant.home.nicdumz.fr'
+        service: cover.stop_cover
+        data:
+          entity_id: cover.office
+        emoji: ':stop_button:'
+    - name: 'devdeck_home_assistant.call_service_control.CallServiceControl'
+      key: 11
+      settings:
+        api_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4OTUyNzgxZmRiNmM0MWVjYWVmZTYwODU3MDhjNGE4YyIsImlhdCI6MTcxNTExNDg5NiwiZXhwIjoyMDMwNDc0ODk2fQ.HxOg8TU9SUr3vmJLtBtgni86VHMcAj8KUMUZ5uuP6Zg'
+        url: 'https://homeassistant.home.nicdumz.fr'
+        service: cover.close_cover
+        data:
+          entity_id: cover.office
+        emoji: ':downwards_button:'
