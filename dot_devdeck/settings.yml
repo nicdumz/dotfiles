@@ -5,6 +5,8 @@ decks:
     controls:
     - name: devdeck.controls.clock_control.ClockControl
       key: 0
+    - name: devdeck_toggl.toggle.Toggle
+      key: 10
     # Column for shelve light
     - name: devdeck_hue.toggle.Toggle
       key: 2
