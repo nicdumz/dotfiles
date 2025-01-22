@@ -1,13 +1,18 @@
 {
     "enabled": true,
     "semanticCommits": "enabled",
-    "labels": ["renovatebot"],
+    "labels": [
+        "renovatebot"
+    ],
     "dependencyDashboard": true,
     "rebaseWhen": "conflicted",
     "ignoreTests": true,
-    "regexManagers": [
+    "customManagers": [
         {
-            "fileMatch": ["\\.chezmoiexternal\\.toml"],
+            "customType": "regex",
+            "fileMatch": [
+                "\\.chezmoiexternal\\.toml"
+            ],
             "matchStrings": [
                 "# renovate: depName=(?<depName>.*) datasource=(?<datasource>.*)\\n.*current.*Version := \"(?<currentValue>.+)\"\\b"
             ]
