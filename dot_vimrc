@@ -48,7 +48,7 @@ Plug 'rakr/vim-one'
 
 " Those 2 go together
 " Plug 'sheerun/vim-polyglot'
-Plug 'nicdumz/nova-vim'
+" Plug 'nicdumz/nova-vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -133,6 +133,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 Plug 'junegunn/vim-peekaboo'
 Plug 'nathangrigg/vim-beancount'
 
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
 call plug#end()
 
 syntax on
@@ -143,9 +145,11 @@ if has('nvim') || has('termguicolors')
   set termguicolors
   if !empty(globpath(&rtp, 'colors/nova.vim'))
       " Not here during first installation
-      colorscheme nova
+      # colorscheme nova
+      colorscheme catppuccin-mocha
   endif
 endif
+
 
 set expandtab
 set tabstop=4
