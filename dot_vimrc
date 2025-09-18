@@ -5,11 +5,7 @@ filetype off
 
 " let me use 2 tabs if i want
 let g:python_recommended_style = 0
-if filereadable(expand("~/brew/bin/python3"))
-    let g:python3_host_prog = expand("~/brew/bin/python3")
-else
-    let g:python3_host_prog = '/usr/bin/python3'
-endif
+let g:python3_host_prog = '/usr/bin/python3'
 
 " lots of things that neovim does for me already
 if !has('nvim')
@@ -40,15 +36,6 @@ let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '~/.vim'
 set shell=/bin/bash
 
 call plug#begin(expand(s:vimDir . '/plugged'))
-" Colorschemes
-Plug 'justinmk/molokai'
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'rakr/vim-one'
-
-" Those 2 go together
-" Plug 'sheerun/vim-polyglot'
-" Plug 'nicdumz/nova-vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -56,6 +43,8 @@ Plug 'vim-airline/vim-airline-themes'
 " See https://github.com/Lokaltog/powerline-fonts
 " The gnome terminal and/or .Xresources must be configured for it.
 let g:airline_powerline_fonts = 1
+" Just doesn't play well with internal YCM support
+let g:airline#extensions#ycm#enabled = 0
 " Different font names for different OSes. :h11 is for MacOS/win.
 if has("gui_running")
     if has("gui_gtk2")
@@ -143,11 +132,7 @@ filetype plugin indent on
 set background=dark
 if has('nvim') || has('termguicolors')
   set termguicolors
-  if !empty(globpath(&rtp, 'colors/nova.vim'))
-      " Not here during first installation
-      # colorscheme nova
-      colorscheme catppuccin-mocha
-  endif
+  colorscheme catppuccin-mocha
 endif
 
 
