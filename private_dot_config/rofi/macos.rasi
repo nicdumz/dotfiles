@@ -1,0 +1,105 @@
+/*
+ * Rofi theme for a macOS-like Spotlight menu with Gruvbox colors.
+ */
+
+* {
+  bg0:      #141617e6;
+  bg1:      #3c3836;
+  bg2:      #504945;
+  bg3:      #665c54;
+  bg4:      #7c6f64;
+
+  fg0:      #fbf1c7;
+  fg1:      #ebdbb2;
+  fg2:      #d5c4a1;
+  fg3:      #bdae93;
+  fg4:      #a89984;
+
+  red:      #cc241d;
+  green:    #98971a;
+  yellow:   #d79921;
+  blue:     #458588;
+  purple:   #b16286;
+  aqua:     #689d6a;
+  orange:   #d65d0e;
+  gray:     #928374;
+ 
+  accent:   #ebdbb2;
+
+  background-color: transparent;
+  text-color:       @fg0;
+
+  font: "JetBrainsMono Nerd Font 12";
+
+  margin:  0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  location: center;
+  width:    650px;
+  padding:  25px;
+  border-radius: 16px;
+  background-color: @bg0;
+  transparency: "real";
+}
+
+mainbox {
+  children: [ inputbar, listview ];
+}
+
+inputbar {
+  children: [ prompt, entry ];
+  padding: 12px;
+  margin-bottom: 25px;
+}
+
+prompt {
+  enabled: false;
+}
+
+entry {
+  placeholder: "Search ...";
+  placeholder-color: @fg3;
+  padding: 8px;
+  text-color: @fg0;
+  font: "CaskaydiaCove NF 14";
+}
+
+listview {
+  columns: 1;
+  lines: 8;
+  layout: vertical;
+  fixed-height: true;
+}
+
+element {
+  padding: 10px;
+  border-radius: 10px;
+  text-color: @fg1;
+}
+
+element-icon {
+  size: 28px;
+  padding: 0 12px 0 0;
+}
+
+element-text {
+  text-color: inherit;
+}
+
+element selected {
+  background-color: @accent;
+  text-color: @bg0;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:       inherit;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color:       inherit;
+}

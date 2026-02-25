@@ -1,0 +1,19 @@
+configuration {
+    modes: [drun,filebrowser,run];
+    font: "CaskaydiaCove NF 14";
+    show-icons: true;
+    icon-thems: "Papirus";
+    drun-display-format:  "{icon} {name}";
+    display-drun: " Apps";
+    display-run: " Run";
+    display-filebrowser: " File";
+    terminal: "kitty";
+    markup-rows: true;
+}
+
+element-icon {
+    size: 24;
+    border: 0px;
+}
+
+@theme "macos"
