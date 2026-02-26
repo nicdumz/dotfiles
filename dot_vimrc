@@ -123,6 +123,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'nathangrigg/vim-beancount'
 
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+let g:airline_theme = 'catppuccin'
 
 call plug#end()
 
